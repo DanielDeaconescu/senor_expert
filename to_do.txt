@@ -1,0 +1,15 @@
+1. services -> butonul de conectare trebuie facut mai mic + schimbata culoarea + de schimbat imaginea din background
+2. conectare -> we have to build the authentication -> inspiration: the_wild_oasis
+3. start building the upload page
+
+
+
+
+
+
+
+Supabase:
+project-name: senor-expert
+db password: senorExpert$23
+account: mona@senorexpert.ro
+pw: senorExpert$23
