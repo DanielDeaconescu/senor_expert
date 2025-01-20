@@ -4,9 +4,12 @@ import App from "./App.jsx";
 import "./styles/custom-bootstrap.scss";
 import "bootstrap"; // Bootstrap's JavaScript
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { UserProvider } from "./services/UserContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <UserProvider>
+      <App />
+    </UserProvider>
   </React.StrictMode>
 );

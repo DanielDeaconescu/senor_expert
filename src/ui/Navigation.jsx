@@ -1,7 +1,9 @@
 import logoImg from "../data/images/logo_test.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router";
+import { useUser } from "../services/UserContext";
+import { getCurrentUser, logout } from "../services/apiAuth";
 
 const StyledNavigation = styled.nav`
   background-color: var(--clr-my-grey-0);
@@ -11,18 +13,42 @@ const StyledImage = styled.img`
 `;
 
 function Navigation() {
+  // const { user } = useUser();
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
   function toggleMenu() {
     setIsOpen(!isOpen);
   }
 
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const currentUser = await getCurrentUser();
+        setUser(currentUser); // Update the user state
+      } catch (error) {
+        console.error("Error fetching user:", error.message);
+      }
+    }
+
+    fetchUser();
+  }, [user]);
+
+  async function handleLogout() {
+    try {
+      await logout();
+      setUser(null);
+    } catch (error) {
+      console.error("Error during logout: ", error.message);
+    }
+  }
+
   return (
     <StyledNavigation className="navbar navbar-expand-md navbar-dark">
       <div className="container">
-        <a href="#" className="navbar-brand">
+        <NavLink href="#" className="navbar-brand">
           <StyledImage src={logoImg} alt="" />
-        </a>
+        </NavLink>
         <button className="navbar-toggler" type="button" onClick={toggleMenu}>
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -46,6 +72,25 @@ function Navigation() {
                 Conectare
               </NavLink>
             </li>
+            {/* Conditionally render Admin Link */}
+            {user?.email === "mona@senorexpert.ro" && (
+              <li className="nav-item">
+                <NavLink to="/admin" className="nav-link">
+                  Admin
+                </NavLink>
+              </li>
+            )}
+            {/* Logout button */}
+            {user && (
+              <li className="nav-item">
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-link nav-link"
+                >
+                  Deconectare
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

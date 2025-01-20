@@ -10,6 +10,7 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
 4. implement the logout on the /upload page (done)
 5. make the email address persist after the logout (done)
 6. implement the functionality of being able to upload documents to supabase --> 354 - Uploading Images to Supabse (27 - React Query Managing...)
+7. ramas la: navigare cu autentificare --> when I log out, I shouldn't see "Admin" anymore --> try to describe better what you want to achieve to chatGPT and then try to implement what he says
 
 
 
