@@ -7,6 +7,7 @@ import ConnectPage from "./pages/ConnectPage";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Toaster } from "react-hot-toast";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,11 +23,18 @@ function App() {
       <BrowserRouter>
         <GlobalStyles />
         <Routes>
-          <Route path="/" element={<AppLayout />}>
+          <Route element={<AppLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="services" element={<ServicesPage />} />
-            <Route path="connect" element={<ConnectPage />} />
-            <Route path="upload" element={<UploadPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/connect" element={<ConnectPage />} />
+            <Route
+              path="/upload"
+              element={
+                <ProtectedRoute>
+                  <UploadPage />
+                </ProtectedRoute>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

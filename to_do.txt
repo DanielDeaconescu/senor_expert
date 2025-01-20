@@ -2,6 +2,15 @@
 2. conectare -> we have to build the authentication -> inspiration: the_wild_oasis
 3. start building the upload page
 
+upload -> steps: 1. Apasa butonul de "Incarca fisere"
+2. Alege mai multe fisiere locale tanand apasat butonul "Ctrl"
+3. Apasa pe butonul "Trimite documentele"
+
+
+4. implement the logout on the /upload page (done)
+5. make the email address persist after the logout (done)
+6. implement the functionality of being able to upload documents to supabase --> 354 - Uploading Images to Supabse (27 - React Query Managing...)
+
 
 
 

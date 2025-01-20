@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLogin } from "./useLogin";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading } = useLogin();
+
+  // Load saved email from localStorage when the component mounts
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("email");
+
+    if (savedEmail) {
+      setEmail(savedEmail);
+    }
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,6 +29,8 @@ function LoginForm() {
         },
       }
     );
+
+    localStorage.setItem("email", email);
   }
 
   return (
@@ -29,6 +41,8 @@ function LoginForm() {
         </label>
         <input
           type="email"
+          id="email"
+          autoComplete="username"
           className="form-control"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -41,6 +55,8 @@ function LoginForm() {
         </label>
         <input
           type="password"
+          id="password"
+          auto-complete="current-password"
           className="form-control"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

@@ -1,5 +1,33 @@
+import styled from "styled-components";
+import Logout from "../features/authentication/Logout";
+import UploadSteps from "../ui/UploadSteps";
+
+import UploadDocuments from "../features/upload/UploadDocuments";
+
+const LogoutContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const Main = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 function UploadPage() {
-  return <div>This is the Upload page!</div>;
+  return (
+    <div>
+      <LogoutContainer className="container">
+        <Logout />
+      </LogoutContainer>
+      <Main>
+        <UploadSteps />
+        <UploadDocuments />
+      </Main>
+    </div>
+  );
 }
 
 export default UploadPage;
