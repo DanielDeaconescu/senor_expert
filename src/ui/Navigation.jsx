@@ -2,7 +2,7 @@ import logoImg from "../data/images/logo_test.png";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router";
-import { useUser } from "../services/UserContext";
+import { useUser } from "../features/authentication/useUser";
 import { getCurrentUser, logout } from "../services/apiAuth";
 
 const StyledNavigation = styled.nav`
@@ -13,35 +13,31 @@ const StyledImage = styled.img`
 `;
 
 function Navigation() {
-  // const { user } = useUser();
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState(null);
+  const { user, isLoading, refetch } = useUser();
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   function toggleMenu() {
     setIsOpen(!isOpen);
   }
 
-  useEffect(() => {
-    async function fetchUser() {
-      try {
-        const currentUser = await getCurrentUser();
-        setUser(currentUser); // Update the user state
-      } catch (error) {
-        console.error("Error fetching user:", error.message);
-      }
-    }
-
-    fetchUser();
-  }, [user]);
-
   async function handleLogout() {
     try {
       await logout();
-      setUser(null);
+      refetch();
     } catch (error) {
       console.error("Error during logout: ", error.message);
     }
   }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(user);
 
   return (
     <StyledNavigation className="navbar navbar-expand-md navbar-dark">
@@ -67,28 +63,29 @@ function Navigation() {
                 Servicii
               </NavLink>
             </li>
+            {user && user.email !== "mona@senorexpert.ro" ? (
+              <li className="nav-item">
+                <NavLink to="/upload" className="nav-link">
+                  Upload
+                </NavLink>
+              </li>
+            ) : (
+              ""
+            )}
             <li className="nav-item">
               <NavLink to="/connect" className="nav-link">
-                Conectare
+                {user ? (
+                  <span onClick={handleLogout}>Deconectare</span>
+                ) : (
+                  "Conectare"
+                )}
               </NavLink>
             </li>
-            {/* Conditionally render Admin Link */}
             {user?.email === "mona@senorexpert.ro" && (
               <li className="nav-item">
                 <NavLink to="/admin" className="nav-link">
                   Admin
                 </NavLink>
-              </li>
-            )}
-            {/* Logout button */}
-            {user && (
-              <li className="nav-item">
-                <button
-                  onClick={handleLogout}
-                  className="btn btn-link nav-link"
-                >
-                  Deconectare
-                </button>
               </li>
             )}
           </ul>

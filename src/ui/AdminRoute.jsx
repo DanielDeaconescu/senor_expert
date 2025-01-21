@@ -1,11 +1,12 @@
 import { Navigate } from "react-router";
-import { useUser } from "../services/UserContext";
+import { useUser } from "../features/authentication/useUser";
 
 function AdminRoute({ children }) {
-  const { user, loading } = useUser();
+  const { user, isLoading } = useUser();
 
-  if (loading) return null; // Optionally show a loading spinner
-  if (!user || user.role !== "admin") return <Navigate to="/" replace />;
+  if (isLoading) return null;
+  if (!user || user.email !== "mona@senorexpert.ro")
+    return <Navigate to="/" replace />;
 
   return children;
 }

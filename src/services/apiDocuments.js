@@ -1,5 +1,16 @@
 import supabase from "./supabase";
 
+export async function getDocuments() {
+  const { data, error } = await supabase.from("documents").select("*");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Documentele nu au putut fi incarcate!");
+  }
+
+  return data;
+}
+
 export async function uploadFileToStorage(file) {
   // Generate a unique name for the file
   const fileName = `${Math.random()}-${file.name}`.replaceAll("/", "");
