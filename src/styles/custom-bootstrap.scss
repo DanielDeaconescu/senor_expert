@@ -1,5 +1,6 @@
 // Font
-$font-family-sans-serif: "Open Sans", sans-serif;
+
+// Import Bootstrap
 
 // Colors
 $primary: #3e7b27;
@@ -47,5 +48,4 @@ $headings-margin-bottom: $spacer * 1;
 
 $enable-negative-margins: true;
 
-// Import Bootstrap
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "bootstrap";
