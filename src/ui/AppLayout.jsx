@@ -8,8 +8,9 @@ import Section4 from "./Section4";
 import SocialSection from "./SocialSection";
 import TestimonialsSection from "./TestimonialsSection";
 import Footer from "./Footer";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import styled from "styled-components";
+import { useEffect, useRef, useState } from "react";
 
 const Main = styled.main``;
 
@@ -22,9 +23,35 @@ const Container = styled.div`
 `;
 
 function AppLayout() {
+  const [isSticky, setIsSticky] = useState(false);
+  const heroRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const heroElement = document.querySelector(".hero");
+    const navigationHeight = document
+      .querySelector(".navbar")
+      ?.getBoundingClientRect().height;
+
+    if (!heroElement) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsSticky(!entry.isIntersecting);
+      },
+      { threshold: 0.1, rootMargin: `-${navigationHeight || 0}px` }
+    );
+
+    observer.observe(heroElement);
+
+    return () => {
+      observer.unobserve(heroElement);
+    };
+  }, [location]);
+
   return (
     <div>
-      <Navigation />
+      <Navigation isSticky={isSticky} />
+      <div ref={heroRef}></div>
       <Main>
         <Container>
           <Outlet />

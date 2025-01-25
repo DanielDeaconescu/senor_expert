@@ -1,6 +1,7 @@
 import heroServices from "../data/images/hero_services.jpg";
 import backgroundHeroServices from "../data/images/background_hero_services.jpg";
 import styled from "styled-components";
+import { NavLink } from "react-router";
 
 const StyledHeader = styled.header`
   background-image: url(${backgroundHeroServices});
@@ -9,42 +10,46 @@ const StyledHeader = styled.header`
   background-position: center;
 `;
 
+const Image = styled.img`
+  border-radius: 1rem;
+`;
+
 function ServicesHeader() {
   return (
-    <StyledHeader className="header">
+    <StyledHeader className="hero">
       <div className="hero text-white pt-7">
         <div className="container-xl">
           <div className="row">
-            <div className="col-md-6">
-              <div className="image-container mb-5 px-4">
-                <img src={heroServices} className="img-fluid" alt="" />
+            <div className="image-container col-md-6">
+              <div className="mb-5 px-4">
+                <Image src={heroServices} className="img-fluid" alt="" />
               </div>
             </div>
             <div className="col-md-6">
               <div className="text-container p-4 d-flex flex-column justify-content-center h-100 mb-5">
-                <h1 className="display-3 fw-bold">Bun venit la Senor Expert</h1>
-                <p className="lead">
-                  Are you ready to take your blogging journey to new heights?
-                  Blog Mastery is your ultimate guide to creating and managing a
-                  successful blog that captivates your audience and drives
-                  engagement.
+                <h1 className="display-3 fw-bold">Servicii Senor Expert</h1>
+                <p className="lead custom-paragraph">
+                  La Senor Expert, simplificăm contabilitatea prin soluții
+                  moderne și eficiente, adaptate nevoilor afacerii tale. Pe
+                  lângă serviciile complete de contabilitate, consultanță
+                  financiară și fiscală, oferim clienților noștri posibilitatea
+                  de a încărca documentele contabile online, direct din contul
+                  personal, într-un mediu securizat. Astfel, economisești timp
+                  prețios și beneficiezi de o gestionare rapidă și transparentă
+                  a actelor tale. Cu o echipă dedicată și o experiență vastă în
+                  domeniu, suntem partenerul tău de încredere în drumul spre
+                  succes.
                 </p>
 
-                <div className="form-container text-center">
-                  <form>
-                    <div className="my-4">
-                      <input
-                        type="email"
-                        className="form-control form-control-lg rounded-5"
-                        placeholder="Adresa de email"
-                      />
-                    </div>
-                    <div className="d-grid">
-                      <button className="btn btn-primary btn-lg text-white">
-                        Free Download
-                      </button>
-                    </div>
-                  </form>
+                <div className="text-center">
+                  <div className="d-grid">
+                    <NavLink
+                      to="/connect"
+                      className="btn btn-primary btn-lg text-white"
+                    >
+                      Conectare
+                    </NavLink>
+                  </div>
                 </div>
               </div>
             </div>

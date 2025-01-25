@@ -1,9 +1,47 @@
-import DownloadEbook from "../data/images/download-ebook.png";
+import CallToActionImage from "../data/images/call-to-action-image.jpg";
 import styled from "styled-components";
-import BackgroundImage from "../data/images/header-background.jpg";
+import BackgroundImage from "../data/images/header-home-background.jpg";
+import { NavLink } from "react-router";
 
 const StyledSection4 = styled.section`
   background-image: url(${BackgroundImage});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  & .text-container {
+    position: relative;
+    z-index: 1000;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+`;
+
+const StyledImage = styled.img`
+  border-radius: 1rem;
+  z-index: 1000;
+`;
+
+const CallToActionTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+
+const CTAParagraph = styled.p`
+  width: 75%;
 `;
 
 function Section4() {
@@ -11,34 +49,26 @@ function Section4() {
     <StyledSection4 className="download">
       <div className="container">
         <div className="row">
-          <div className="col-lg-5">
-            <div className="image-container mt-n6 mb-5">
-              <img src={DownloadEbook} alt="" />
+          <div className="col-lg-4">
+            <div className="image-container mt-5 mb-5">
+              <StyledImage src={CallToActionImage} alt="" />
             </div>
           </div>
-          <div className="col-lg-7">
-            <div className="text-container text-white d-flex flex-column justify-content-center h-100 mb-5">
-              <h2 className="fw-bold">Get Your Free Ebook Now</h2>
-              <p>
-                Unlock the power of knowledge and take your blogging journey to
-                the next level. Our ebook, "Blog Mastery: The Ultimate Guide to
-                Blogging Success," is your key to success.
-              </p>
-              {/* Form */}
-              <form>
-                <div className="input-group mb-3">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Email Address"
-                  />
+          <div className="col-lg-8">
+            <CallToActionTextContainer className="text-container text-white mb-5">
+              <h2 className="fw-bold">
+                Încărcați documentele contabile rapid și sigur
+              </h2>
+              <CTAParagraph>
+                Autentificați-vă pentru a avea acces la funcționalitatea de
+                încărcare a documentelor și pentru a beneficia de o gestionare
+                eficientă a contabilității.
+              </CTAParagraph>
 
-                  <button className="btn btn-primary text-white rounded-end">
-                    Download
-                  </button>
-                </div>
-              </form>
-            </div>
+              <NavLink to="/connect" className="btn btn-primary text-white">
+                Încărcare documente
+              </NavLink>
+            </CallToActionTextContainer>
           </div>
         </div>
       </div>

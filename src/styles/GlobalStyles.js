@@ -4,6 +4,7 @@ const GlobalStyles = createGlobalStyle`
 :root {
   
     --clr-my-grey-0: #2b3041;
+    --clr-whatsapp-green: hsl(142, 70%, 49%);
 
   &, &.light-mode{
   /* Grey */
@@ -235,6 +236,31 @@ FOR DARK MODE
 .tabbed-active{
   background-color: var(--color-brand-600);
   color: var(--color-grey-0);
+}
+
+.custom-paragraph{
+  text-align: justify;
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-custom{
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.navbar-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 1000;
 }
 
 `;

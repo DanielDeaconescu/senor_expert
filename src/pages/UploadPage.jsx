@@ -3,6 +3,7 @@ import Logout from "../features/authentication/Logout";
 import UploadSteps from "../ui/UploadSteps";
 
 import UploadDocuments from "../features/upload/UploadDocuments";
+import WhatsAppButton from "../ui/WhatsAppButton";
 
 const LogoutContainer = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ function UploadPage() {
         <UploadSteps />
         <UploadDocuments />
       </Main>
+      <WhatsAppButton />
     </div>
   );
 }

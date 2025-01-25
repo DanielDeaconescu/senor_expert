@@ -7,6 +7,7 @@ import TestimonialsSection from "../ui/TestimonialsSection";
 import Section4 from "../ui/Section4";
 import SocialSection from "../ui/SocialSection";
 import styled from "styled-components";
+import WhatsAppButton from "../ui/WhatsAppButton";
 
 const StyledHomePage = styled.div``;
 
@@ -18,9 +19,10 @@ function HomePage() {
       <Section2 />
       <InfoSection />
       <Section3 />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <Section4 />
-      <SocialSection />
+      {/* <SocialSection /> */}
+      <WhatsAppButton />
     </StyledHomePage>
   );
 }

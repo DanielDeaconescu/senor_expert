@@ -1,20 +1,35 @@
 import { NavLink } from "react-router";
-import BackgroundImage from "../data/images/header-background.jpg";
+import HeaderBackgroundServices from "../data/images/header-background-services.jpg";
 import UploadImage from "../data/images/upload-image.jpg";
 import styled from "styled-components";
 
 const StyledCallToActionServices = styled.div`
-  background-image: url(${BackgroundImage});
+  background-image: url(${HeaderBackgroundServices});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding: 4rem 0.5rem;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  & .text-container {
+    position: relative;
+    z-index: 100;
+  }
 `;
 
-const ConnectButton = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  background-color: var(--color-red-700);
+const StyledUploadImage = styled.img`
+  border-radius: 1rem;
+  position: relative;
+  z-index: 100;
 `;
 
 function CallToActionServices() {
@@ -26,20 +41,25 @@ function CallToActionServices() {
             <div className="text-container text-white d-flex flex-column justify-content-center h-100 mb-5">
               <h2 className="fw-bold">Încărcați Fișerele Contabile</h2>
               <p>
-                Simplificați procesul de contabilitate și economisiți timp
-                încarcând fișierele contabile în format electronic.
+                Ați uitat să aduceți unele documente contabile? Nicio problemă!
+                Autentificați-vă acum și încărcați fișierele direct în platforma
+                noastră, rapid și sigur, pentru a le transmite contabilei.
               </p>
               <NavLink
                 to="/connect"
-                className="text-white text-decoration-none"
+                className="btn btn-primary btn-lg text-white text-decoration-none"
               >
-                <ConnectButton>Conectare</ConnectButton>
+                Conectare
               </NavLink>
             </div>
           </div>
           <div className="col-lg-5">
             <div className="image-container mb-5">
-              <img src={UploadImage} alt="" className="img-fluid" />
+              <StyledUploadImage
+                src={UploadImage}
+                alt=""
+                className="img-fluid"
+              />
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
+import WhatsAppButton from "../ui/WhatsAppButton";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ function ConnectPage() {
         </p>
         <LoginForm />
       </LoginContainer>
+      <WhatsAppButton />
     </div>
   );
 }

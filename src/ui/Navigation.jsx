@@ -6,13 +6,38 @@ import { useUser } from "../features/authentication/useUser";
 import { getCurrentUser, logout } from "../services/apiAuth";
 
 const StyledNavigation = styled.nav`
+  position: relative;
+  width: 100%;
   background-color: var(--clr-my-grey-0);
+  transition: all 0.3s ease;
+
+  &.navbar-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
 `;
 const StyledImage = styled.img`
   width: 225px;
 `;
 
-function Navigation() {
+const StyledNavLink = styled(NavLink)`
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-grey-0);
+    color: var(--color-grey-900) !important;
+  }
+
+  &.active {
+    background-color: var(--color-grey-0);
+    color: var(--color-grey-900) !important;
+  }
+`;
+
+function Navigation({ isSticky }) {
   const [isOpen, setIsOpen] = useState(false);
   const { user, isLoading, refetch } = useUser();
 
@@ -37,10 +62,12 @@ function Navigation() {
     return <div>Loading...</div>;
   }
 
-  console.log(user);
-
   return (
-    <StyledNavigation className="navbar navbar-expand-md navbar-dark">
+    <StyledNavigation
+      className={`${
+        isSticky ? "navbar-sticky" : ""
+      } navbar navbar-expand-md navbar-dark navbar-custom`}
+    >
       <div className="container">
         <NavLink href="#" className="navbar-brand">
           <StyledImage src={logoImg} alt="" />
@@ -54,38 +81,38 @@ function Navigation() {
         >
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">
+              <StyledNavLink to="/" className="nav-link">
                 Acasă
-              </NavLink>
+              </StyledNavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/services" className="nav-link">
+              <StyledNavLink to="/services" className="nav-link">
                 Servicii
-              </NavLink>
+              </StyledNavLink>
             </li>
             {user && user.email !== "mona@senorexpert.ro" ? (
               <li className="nav-item">
-                <NavLink to="/upload" className="nav-link">
+                <StyledNavLink to="/upload" className="nav-link">
                   Upload
-                </NavLink>
+                </StyledNavLink>
               </li>
             ) : (
               ""
             )}
             <li className="nav-item">
-              <NavLink to="/connect" className="nav-link">
+              <StyledNavLink to="/connect" className="nav-link">
                 {user ? (
                   <span onClick={handleLogout}>Deconectare</span>
                 ) : (
                   "Conectare"
                 )}
-              </NavLink>
+              </StyledNavLink>
             </li>
             {user?.email === "mona@senorexpert.ro" && (
               <li className="nav-item">
-                <NavLink to="/admin" className="nav-link">
+                <StyledNavLink to="/admin" className="nav-link">
                   Admin
-                </NavLink>
+                </StyledNavLink>
               </li>
             )}
           </ul>

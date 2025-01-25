@@ -1,47 +1,85 @@
-import headerEbook from "../data/images/header-ebook.png";
-import headerBackground from "../data/images/header-background.jpg";
+import HeaderHomeBackground from "../data/images/header-home-background.jpg";
+import HeaderHomeImage from "../data/images/header-home-image.jpg";
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
-  background-image: url(${headerBackground});
+  background-image: url(${HeaderHomeBackground});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  & .text-container {
+    position: relative;
+    z-index: 100;
+  }
+
+  & .frame-decoration {
+    position: relative;
+    z-index: 2;
+  }
+`;
+
+const StyledParagraph = styled.p`
+  text-align: justify;
+`;
+
+const StyledHeaderHomeImage = styled.img`
+  width: 420px;
+  border-radius: 1rem;
+  position: relative;
+  z-index: 100;
 `;
 
 function Hero() {
   return (
-    <StyledHeader className="header">
+    <StyledHeader className="hero">
       <div className="hero text-white pt-7">
         <div className="container-xl">
           <div className="row">
             <div className="col-md-6">
               <div className="image-container mb-5 px-4">
-                <img src={headerEbook} className="img-fluid" alt="" />
+                <StyledHeaderHomeImage
+                  src={HeaderHomeImage}
+                  className="img-fluid"
+                  alt=""
+                />
               </div>
             </div>
             <div className="col-md-6">
               <div className="text-container p-4 d-flex flex-column justify-content-center h-100 mb-5">
-                <h1 className="display-3 fw-bold">Bun venit la Senor Expert</h1>
-                <p className="lead">
-                  Are you ready to take your blogging journey to new heights?
-                  Blog Mastery is your ultimate guide to creating and managing a
-                  successful blog that captivates your audience and drives
-                  engagement.
-                </p>
+                <h1 className="display-3 fw-bold">
+                  Bun venit la Senor Expert!
+                </h1>
+                <StyledParagraph className="lead">
+                  Bun venit la Senor Expert! Suntem o echipă de profesioniști
+                  dedicați care oferă soluții complete de contabilitate,
+                  consultanță fiscală și salarizare, adaptate nevoilor afacerii
+                  tale. Cu experiență vastă și un angajament ferm față de
+                  excelență, ne asigurăm că afacerea ta se dezvoltă în
+                  conformitate cu legislația în vigoare și îți oferim sprijinul
+                  necesar pentru a lua cele mai bune decizii financiare. Alege
+                  Senor Expert pentru un partener de încredere pe drumul
+                  succesului tău.
+                </StyledParagraph>
 
                 <div className="form-container text-center">
-                  <form>
-                    <div className="my-4">
-                      <input
-                        type="email"
-                        className="form-control form-control-lg rounded-5"
-                        placeholder="Adresa de email"
-                      />
-                    </div>
-                    <div className="d-grid">
-                      <button className="btn btn-primary btn-lg text-white">
-                        Free Download
-                      </button>
-                    </div>
-                  </form>
+                  <div className="d-grid">
+                    <button className="btn btn-primary btn-lg text-white">
+                      Conectare
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
