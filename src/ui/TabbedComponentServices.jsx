@@ -4,7 +4,6 @@ import { MdAttachMoney } from "react-icons/md";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoIosPersonAdd } from "react-icons/io";
 import { MdAccountBalance } from "react-icons/md";
-import { Modal } from "bootstrap";
 
 const StyledTabbedComponentServices = styled.div`
   background-color: var(--color-grey-300);
@@ -192,14 +191,14 @@ function TabbedComponentServices() {
       <ButtonContainer onClick={() => setIsModalOpen(!isModalOpen)}>
         <ListButton>Lista completă de servicii</ListButton>
       </ButtonContainer>
-      <Modal>
+      {/* <Modal>
         <Modal.Open opens="modal-1">
           <button className="btn btn-primary text-white mt-4 align-self-start">
             Află mai mult
           </button>
         </Modal.Open>
         <Modal.Window name="modal-1"></Modal.Window>
-      </Modal>
+      </Modal> */}
     </StyledContainer>
   );
 }
