@@ -26,7 +26,9 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
     8.9 create a logo for Senor Expert
     8.10 navigation --> create a hover effect for each link in the navigation (done)
 9. Daca apas pe "Deconectare" de pe alta pagina decat /upload, pare ca butonul de "Deconectare" nu functioneaza (pare ca nu se mai intampla) --> we want to make sure that the pages "upload" and "admin" are not accessible unless the user is authenticated or is "mona@senorexpert.ro"
-
+10. change the font-family for the entire app
+11. login - form inputs - change the styling when an input is focused
+12. login - make sure the login page is fully responsive
 
 
 

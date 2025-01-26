@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 function Footer() {
   return (
     <footer className="border-top border-primary bg-dark text-white py-4">
@@ -6,19 +8,19 @@ function Footer() {
           <div className="col-md-8">
             <ul className="nav">
               <li className="nav-item">
-                <a href="index.html" className="nav-link link-light">
+                <NavLink to="/" className="nav-link link-light">
                   Acasă
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a href="#details" className="nav-link link-light">
-                  Despre
-                </a>
+                <NavLink to="/services" className="nav-link link-light">
+                  Servicii
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a href="contact.html" className="nav-link link-light">
+                <NavLink to="/connect" className="nav-link link-light">
                   Conectare
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>

@@ -11,6 +11,22 @@ const StyledTabbedComponentServices = styled.div`
   flex-direction: column;
   gap: 1rem;
   padding: 2rem 0;
+
+  @media (max-width: 576px) {
+    height: 450px;
+  }
+
+  @media (min-width: 576px) {
+    height: 330px;
+  }
+
+  @media (min-width: 768px) {
+    height: 300px;
+  }
+
+  @media (min-width: 992px) {
+    height: 350px;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -18,6 +34,72 @@ const StyledButton = styled.button`
   font-size: 1.4rem;
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
+
+  @media (max-width: 576px) {
+    display: none;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    display: none;
+  }
+`;
+
+const StyledButtonSmall = styled.button`
+  display: none;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+
+  @media (max-width: 576px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  @media (min-width: 576px) and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+`;
+
+const IconContainer = styled.div`
+  font-size: 3rem;
+  @media (max-width: 576px) {
+    display: none;
+  }
+  @media (min-width: 576px) and (max-width: 768px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    display: none;
+  }
+`;
+
+const TabTextContent = styled.div`
+  width: 60%;
+  text-align: justify;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+  @media (min-width: 576px) and (max-width: 768px) {
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    width: 100%;
+  }
+  @media (min-width: 992px) and (max-width: 1200px) {
+    width: 75%;
+  }
 `;
 
 const StyledTabs = styled.div`
@@ -37,34 +119,8 @@ const StyledContent = styled.div`
   padding: 1.5rem;
 `;
 
-const IconContainer = styled.div`
-  font-size: 3rem;
-`;
-
-const TabTextContent = styled.div`
-  width: 60%;
-  text-align: justify;
-`;
-
 const StyledContainer = styled.div`
   background-color: var(--color-grey-300);
-  height: 440px;
-`;
-
-const ListButton = styled.button`
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  width: 20%;
-  margin: auto;
-  border: none;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: var(--color-brand-600);
-    color: var(--color-grey-0);
-  }
 `;
 
 const ButtonContainer = styled.div`
@@ -165,40 +221,56 @@ function TabbedComponentServices() {
             >
               Contabilitate financiară
             </StyledButton>
+            <StyledButtonSmall
+              className={activeTab === "tab1" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab1")}
+            >
+              <MdAttachMoney />
+            </StyledButtonSmall>
             <StyledButton
               className={activeTab === "tab2" ? "tabbed-active" : ""}
               onClick={() => handleTabClick("tab2")}
             >
               Consultanță Fiscală
             </StyledButton>
+            <StyledButtonSmall
+              className={activeTab === "tab2" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab2")}
+            >
+              <FaRegMoneyBillAlt />
+            </StyledButtonSmall>
             <StyledButton
               className={activeTab === "tab3" ? "tabbed-active" : ""}
               onClick={() => handleTabClick("tab3")}
             >
               Salarizare și Resurse Umane
             </StyledButton>
+            <StyledButtonSmall
+              className={activeTab === "tab3" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab3")}
+            >
+              <IoIosPersonAdd />
+            </StyledButtonSmall>
             <StyledButton
               className={activeTab === "tab4" ? "tabbed-active" : ""}
               onClick={() => handleTabClick("tab4")}
             >
               Contabilitate de Gestiune
             </StyledButton>
+            <StyledButtonSmall
+              className={activeTab === "tab4" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab4")}
+            >
+              <MdAccountBalance />
+            </StyledButtonSmall>
           </StyledTabs>
         </div>
 
         <div className="content">{renderContent()}</div>
       </StyledTabbedComponentServices>
-      <ButtonContainer onClick={() => setIsModalOpen(!isModalOpen)}>
-        <ListButton>Lista completă de servicii</ListButton>
-      </ButtonContainer>
-      {/* <Modal>
-        <Modal.Open opens="modal-1">
-          <button className="btn btn-primary text-white mt-4 align-self-start">
-            Află mai mult
-          </button>
-        </Modal.Open>
-        <Modal.Window name="modal-1"></Modal.Window>
-      </Modal> */}
+      <ButtonContainer
+        onClick={() => setIsModalOpen(!isModalOpen)}
+      ></ButtonContainer>
     </StyledContainer>
   );
 }

@@ -1,5 +1,5 @@
 import logoImg from "../data/images/logo_test.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router";
 import { useUser } from "../features/authentication/useUser";
@@ -16,6 +16,10 @@ const StyledNavigation = styled.nav`
     top: 0;
     left: 0;
     z-index: 1000;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem !important;
   }
 `;
 const StyledImage = styled.img`
@@ -39,15 +43,36 @@ const StyledNavLink = styled(NavLink)`
 
 function Navigation({ isSticky }) {
   const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef(null);
   const { user, isLoading, refetch } = useUser();
 
   useEffect(() => {
     refetch();
   }, [refetch]);
 
-  function toggleMenu() {
-    setIsOpen(!isOpen);
+  function toggleMenu(event) {
+    event.stopPropagation();
+    setIsOpen((prev) => !prev);
   }
+
+  // handling click outside
+  const handleClickOutside = (event) => {
+    if (
+      navRef.current &&
+      !navRef.current.contains(event.target) &&
+      !event.target.closest(".navbar-toggler")
+    ) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
 
   async function handleLogout() {
     try {
@@ -72,10 +97,15 @@ function Navigation({ isSticky }) {
         <NavLink href="#" className="navbar-brand">
           <StyledImage src={logoImg} alt="" />
         </NavLink>
-        <button className="navbar-toggler" type="button" onClick={toggleMenu}>
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={(e) => toggleMenu(e)}
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div
+          ref={navRef}
           className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
           id="navbarNav"
         >

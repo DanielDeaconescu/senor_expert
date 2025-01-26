@@ -1,5 +1,16 @@
 import { useEffect, useState } from "react";
 import { useLogin } from "./useLogin";
+import styled from "styled-components";
+
+const StyledLoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+  @media (max-width: 576px) {
+    padding: 0 2rem;
+  }
+`;
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -34,10 +45,10 @@ function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <StyledLoginForm onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">
-          Username client:{" "}
+          Username client
         </label>
         <input
           type="email"
@@ -66,7 +77,7 @@ function LoginForm() {
       <button type="submit" className="btn btn-primary" disabled={isLoading}>
         {!isLoading ? "Conectare" : "Se conectează..."}
       </button>
-    </form>
+    </StyledLoginForm>
   );
 }
 
