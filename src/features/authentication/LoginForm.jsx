@@ -12,6 +12,13 @@ const StyledLoginForm = styled.form`
   }
 `;
 
+const StyledInput = styled.input`
+  &:focus {
+    border-color: var(--color-brand-900);
+    box-shadow: 0 0 0 0.25rem var(--color-brand-900);
+  }
+`;
+
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,7 +57,7 @@ function LoginForm() {
         <label htmlFor="email" className="form-label">
           Username client
         </label>
-        <input
+        <StyledInput
           type="email"
           id="email"
           autoComplete="username"
@@ -64,7 +71,7 @@ function LoginForm() {
         <label htmlFor="password" className="form-label">
           Parolă
         </label>
-        <input
+        <StyledInput
           type="password"
           id="password"
           auto-complete="current-password"

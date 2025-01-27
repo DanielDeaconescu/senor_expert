@@ -17,6 +17,7 @@ const LoginContainer = styled.div`
   background-repeat: no-repeat;
   position: relative;
   z-index: 100;
+  font-weight: 600;
   &::after {
     content: "";
     position: absolute;
@@ -33,21 +34,41 @@ const LoginContainer = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media (max-width: 576px) {
+    padding: 0 2rem;
+  }
 `;
 
 const TextAuth = styled.h3`
   color: white;
+  font-weight: 600;
+`;
+
+const Text = styled.div`
+  color: white;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+`;
+
+const AuthenticationContainer = styled.div`
+  max-width: 350px;
 `;
 
 function ConnectPage() {
   return (
     <div>
       <LoginContainer className="login-container">
-        <div className="authentication-container">
+        <AuthenticationContainer className="authentication-container">
+          <Text>
+            Autentificați-vă pentru a putea încărca documentele contabile.
+          </Text>
           <Logo />
           <TextAuth className="text-center pt-2">Autentificare</TextAuth>
           <LoginForm />
-        </div>
+        </AuthenticationContainer>
       </LoginContainer>
       <WhatsAppButton />
     </div>
