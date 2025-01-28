@@ -32,7 +32,8 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
 13. navigation - after clicking one of the links in the navigation, the navigation should close (fixed)
 14. butonul de incarca documentele - modal - redo (done)
 15. make modal-1 fully responsive (done)
-16. make modal-2 fully responsive
+16. make modal-2 fully responsive (done)
+17. upload page - for the upload form, make the X button relative to the modal, such that it will be closer (but only for min-width: 1400px)
 
 
 

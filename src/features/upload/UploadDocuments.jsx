@@ -21,13 +21,13 @@ function UploadDocuments() {
   return (
     <div>
       <Modal>
-        <Modal.Open opens="test">
+        <Modal.Open opens="upload-documents">
           <StyledButton>
             <i class="fa-solid fa-cloud-arrow-up pe-3"></i>
             Încarcă documente
           </StyledButton>
         </Modal.Open>
-        <Modal.Window name="test">
+        <Modal.Window name="upload-documents">
           <UploadDocumentsForm />
         </Modal.Window>
       </Modal>

@@ -7,6 +7,12 @@ import {
 import toast from "react-hot-toast";
 import { ModalContext } from "./Modal";
 import { useContext } from "react";
+import styled from "styled-components";
+
+const StyledUploadDocumentsForm = styled.form`
+  max-width: 400px;
+  margin: auto;
+`;
 
 function UploadDocumentsForm({ onCloseModal }) {
   const { register, handleSubmit, reset } = useForm();
@@ -25,7 +31,7 @@ function UploadDocumentsForm({ onCloseModal }) {
       return await createDocumentInput(formData, fileUrls);
     },
     onSuccess: () => {
-      toast.success("Entry created successfully!");
+      toast.success("Documentele au fost încărcate cu succes!");
       queryClient.invalidateQueries({ queryKey: ["documents"] });
       reset();
       close();
@@ -45,7 +51,7 @@ function UploadDocumentsForm({ onCloseModal }) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <StyledUploadDocumentsForm onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">
         <label htmlFor="" className="form-label">
           Numele societății
@@ -97,7 +103,7 @@ function UploadDocumentsForm({ onCloseModal }) {
           Anulează
         </button>
       </div>
-    </form>
+    </StyledUploadDocumentsForm>
   );
 }
 

@@ -21,7 +21,6 @@ const StyledModal = styled.div`
   box-shadow: var(--shadow-lg);
   padding: 3.2rem 4rem;
   transition: all 0.5s;
-  text-align: center;
 
   @media (max-width: 576px) {
     padding: 1.5rem;
@@ -58,7 +57,7 @@ const StyledModal = styled.div`
   @media (min-width: 1400px) {
     max-height: 90%;
     overflow: auto;
-    width: 50%;
+    position: absolute;
   }
 `;
 
