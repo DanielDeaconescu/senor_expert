@@ -15,10 +15,6 @@ const StyledParagraph = styled.p`
   text-align: justify;
 `;
 
-const StyledSagaLogo = styled.img`
-  max-width: 60px;
-`;
-
 const Title = styled.div`
   display: flex;
   align-items: center;
@@ -29,12 +25,101 @@ const ListItem = styled.li`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 1400px) {
+    flex-direction: column;
+  }
+`;
+
+const StyledSagaLogo = styled.img`
+  @media (max-width: 576px) {
+    max-width: 40px;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    max-width: 45px;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    max-width: 50px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    max-width: 55px;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    max-width: 60px;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: 60px;
+  }
 `;
 
 const ListItemSmall = styled.li`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+
+  @media (max-width: 576px) {
+    display: block;
+    text-align: left;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    display: block;
+    text-align: left;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    display: block;
+    text-align: left;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    display: block;
+    text-align: left;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    display: block;
+    text-align: left;
+  }
+
+  @media (min-width: 1400px) {
+    display: block;
+    text-align: left;
+  }
+`;
+
+const ListItemSmallIcon = styled.i`
+  color: green;
+`;
+
+const UnorderedListModal = styled.ul`
+  padding: 0;
 `;
 
 function Section3() {
@@ -66,23 +151,25 @@ function Section3() {
               <ul className="list-group list-group-flush lh-lg">
                 <li className="list-group-item">
                   <Title>
-                    <i class="fa-solid fa-laptop fa-2x text-primary"></i>
+                    <i className="fa-solid fa-laptop fa-2x text-primary"></i>
                     <strong>Asistență program de contabilitate SAGA</strong>
                   </Title>
                   <div>
                     <ul>
-                      <ListItem>
-                        <i class="fa-solid fa-circle-check text-primary"></i>
-                        <span>Instalare program SAGA</span>
-                      </ListItem>
-                      <ListItem>
-                        <i class="fa-solid fa-circle-check text-primary"></i>
-                        <span>Instalare licență</span>
-                      </ListItem>
-                      <ListItem>
-                        <i class="fa-solid fa-circle-check text-primary"></i>
-                        <span>Asistență la creare facturilor</span>
-                      </ListItem>
+                      <li>
+                        <i className="fa-solid fa-circle-check text-primary"></i>
+                        <span className="ps-3">Instalare program SAGA</span>
+                      </li>
+                      <li>
+                        <i className="fa-solid fa-circle-check text-primary"></i>
+                        <span className="ps-3">Instalare licență</span>
+                      </li>
+                      <li>
+                        <i className="fa-solid fa-circle-check text-primary"></i>
+                        <span className="ps-3">
+                          Asistență la creare facturilor
+                        </span>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -137,28 +224,28 @@ function Section3() {
                               pas.
                             </StyledParagraph>
 
-                            <ul>
+                            <UnorderedListModal>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                <span>
+                                <span className="ps-2">
                                   Economisiți timp prin utilizarea eficientă a
                                   programului.
                                 </span>
                               </ListItemSmall>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                <span>
+                                <span className="ps-2">
                                   Evitați erorile contabile frecvente.
                                 </span>
                               </ListItemSmall>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                <span>
+                                <span className="ps-2">
                                   Configurație personalizată pentru afacerea
                                   dvs.
                                 </span>
                               </ListItemSmall>
-                            </ul>
+                            </UnorderedListModal>
                           </div>
                         </ListItem>
                         <ListItem className="list-group-item">
@@ -174,29 +261,29 @@ function Section3() {
                               oferi consultanță actualizată și soluții care să
                               vă protejeze afacerea.
                             </StyledParagraph>
-                            <ul>
+                            <UnorderedListModal>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                <span>
+                                <span className="ps-2">
                                   Verificare periodică a documentelor și
                                   proceselor contabile.
                                 </span>
                               </ListItemSmall>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                <span>
+                                <span className="ps-2">
                                   Consultanță pentru întocmirea declarațiilor
                                   fiscale.
                                 </span>
                               </ListItemSmall>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                <span>
+                                <span className="ps-2">
                                   Sprijin în pregătirea pentru controalele
                                   autorităților fiscale.
                                 </span>
                               </ListItemSmall>
-                            </ul>
+                            </UnorderedListModal>
                           </div>
                         </ListItem>
                         <ListItem className="list-group-item">
@@ -214,22 +301,28 @@ function Section3() {
                               potrivite până la întocmirea actelor necesare și
                               deschiderea contului bancar.
                             </StyledParagraph>
-                            <ul>
+                            <UnorderedListModal>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                Alegerea tipului de firmă (SRL, PFA, etc.)
+                                <span className="ps-2">
+                                  Alegerea tipului de firmă (SRL, PFA, etc.)
+                                </span>
                               </ListItemSmall>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                Întocmirea și depunerea dosarului la Registrul
-                                Comerțului.
+                                <span className="ps-2">
+                                  Întocmirea și depunerea dosarului la Registrul
+                                  Comerțului.
+                                </span>
                               </ListItemSmall>
                               <ListItemSmall>
                                 <i class="fa-solid fa-circle-check text-primary"></i>
-                                Consiliere privind codurile CAEN și specificul
-                                activității.
+                                <span className="ps-2">
+                                  Consiliere privind codurile CAEN și specificul
+                                  activității.
+                                </span>
                               </ListItemSmall>
-                            </ul>
+                            </UnorderedListModal>
                           </div>
                         </ListItem>
                       </ul>

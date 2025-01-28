@@ -105,6 +105,46 @@ const Button = styled.button`
       height: 2rem;
     }
   }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    position: fixed;
+    top: 2rem;
+    right: 3rem;
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    position: fixed;
+    top: 1rem;
+    right: 6rem;
+    & svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    position: fixed;
+    top: 1rem;
+    right: 7.5rem;
+    & svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    position: fixed;
+    top: 1rem;
+    right: 12.5rem;
+    & svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
 `;
 
 const Overlay = styled.div`
