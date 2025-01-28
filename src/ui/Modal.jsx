@@ -21,6 +21,89 @@ const StyledModal = styled.div`
   box-shadow: var(--shadow-lg);
   padding: 3.2rem 4rem;
   transition: all 0.5s;
+  text-align: center;
+
+  @media (max-width: 576px) {
+    padding: 1.5rem;
+    max-height: 80%;
+    overflow: auto;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    padding: 1.5rem;
+    max-height: 90%;
+    overflow: auto;
+    width: 75%;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    max-height: 90%;
+    overflow: auto;
+    width: 80%;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    max-height: 90%;
+    overflow: auto;
+    width: 70%;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    max-height: 90%;
+    overflow: auto;
+    width: 60%;
+  }
+
+  @media (min-width: 1400px) {
+    max-height: 90%;
+    overflow: auto;
+    width: 50%;
+  }
+`;
+
+const Button = styled.button`
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  border-radius: var(--border-radius-sm);
+  transform: translateX(0.8rem);
+  transition: all 0.2s;
+  position: fixed;
+  top: 1.2rem;
+  right: 1.9rem;
+
+  &:hover {
+    /* background-color: var(--color-grey-100); */
+  }
+
+  & svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    /* Sometimes we need both */
+    /* fill: var(--color-grey-500);
+    stroke: var(--color-grey-500); */
+    color: var(--color-grey-100);
+  }
+
+  @media (max-width: 576px) {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.5rem;
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    position: fixed;
+    top: 2rem;
+    right: 3rem;
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
 `;
 
 const Overlay = styled.div`
@@ -35,31 +118,6 @@ const Overlay = styled.div`
   transition: all 0.5s;
 `;
 
-const Button = styled.button`
-  background: none;
-  border: none;
-  padding: 0.4rem;
-  border-radius: var(--border-radius-sm);
-  transform: translateX(0.8rem);
-  transition: all 0.2s;
-  position: absolute;
-  top: 1.2rem;
-  right: 1.9rem;
-
-  &:hover {
-    background-color: var(--color-grey-100);
-  }
-
-  & svg {
-    width: 2.4rem;
-    height: 2.4rem;
-    /* Sometimes we need both */
-    /* fill: var(--color-grey-500);
-    stroke: var(--color-grey-500); */
-    color: var(--color-grey-500);
-  }
-`;
-
 export const ModalContext = createContext();
 
 function Modal({ children }) {
@@ -67,6 +125,14 @@ function Modal({ children }) {
 
   const close = () => setOpenName("");
   const open = (name) => setOpenName(name);
+
+  useEffect(() => {
+    if (openName) {
+      document.documentElement.classList.add("modal-open");
+    } else {
+      document.documentElement.classList.remove("modal-open");
+    }
+  });
 
   return (
     <ModalContext.Provider value={{ openName, close, open }}>
@@ -89,12 +155,10 @@ function Window({ children, name }) {
 
   return createPortal(
     <Overlay>
-      <StyledModal ref={ref}>
-        <Button onClick={close}>
-          <HiXMark />
-        </Button>
-        {children}
-      </StyledModal>
+      <Button onClick={close}>
+        <HiXMark />
+      </Button>
+      <StyledModal ref={ref}>{children}</StyledModal>
     </Overlay>,
     document.body
   );

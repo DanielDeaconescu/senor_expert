@@ -8,6 +8,43 @@ const StyledText = styled.div`
   text-align: justify;
 `;
 
+const StyledTextModal = styled.div`
+  text-align: justify;
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+`;
+
+const ModalTitle = styled.h4`
+  @media (max-width: 576px) {
+    font-size: 1.6rem;
+  }
+`;
+
+const ItemText = styled.div`
+  display: flex;
+  line-height: 1.5;
+  @media (max-width: 768px) {
+    text-align: left;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    text-align: left;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    text-align: left;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    text-align: left;
+  }
+
+  @media (min-width: 1400px) {
+    text-align: justify;
+  }
+`;
+
 const Title = styled.div`
   display: flex;
   align-items: center;
@@ -37,13 +74,8 @@ const ItemTitle = styled.div`
   }
 `;
 
-const ItemText = styled.div`
-  display: flex;
-  line-height: 1.5;
-`;
-
 const ListItem = styled.li`
-  width: 500px;
+  text-align: center;
 `;
 
 function Section2() {
@@ -138,16 +170,16 @@ function Section2() {
                   </Modal.Open>
                   <Modal.Window name="modal-1">
                     <div className="container">
-                      <h4>Valorile noastre</h4>
-                      <StyledText>
+                      <ModalTitle>Valorile noastre</ModalTitle>
+                      <StyledTextModal>
                         Valorile noastre stau la baza fiecărei colaborări:
                         profesionalismul în tot ceea ce facem, transparența în
                         comunicare și acțiuni, și angajamentul față de relații
                         de lungă durată. Aceste principii ne ghidează în
                         atingerea celor mai bune rezultate.
-                      </StyledText>
+                      </StyledTextModal>
                       <ul className="list-group list-group-flush lh-lg">
-                        <li className="list-group-item">
+                        <ListItem className="list-group-item">
                           <ItemTitle>
                             <i class="fa-solid fa-address-card"></i>
                             <h4>Profesionalism</h4>
@@ -158,8 +190,8 @@ function Section2() {
                             legislația în vigoare și cele mai bune practici din
                             domeniu.
                           </ItemText>
-                        </li>
-                        <li className="list-group-item">
+                        </ListItem>
+                        <ListItem className="list-group-item">
                           <ItemTitle>
                             <i class="fas fa-eye"></i>
                             <h4>Transparență</h4>
@@ -169,9 +201,9 @@ function Section2() {
                             soluții contabile clare, corecte și transparente
                             pentru afacerea dumneavoastră.
                           </ItemText>
-                        </li>
+                        </ListItem>
 
-                        <li className="list-group-item ">
+                        <ListItem className="list-group-item ">
                           <ItemTitle>
                             <i class="fas fa-handshake"></i>
                             <h4>Relații de Lungă Durată</h4>
@@ -181,7 +213,7 @@ function Section2() {
                             comunicare eficientă și sprijin constant, pentru
                             succesul clienților noștri.
                           </ItemText>
-                        </li>
+                        </ListItem>
                       </ul>
                     </div>
                   </Modal.Window>
@@ -203,107 +235,5 @@ function Section2() {
     </>
   );
 }
-
-// function Section2() {
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   return (
-//     <section id="details" className="details my-5">
-//       <div className="container">
-//         <div className="row">
-//           <div className="col-lg-6">
-//             <div className="text-container d-flex flex-column justify-content-center h-100">
-//               <h2 className="display-6">Unlock Your Blogging Potential</h2>
-//               <p>
-//                 Are you ready to unleash your true blogging potential? Our
-//                 ebook, "Blog Mastery," provides you with the tools and knowledge
-//                 to take your blog to the next level.
-//               </p>
-//               <ul className="list-group list-group-flush lh-lg">
-//                 <li className="list-group-item">
-//                   <i className="fas fa-square text-primary"></i>
-//                   <strong>Unleash Your Creativity:</strong> Our ebook empowers
-//                   you to unleash your creativity and express your unique voice
-//                   through your blog.
-//                 </li>
-//                 <li className="list-group-item">
-//                   <i className="fas fa-square text-primary"></i>
-//                   <strong>Maximize Your Reach:</strong> Learn how to optimize
-//                   your blog for search engines.
-//                 </li>
-//                 <li className="list-group-item">
-//                   <i className="fas fa-square text-primary"></i>
-//                   <strong>Monetization Strategies:</strong> Discover various
-//                   monetization strategies, such as sponsored content & affiliate
-//                   marketing.
-//                 </li>
-//               </ul>
-
-//               <button
-//                 onClick={() => setIsModalOpen(true)}
-//                 className="btn btn-primary text-white mt-4 align-self-start"
-//               >
-//                 Get your copy now
-//               </button>
-
-//               {isModalOpen && (
-//                 <Modal onClose={() => setIsModalOpen(false)}>
-//                   <div className="row">
-//                     <div className="col-lg-6">
-//                       <div className="image-container">
-//                         <img
-//                           className="img-fluid"
-//                           src={AccountingPic1}
-//                           alt=""
-//                         />
-//                       </div>
-//                     </div>
-//                     <div className="col-lg-6">
-//                       <div className="text-container">
-//                         <h2 className="display-6">
-//                           Unlock Your Blogging Potential
-//                         </h2>
-//                         <p>
-//                           Are you ready to unleash your true blogging potential?
-//                           Our ebook, "Blog Mastery," provides you with the tools
-//                           and knowledge to take your blog to the next level.
-//                         </p>
-//                         <ul className="list-group list-group-flush lh-lg">
-//                           <li className="list-group-item">
-//                             <i className="fas fa-square text-primary"></i>
-//                             <strong>Unleash Your Creativity:</strong> Our ebook
-//                             empowers you to unleash your creativity and express
-//                             your unique voice through your blog.
-//                           </li>
-//                           <li className="list-group-item">
-//                             <i className="fas fa-square text-primary"></i>
-//                             <strong>Maximize Your Reach:</strong> Learn how to
-//                             optimize your blog for search engines.
-//                           </li>
-//                           <li className="list-group-item">
-//                             <i className="fas fa-square text-primary"></i>
-//                             <strong>Monetization Strategies:</strong> Discover
-//                             various monetization strategies, such as sponsored
-//                             content & affiliate marketing.
-//                           </li>
-//                         </ul>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </Modal>
-//               )}
-//             </div>
-//           </div>
-
-//           <div className="col-lg-6">
-//             <div className="image-container p-5">
-//               <img src={descriptionImg} className="img-fluid" alt="" />
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
 
 export default Section2;

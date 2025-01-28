@@ -1,21 +1,31 @@
 import { useState } from "react";
 import UploadDocumentsForm from "../../ui/UploadDocumentsForm";
 import Modal from "../../ui/Modal";
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+  border: none;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-green-700);
+  color: var(--color-grey-0);
+  font-weight: 600;
+  position: relative;
+  z-index: 100;
+  &:hover {
+    background-color: var(--color-green-800);
+  }
+`;
 
 function UploadDocuments() {
   return (
     <div>
-      {/* <button onClick={() => setIsOpenModal((show) => !show)}>
-        Încarcă documentele
-      </button>
-      {isOpenModal && (
-        <Modal onClose={() => setIsOpenModal(false)}>
-          <UploadDocumentsForm onCloseModal={() => setIsOpenModal(false)} />
-        </Modal>
-      )} */}
       <Modal>
         <Modal.Open opens="test">
-          <button>Încarcă documente</button>
+          <StyledButton>
+            <i class="fa-solid fa-cloud-arrow-up pe-3"></i>
+            Încarcă documente
+          </StyledButton>
         </Modal.Open>
         <Modal.Window name="test">
           <UploadDocumentsForm />

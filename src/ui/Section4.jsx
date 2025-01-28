@@ -42,6 +42,10 @@ const CallToActionTextContainer = styled.div`
 
 const CTAParagraph = styled.p`
   width: 75%;
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 `;
 
 function Section4() {

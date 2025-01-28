@@ -27,6 +27,7 @@ const GlobalStyles = createGlobalStyle`
   --color-blue-700: #0369a1;
   --color-green-100: #dcfce7;
   --color-green-700: #15803d;
+  --color-green-800: #116233;
   --color-yellow-100: #fef9c3;
   --color-yellow-700: #a16207;
   --color-silver-100: #e5e7eb;
@@ -264,6 +265,10 @@ FOR DARK MODE
   width: 100%;
 
   z-index: 1000;
+}
+
+.modal-open{
+  overflow: hidden;
 }
 
 `;

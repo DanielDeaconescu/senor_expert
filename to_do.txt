@@ -30,7 +30,9 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
 11. login - form inputs - change the styling when an input is focused (done)
 12. login - make sure the login page is fully responsive (done)
 13. navigation - after clicking one of the links in the navigation, the navigation should close (fixed)
-14. butonul de incarca documentele - modal - redo
+14. butonul de incarca documentele - modal - redo (done)
+15. make modal-1 fully responsive (done)
+16. make modal-2 fully responsive
 
 
 
