@@ -27,6 +27,7 @@ const StyledModal = styled.div`
     padding: 1.5rem;
     max-height: 80%;
     overflow: auto;
+    width: 90%;
   }
 
   @media (min-width: 576px) and (max-width: 768px) {

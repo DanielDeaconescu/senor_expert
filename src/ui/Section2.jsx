@@ -24,7 +24,11 @@ const ModalTitle = styled.h4`
 const ItemText = styled.div`
   display: flex;
   line-height: 1.5;
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
     text-align: left;
   }
 
@@ -71,6 +75,11 @@ const ItemTitle = styled.div`
   gap: 1rem;
   & h4 {
     margin-bottom: 0;
+  }
+
+  @media (max-width: 576px) {
+    justify-content: center;
+    white-space: nowrap;
   }
 `;
 
