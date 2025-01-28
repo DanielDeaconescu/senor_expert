@@ -17,7 +17,7 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
     8.3 for modal "incarca documentele" implement the functionality of being able to close it when clicking outside (done)
     8.4 implement a WhatsApp link button --> it should be present on all the pages (done)
     8.5 finish the services page (done)
-    8.6 finish the home page
+    8.6 finish the home page (done)
         Despre Senor Expert --> Valorie noastre (done)
         Master the Art of Blogging Excellence --> Statistici relevante --> +10 ani de experienta in contabilitate --> +10.000 de declaratii fiscale procesate anual --> 30.000+ euro economii in ultimul an pentru clientii nostri (done) --> rebuild this
         Craft Remarkable Content --> Servicii de consultanta (done)
@@ -29,6 +29,8 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
 10. change the font-family for the entire app (done - Roboto)
 11. login - form inputs - change the styling when an input is focused (done)
 12. login - make sure the login page is fully responsive (done)
+13. navigation - after clicking one of the links in the navigation, the navigation should close (fixed)
+14. butonul de incarca documentele - modal - redo
 
 
 

@@ -5,11 +5,6 @@ import UploadSteps from "../ui/UploadSteps";
 import UploadDocuments from "../features/upload/UploadDocuments";
 import WhatsAppButton from "../ui/WhatsAppButton";
 
-const LogoutContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
 const Main = styled.div`
   height: 100vh;
   display: flex;
@@ -20,9 +15,6 @@ const Main = styled.div`
 function UploadPage() {
   return (
     <div>
-      <LogoutContainer className="container">
-        <Logout />
-      </LogoutContainer>
       <Main>
         <UploadSteps />
         <UploadDocuments />

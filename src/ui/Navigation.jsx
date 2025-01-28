@@ -111,18 +111,30 @@ function Navigation({ isSticky }) {
         >
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <StyledNavLink to="/" className="nav-link">
+              <StyledNavLink
+                to="/"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
                 Acasă
               </StyledNavLink>
             </li>
             <li className="nav-item">
-              <StyledNavLink to="/services" className="nav-link">
+              <StyledNavLink
+                to="/services"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
                 Servicii
               </StyledNavLink>
             </li>
             {user && user.email !== "mona@senorexpert.ro" ? (
               <li className="nav-item">
-                <StyledNavLink to="/upload" className="nav-link">
+                <StyledNavLink
+                  to="/upload"
+                  className="nav-link"
+                  onClick={() => setIsOpen(false)}
+                >
                   Upload
                 </StyledNavLink>
               </li>
@@ -130,7 +142,11 @@ function Navigation({ isSticky }) {
               ""
             )}
             <li className="nav-item">
-              <StyledNavLink to="/connect" className="nav-link">
+              <StyledNavLink
+                to="/connect"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
                 {user ? (
                   <span onClick={handleLogout}>Deconectare</span>
                 ) : (

@@ -5,10 +5,13 @@ import {
   uploadFileToStorage,
 } from "../services/apiDocuments";
 import toast from "react-hot-toast";
+import { ModalContext } from "./Modal";
+import { useContext } from "react";
 
 function UploadDocumentsForm({ onCloseModal }) {
   const { register, handleSubmit, reset } = useForm();
   const queryClient = useQueryClient();
+  const { close } = useContext(ModalContext);
 
   const { mutateAsync, isLoading: isCreating } = useMutation({
     mutationFn: async ({ formData, files }) => {
@@ -25,6 +28,7 @@ function UploadDocumentsForm({ onCloseModal }) {
       toast.success("Entry created successfully!");
       queryClient.invalidateQueries({ queryKey: ["documents"] });
       reset();
+      close();
     },
     onError: (err) => toast.error(err.message),
   });
@@ -38,7 +42,6 @@ function UploadDocumentsForm({ onCloseModal }) {
 
     // Mutate with form data and files
     await mutateAsync({ formData, files: files });
-    onCloseModal?.();
   }
 
   return (

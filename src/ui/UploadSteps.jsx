@@ -1,11 +1,19 @@
+import styled from "styled-components";
+
+const StyledUploadSteps = styled.div`
+  padding: 5rem;
+`;
+
+const Text = styled.div``;
+
 function UploadSteps() {
   return (
-    <div className="container-fluid">
+    <StyledUploadSteps className="container-fluid">
       <div className="container">
         <div className="row">
           <div className="col-md-4">
             <h4>Pasul 1</h4>
-            <p>Apasă butonul "Încarcă documente".</p>
+            <Text>Apasă butonul "Încarcă documente" de mai jos.</Text>
           </div>
           <div className="col-md-4">
             <h4>Pasul 2</h4>
@@ -17,7 +25,7 @@ function UploadSteps() {
           </div>
         </div>
       </div>
-    </div>
+    </StyledUploadSteps>
   );
 }
 
