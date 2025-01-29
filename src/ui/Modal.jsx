@@ -12,7 +12,7 @@ import styled from "styled-components";
 import { useOutsideClick } from "../hooks/useOutsideClick";
 
 const StyledModal = styled.div`
-  position: fixed;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -21,6 +21,29 @@ const StyledModal = styled.div`
   box-shadow: var(--shadow-lg);
   padding: 3.2rem 4rem;
   transition: all 0.5s;
+  min-height: 350px;
+
+  overflow: auto;
+
+  /* Scrollbar styles */
+  &::-webkit-scrollbar {
+    width: 0.75rem;
+    color: red;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--color-grey-200);
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-grey-300);
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-grey-400);
+  }
 
   @media (max-width: 576px) {
     padding: 1.5rem;
@@ -62,6 +85,9 @@ const StyledModal = styled.div`
 `;
 
 const Button = styled.button`
+  position: absolute;
+  top: -10%;
+  right: 5%;
   background: none;
   border: none;
   padding: 0.4rem;
@@ -82,67 +108,7 @@ const Button = styled.button`
     /* Sometimes we need both */
     /* fill: var(--color-grey-500);
     stroke: var(--color-grey-500); */
-    color: var(--color-grey-100);
-  }
-
-  @media (max-width: 576px) {
-    position: fixed;
-    top: 1.2rem;
-    right: 1.5rem;
-    & svg {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
-
-  @media (min-width: 576px) and (max-width: 768px) {
-    position: fixed;
-    top: 2rem;
-    right: 3rem;
-    & svg {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
-
-  @media (min-width: 768px) and (max-width: 992px) {
-    position: fixed;
-    top: 2rem;
-    right: 3rem;
-    & svg {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
-
-  @media (min-width: 992px) and (max-width: 1200px) {
-    position: fixed;
-    top: 1rem;
-    right: 6rem;
-    & svg {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
-  }
-
-  @media (min-width: 1200px) and (max-width: 1400px) {
-    position: fixed;
-    top: 1rem;
-    right: 7.5rem;
-    & svg {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
-  }
-
-  @media (min-width: 1400px) {
-    position: fixed;
-    top: 1rem;
-    right: 12.5rem;
-    & svg {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
+    color: var(--color-grey-400);
   }
 `;
 
@@ -195,10 +161,12 @@ function Window({ children, name }) {
 
   return createPortal(
     <Overlay>
-      <Button onClick={close}>
-        <HiXMark />
-      </Button>
-      <StyledModal ref={ref}>{children}</StyledModal>
+      <StyledModal ref={ref}>
+        <Button onClick={close}>
+          <HiXMark />
+        </Button>
+        {children}
+      </StyledModal>
     </Overlay>,
     document.body
   );

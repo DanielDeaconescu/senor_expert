@@ -14,6 +14,7 @@ function InfoSection() {
     const speed = 400;
 
     const animateCounters = () => {
+      let completedAnimations = 0;
       counters.forEach((counter) => {
         const updateCount = () => {
           const target = +counter.getAttribute("data-target");
@@ -25,12 +26,19 @@ function InfoSection() {
             setTimeout(updateCount, 1);
           } else {
             counter.innerText = target.toLocaleString();
+            completedAnimations++;
+            if (completedAnimations === counters.length) {
+              observer.disconnect();
+            }
           }
         };
 
         updateCount();
       });
     };
+
+    const statement = document.querySelector(".statement");
+    if (!statement) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,7 +52,7 @@ function InfoSection() {
       { threshold: 0.2 }
     );
 
-    observer.observe(document.querySelector(".statement"));
+    observer.observe(statement);
 
     return () => observer.disconnect();
   }, []);

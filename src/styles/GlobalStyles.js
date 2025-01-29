@@ -134,6 +134,22 @@ body {
   /* font-size: 1.6rem; */
 }
 
+/* scrollbar styling */
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-grey-300);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey-400);
+  border-radius: 1rem;
+}
+
 input,
 button,
 textarea,
@@ -270,6 +286,32 @@ FOR DARK MODE
 .modal-open{
   overflow: hidden;
 }
+
+table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        td[colspan="2"] {
+            background-color: #f9f9f9;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
 
 `;
 
