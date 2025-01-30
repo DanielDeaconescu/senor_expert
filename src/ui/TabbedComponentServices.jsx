@@ -10,7 +10,7 @@ const StyledTabbedComponentServices = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem 0;
+  padding: 1rem 0;
 
   @media (max-width: 576px) {
     height: 450px;

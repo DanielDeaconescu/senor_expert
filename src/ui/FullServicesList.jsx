@@ -7,21 +7,33 @@ const Text = styled.div`
   text-align: justify;
 `;
 
+const IconContainer = styled.div``;
+
 const InfoNote = styled.div`
   color: var(--clr-primary);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
 `;
 
 const InfoNoteText = styled.span`
-  color: black;
+  color: var(--color-grey-700);
   padding-left: 0.5rem;
-  font-size: 1rem;
+
   max-width: 60%;
   text-align: justify;
+
+  @media (max-width: 576px) {
+    text-align: center;
+    max-width: 100%;
+    font-size: 1.1rem;
+  }
 `;
 
 const FullServicesListContainer = styled.div``;
@@ -447,7 +459,7 @@ function FullServicesList() {
       </StyledFullServicesList>
       <InfoNote>
         <div>
-          <BsFillInfoSquareFill />
+          <BsFillInfoSquareFill className="info-icon" />
         </div>
         <InfoNoteText>
           Tarifele afișate pe această pagină sunt orientative și pot varia în

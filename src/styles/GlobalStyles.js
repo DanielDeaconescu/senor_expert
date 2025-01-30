@@ -314,6 +314,10 @@ table {
             background-color: #f1f1f1;
         }
 
+        .info-icon {
+          font-size: 2rem;
+        }
+
 `;
 
 export default GlobalStyles;
