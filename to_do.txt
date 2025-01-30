@@ -48,10 +48,12 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
     24.1 home page (done)
     24.2 services page (done)
 25. chestia care este pe site-ul dat de Mona
-26. de rescris "lista orientativa de preturi"
+26. de rescris "lista orientativa de preturi" (done - astept confirmarea Monei)
 27. add a border-bottom to the navigation bar (done)
 28. add a border-top to the <Footer /> (done)
-29. de adaugat o nota informativa cum ca preturile au doar scop orientativ
+29. de adaugat o nota informativa cum ca preturile au doar scop orientativ (done)
+30. create a favicon
+31. create a 404 not found page
 
 
 
