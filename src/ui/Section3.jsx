@@ -13,6 +13,7 @@ const StyledText = styled.div`
 
 const StyledParagraph = styled.p`
   text-align: justify;
+  line-height: 1.4;
 `;
 
 const Title = styled.div`
@@ -137,16 +138,16 @@ function Section3() {
               <h2 className="display-6">Servicii de Consultanță Integrate</h2>
 
               <StyledParagraph>
-                Alături de serviciile de contabilitate clasice pe care le
-                oferim, ne-am folsit de experiența cumulată de-a lungul timpului
-                pentru a integra și consultanța.
+                Ne remarcăm prin faptul că oferim servicii de consultanță
+                integrate clienților noștri folosind experiența cumulată de-a
+                lungul timpului.
               </StyledParagraph>
               <StyledParagraph>
                 De la asistență în implementarea măsurilor impuse de legislația
-                în vigoare și până la explicarea conceptelor de business și
-                contabilitate, ne străduim să oferim consultanță personalizată
+                în vigoare și până la explicarea conceptelor de contabilitate și
+                de business, ne străduim să oferim consultanță personalizată
                 astfel încât fiecare client să aibă parte de suportul necesar
-                pentru a naviga
+                pentru a naviga cu succes provocările antreprenoriatului.
               </StyledParagraph>
               <ul className="list-group list-group-flush lh-lg">
                 <li className="list-group-item">

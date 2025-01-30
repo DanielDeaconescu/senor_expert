@@ -21,14 +21,11 @@ function FeaturesSection() {
           <div className="col-md-4 d-flex gap-4">
             <i className="fa-solid fa-book-open fa-3x text-primary"></i>
             <div>
-              <h5 className="fw-bold">
-                Informează-te despre serviciile contabile Senor Expert
-              </h5>
+              <h5 className="fw-bold">Informează-te</h5>
               <StyledText className="text-muted">
-                Descoperă gama noastră completă de servicii, de la contabilitate
-                financiară la consultanță fiscală și salarizare. Află cum te
-                putem ajuta să-ți gestionezi mai bine afacerea și să rămâi mereu
-                conform cu legislația.
+                Află care sunt toate serviciile oferite de Senor Expert, precum
+                și prețurile orientative ale serviciilor, astfel încât să-ți
+                faci o idee despre eventualele costuri.
               </StyledText>
             </div>
           </div>
@@ -36,13 +33,11 @@ function FeaturesSection() {
           <div className="col-md-4 d-flex gap-4">
             <i className="fa-solid fa-user-lock fa-3x text-secondary"></i>
             <div>
-              <h5 className="fw-bold">
-                Conectează-te folosind contul oferit de echipa noastră
-              </h5>
+              <h5 className="fw-bold">Conectează-te</h5>
               <StyledText className="text-muted">
-                Accesează platforma noastră online cu contul tău personal pentru
-                a beneficia de o experiență modernă și sigură în gestionarea
-                documentelor contabile.
+                Dacă îți place tehnologia, îți putem crea un cont pe platforma
+                noastră și poți încărca aici o parte din documentele contabile
+                ale afacerii tale.
               </StyledText>
             </div>
           </div>
@@ -50,11 +45,11 @@ function FeaturesSection() {
           <div className="col-md-4 d-flex gap-4">
             <i className="fa-solid fa-file-upload fa-3x text-primary"></i>
             <div>
-              <h5 className="fw-bold">Încarcă online documentele contabile</h5>
+              <h5 className="fw-bold">Încarcă documente</h5>
               <StyledText className="text-muted">
-                Simplifică procesul de transmitere a documentelor. Încarcă
-                online fișierele contabile direct în platforma noastră, rapid și
-                fără efort.
+                Ai uitat să aduci un document contabil când ai predat
+                documentele la sediul nostru? Încarcă documentul care lipsește
+                online și ești scutit de un drum.
               </StyledText>
             </div>
           </div>

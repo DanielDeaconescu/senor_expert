@@ -1,4 +1,4 @@
-import logoImg from "../data/images/logo_test.png";
+import logoImg from "../data/images/senor_expert_logo_nobg.png";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router";
@@ -8,8 +8,9 @@ import { getCurrentUser, logout } from "../services/apiAuth";
 const StyledNavigation = styled.nav`
   position: relative;
   width: 100%;
-  background-color: var(--clr-my-grey-0);
+  background-color: var(--color-grey-0);
   transition: all 0.3s ease;
+  border-bottom: 4px solid var(--clr-primary);
 
   &.navbar-sticky {
     position: fixed;
@@ -29,10 +30,11 @@ const StyledImage = styled.img`
 const StyledNavLink = styled(NavLink)`
   padding: 1.5rem;
   transition: all 0.3s ease;
+  color: black;
 
   &:hover {
-    background-color: var(--color-grey-0);
-    color: var(--color-grey-900) !important;
+    background-color: var(--clr-primary);
+    color: var(--color-grey-0) !important;
   }
 
   &.active {
@@ -94,7 +96,7 @@ function Navigation({ isSticky }) {
       } navbar navbar-expand-md navbar-dark navbar-custom`}
     >
       <div className="container">
-        <NavLink href="#" className="navbar-brand">
+        <NavLink to="/" className="navbar-brand">
           <StyledImage src={logoImg} alt="" />
         </NavLink>
         <button

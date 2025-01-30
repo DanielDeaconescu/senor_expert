@@ -210,9 +210,9 @@ function TabbedComponentServices() {
         <div className="container">
           <h3>Lista Serviciilor Senor Expert</h3>
           <p>
-            Explorează serviciile noastre și descoperă soluțiile care se
-            potrivesc cel mai bine afacerii tale. Selectează un tab pentru mai
-            multe detalii despre fiecare serviciu.
+            Descoperă informații generale despre serviciile contabile și găsește
+            soluțiile care se potrivesc cel mai bine pentru afacerea ta.
+            Selectează un tab pentru mai multe detalii despre fiecare serviciu.
           </p>
           <StyledTabs className="tabs container">
             <StyledButton
@@ -228,16 +228,16 @@ function TabbedComponentServices() {
               <MdAttachMoney />
             </StyledButtonSmall>
             <StyledButton
-              className={activeTab === "tab2" ? "tabbed-active" : ""}
-              onClick={() => handleTabClick("tab2")}
+              className={activeTab === "tab4" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab4")}
             >
-              Consultanță Fiscală
+              Contabilitate de Gestiune
             </StyledButton>
             <StyledButtonSmall
-              className={activeTab === "tab2" ? "tabbed-active" : ""}
-              onClick={() => handleTabClick("tab2")}
+              className={activeTab === "tab4" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab4")}
             >
-              <FaRegMoneyBillAlt />
+              <MdAccountBalance />
             </StyledButtonSmall>
             <StyledButton
               className={activeTab === "tab3" ? "tabbed-active" : ""}
@@ -252,16 +252,16 @@ function TabbedComponentServices() {
               <IoIosPersonAdd />
             </StyledButtonSmall>
             <StyledButton
-              className={activeTab === "tab4" ? "tabbed-active" : ""}
-              onClick={() => handleTabClick("tab4")}
+              className={activeTab === "tab2" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab2")}
             >
-              Contabilitate de Gestiune
+              Consultanță Fiscală
             </StyledButton>
             <StyledButtonSmall
-              className={activeTab === "tab4" ? "tabbed-active" : ""}
-              onClick={() => handleTabClick("tab4")}
+              className={activeTab === "tab2" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab2")}
             >
-              <MdAccountBalance />
+              <FaRegMoneyBillAlt />
             </StyledButtonSmall>
           </StyledTabs>
         </div>

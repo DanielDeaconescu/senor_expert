@@ -64,9 +64,8 @@ function Section4() {
                 Încărcați documentele contabile rapid și sigur
               </h2>
               <CTAParagraph>
-                Autentificați-vă pentru a avea acces la funcționalitatea de
-                încărcare a documentelor și pentru a beneficia de o gestionare
-                eficientă a contabilității.
+                Folosiți contul de acces transmis de echipa noastră și aveți
+                acces la funcționalitatea de încărcare a documentelor online.
               </CTAParagraph>
 
               <NavLink to="/connect" className="btn btn-primary text-white">

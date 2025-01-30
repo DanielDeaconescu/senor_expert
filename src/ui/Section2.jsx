@@ -97,12 +97,10 @@ function Section2() {
               <div className="text-container d-flex flex-column justify-content-center h-100">
                 <h2 className="display-6">Despre Senor Expert</h2>
                 <StyledText>
-                  Senor Expert oferă soluții complete și profesioniste pentru
-                  gestionarea financiară a afacerii tale. Cu o echipă dedicată
-                  și o experiență vastă în domeniul contabilității, suntem aici
-                  să te sprijinim în luarea celor mai bune decizii financiare.
-                  Ne adaptăm nevoilor tale și îți oferim servicii personalizate
-                  pentru succesul afacerii tale.
+                  Oferim soluții complete pentru gestionarea financiară a
+                  afacerii tale. Cu o echipă dedicată și o experiență vastă în
+                  domeniul contabilității, îți oferim servicii contabile de
+                  înaltă calitate, astfel încât afacerea ta să prospere.
                 </StyledText>
                 <ul className="list-group list-group-flush lh-lg">
                   <li className="list-group-item">
@@ -183,9 +181,8 @@ function Section2() {
                       <StyledTextModal>
                         Valorile noastre stau la baza fiecărei colaborări:
                         profesionalismul în tot ceea ce facem, transparența în
-                        comunicare și acțiuni, și angajamentul față de relații
-                        de lungă durată. Aceste principii ne ghidează în
-                        atingerea celor mai bune rezultate.
+                        comunicare și acțiuni și angajamentul pe care ni-l luăm
+                        față de relațiile de lungă durată.
                       </StyledTextModal>
                       <ul className="list-group list-group-flush lh-lg">
                         <ListItem className="list-group-item">

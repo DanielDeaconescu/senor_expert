@@ -75,7 +75,7 @@ function InfoSection() {
                 <span> ani de experiență</span>
               </div>
             </Card>
-            <small>oferind servicii de Contabilitate.</small>
+            <small>oferind servicii de contabilitate.</small>
           </div>
           <div className="col-md-4 col-sm-6">
             <Card className="statistic-card">

@@ -22,7 +22,6 @@ const StyledModal = styled.div`
   padding: 3.2rem 4rem;
   transition: all 0.5s;
   min-height: 350px;
-
   overflow: auto;
 
   /* Scrollbar styles */
@@ -46,26 +45,28 @@ const StyledModal = styled.div`
   }
 
   @media (max-width: 576px) {
-    padding: 1.5rem;
+    padding: 3rem 1.5rem;
     max-height: 80%;
     overflow: auto;
     width: 90%;
   }
 
   @media (min-width: 576px) and (max-width: 768px) {
-    padding: 1.5rem;
+    padding: 3.2rem 1.5rem;
     max-height: 90%;
     overflow: auto;
     width: 75%;
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
+    padding: 3.4rem 1.5rem;
     max-height: 90%;
     overflow: auto;
     width: 80%;
   }
 
   @media (min-width: 992px) and (max-width: 1200px) {
+    padding: 3.6rem 1.5rem;
     max-height: 90%;
     overflow: auto;
     width: 70%;
@@ -109,6 +110,56 @@ const Button = styled.button`
     /* fill: var(--color-grey-500);
     stroke: var(--color-grey-500); */
     color: var(--color-grey-400);
+  }
+
+  @media (max-width: 576px) {
+    top: 0.25rem;
+    right: 1rem;
+
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    top: 0.25rem;
+    right: 1rem;
+
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    top: 0.5rem;
+    right: 1.25rem;
+
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    top: 0.5rem;
+    right: 1.25rem;
+
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    top: 0.5rem;
+    right: 1.25rem;
+
+    & svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
   }
 `;
 

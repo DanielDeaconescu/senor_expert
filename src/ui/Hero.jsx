@@ -1,3 +1,4 @@
+import Modal from "../ui/Modal";
 import HeaderHomeBackground from "../data/images/header-home-background.jpg";
 import HeaderHomeImage from "../data/images/header-home-image.jpg";
 import styled from "styled-components";
@@ -31,6 +32,10 @@ const StyledHeader = styled.header`
   }
 `;
 
+const TextLargeScreen = styled.span`
+  display: none;
+`;
+
 const StyledParagraph = styled.p`
   text-align: justify;
 `;
@@ -40,6 +45,89 @@ const StyledHeaderHomeImage = styled.img`
   border-radius: 1rem;
   position: relative;
   z-index: 100;
+`;
+
+const StyledText = styled.div`
+  text-align: justify;
+`;
+
+const StyledTextModal = styled.div`
+  text-align: justify;
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+`;
+
+const ModalTitle = styled.h4`
+  @media (max-width: 576px) {
+    font-size: 1.6rem;
+  }
+`;
+
+const ItemText = styled.div`
+  display: flex;
+  line-height: 1.5;
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    text-align: left;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    text-align: left;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    text-align: left;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    text-align: left;
+  }
+
+  @media (min-width: 1400px) {
+    text-align: justify;
+  }
+`;
+
+const Title = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const StyledSection2SideImage = styled.img`
+  border-radius: 1rem;
+`;
+
+const ContainerImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ValuesTitle = styled.h3`
+  padding-top: 1rem;
+`;
+
+const ItemTitle = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  & h4 {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 576px) {
+    justify-content: center;
+    white-space: nowrap;
+  }
+`;
+
+const ListItem = styled.li`
+  text-align: center;
 `;
 
 function Hero() {
@@ -63,22 +151,69 @@ function Hero() {
                   Bun venit la Senor Expert!
                 </h1>
                 <StyledParagraph className="lead">
-                  Bun venit la Senor Expert! Suntem o echipă de profesioniști
-                  dedicați care oferă soluții complete de contabilitate,
-                  consultanță fiscală și salarizare, adaptate nevoilor afacerii
-                  tale. Cu experiență vastă și un angajament ferm față de
-                  excelență, ne asigurăm că afacerea ta se dezvoltă în
-                  conformitate cu legislația în vigoare și îți oferim sprijinul
-                  necesar pentru a lua cele mai bune decizii financiare. Alege
-                  Senor Expert pentru un partener de încredere pe drumul
-                  succesului tău.
+                  Suntem o echipă de experți contabili care oferă soluții
+                  complete de contabilitate, fiscalitate, resurse umane și
+                  salarizare, consultanță pentru înființarea societăților
+                  comerciale și multe altele.
                 </StyledParagraph>
 
                 <div className="form-container text-center">
                   <div className="d-grid">
-                    <button className="btn btn-primary btn-lg text-white">
-                      Conectare
-                    </button>
+                    <Modal>
+                      <Modal.Open>
+                        <button className="btn btn-primary btn-lg text-white">
+                          Află mai mult
+                        </button>
+                      </Modal.Open>
+                      <Modal.Window>
+                        <div className="container">
+                          <ModalTitle>Valorile noastre</ModalTitle>
+                          <StyledTextModal>
+                            Valorile noastre stau la baza fiecărei colaborări:
+                            profesionalismul în tot ceea ce facem, transparența
+                            în comunicare și acțiuni și angajamentul pe care
+                            ni-l luăm față de relațiile de lungă durată.
+                          </StyledTextModal>
+                          <ul className="list-group list-group-flush lh-lg">
+                            <ListItem className="list-group-item">
+                              <ItemTitle>
+                                <i class="fa-solid fa-address-card"></i>
+                                <h4>Profesionalism</h4>
+                              </ItemTitle>
+                              <ItemText>
+                                Ne dedicăm oferirii unor servicii contabile la
+                                cele mai înalte standarde de calitate,
+                                respectând legislația în vigoare și cele mai
+                                bune practici din domeniu.
+                              </ItemText>
+                            </ListItem>
+                            <ListItem className="list-group-item">
+                              <ItemTitle>
+                                <i class="fas fa-eye"></i>
+                                <h4>Transparență</h4>
+                              </ItemTitle>
+                              <ItemText>
+                                Construim relații bazate pe încredere, oferind
+                                soluții contabile clare, corecte și transparente
+                                pentru afacerea dumneavoastră.
+                              </ItemText>
+                            </ListItem>
+
+                            <ListItem className="list-group-item ">
+                              <ItemTitle>
+                                <i class="fas fa-handshake"></i>
+                                <h4>Relații de Lungă Durată</h4>
+                              </ItemTitle>
+                              <ItemText>
+                                Construim parteneriate durabile, bazate pe
+                                comunicare eficientă și sprijin constant, pentru
+                                succesul clienților noștri.
+                              </ItemText>
+                            </ListItem>
+                          </ul>
+                        </div>
+                      </Modal.Window>
+                    </Modal>
                   </div>
                 </div>
               </div>

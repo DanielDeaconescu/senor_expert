@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
   
     --clr-my-grey-0: #2b3041;
     --clr-whatsapp-green: hsl(142, 70%, 49%);
+    --clr-primary: #3e7b27;
 
   &, &.light-mode{
   /* Grey */

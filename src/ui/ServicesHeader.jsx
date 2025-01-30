@@ -29,16 +29,9 @@ function ServicesHeader() {
               <div className="text-container p-4 d-flex flex-column justify-content-center h-100 mb-5">
                 <h1 className="display-3 fw-bold">Servicii Senor Expert</h1>
                 <p className="lead custom-paragraph">
-                  La Senor Expert, simplificăm contabilitatea prin soluții
-                  moderne și eficiente, adaptate nevoilor afacerii tale. Pe
-                  lângă serviciile complete de contabilitate, consultanță
-                  financiară și fiscală, oferim clienților noștri posibilitatea
-                  de a încărca documentele contabile online, direct din contul
-                  personal, într-un mediu securizat. Astfel, economisești timp
-                  prețios și beneficiezi de o gestionare rapidă și transparentă
-                  a actelor tale. Cu o echipă dedicată și o experiență vastă în
-                  domeniu, suntem partenerul tău de încredere în drumul spre
-                  succes.
+                  Alături de serviciile de contabilitate și fiscalitate despre
+                  care poți citi mai jos, îți oferim posibilitatea de a încărca
+                  documentele contabile online într-un mediu securizat.
                 </p>
 
                 <div className="text-center">
