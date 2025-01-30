@@ -93,7 +93,7 @@ function Navigation({ isSticky }) {
     <StyledNavigation
       className={`${
         isSticky ? "navbar-sticky" : ""
-      } navbar navbar-expand-md navbar-dark navbar-custom`}
+      } navbar navbar-expand-md navbar-light navbar-custom`}
     >
       <div className="container">
         <NavLink to="/" className="navbar-brand">
