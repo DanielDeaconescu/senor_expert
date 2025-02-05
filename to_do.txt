@@ -56,6 +56,12 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
 31. create a 404 not found page
 
 
+Create new user functionality
+1. Close the modal when the new user is created (done)
+2. Change the text to Romanian, both the label and the errors (done)
+3. Change the design of the <SignupForm /> to include Bootstrap (done)
+4. create pagination for the Admin page
+
 
 
 

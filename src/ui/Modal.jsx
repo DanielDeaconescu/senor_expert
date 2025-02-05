@@ -23,6 +23,8 @@ const StyledModal = styled.div`
   transition: all 0.5s;
   min-height: 350px;
   overflow: auto;
+  display: flex;
+  justify-content: center;
 
   /* Scrollbar styles */
   &::-webkit-scrollbar {
@@ -82,6 +84,7 @@ const StyledModal = styled.div`
     max-height: 90%;
     overflow: auto;
     position: absolute;
+    width: 25%;
   }
 `;
 
@@ -153,6 +156,16 @@ const Button = styled.button`
   }
 
   @media (min-width: 992px) and (max-width: 1200px) {
+    top: 0.5rem;
+    right: 1.25rem;
+
+    & svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
+
+  @media (min-width: 1201px) {
     top: 0.5rem;
     right: 1.25rem;
 
