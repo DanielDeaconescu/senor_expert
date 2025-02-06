@@ -52,8 +52,9 @@ upload -> steps: 1. Apasa butonul de "Incarca fisere"
 27. add a border-bottom to the navigation bar (done)
 28. add a border-top to the <Footer /> (done)
 29. de adaugat o nota informativa cum ca preturile au doar scop orientativ (done)
-30. create a favicon
-31. create a 404 not found page
+30. create a favicon (done) 
+31. create a 404 not found page (done)
+32. replace the logo image with the SVG (done)
 
 
 Create new user functionality
@@ -71,10 +72,6 @@ Create new user functionality
 12. make sure that the pagination is fully responsive (done)
 13. make the cancel button on the add new user form work - we'll need to create a new component (done)
 14. test the counters from the homepage in other browsers as well
-
-
-
-
 
 
 Supabase:

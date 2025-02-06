@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LogoImage from "../data/images/senor_expert_logo_nobg.png";
+import LogoImage from "../data/images/senor_expert_logo_nobg.svg";
 
 const LogoContainer = styled.div`
   background-color: var(--color-grey-0);

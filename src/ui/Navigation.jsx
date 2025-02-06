@@ -1,4 +1,4 @@
-import logoImg from "../data/images/senor_expert_logo_nobg.png";
+import logoImg from "../data/images/senor_expert_logo_nobg.svg";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router";
