@@ -5,13 +5,55 @@ import { saveAs } from "file-saver";
 import supabase from "../services/supabase";
 
 const DocumentItem = styled.div`
-  border: 1px solid black;
+  padding: 1rem;
+  border: 1px solid white;
   width: 100%;
+  border-radius: 0.5rem;
+  position: relative;
+  z-index: 10;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
 `;
 
-function DocumentSingle({ companyName, month, documents }) {
+const DownloadButton = styled.button`
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: black;
+`;
+
+function DocumentSingle({ companyName, month, documents, created_at }) {
   const [isDownloadDisabled, setIsDownloadDisabled] = useState(false);
-  const [buttonText, setButtonText] = useState("Download all documents");
+  const [buttonText, setButtonText] = useState("Descarcă documentele");
+
+  function formatTimestamp(timestamp) {
+    const date = new Date(timestamp);
+
+    // Define month names in Romanian
+    const months = [
+      "Ianuarie",
+      "Februarie",
+      "Martie",
+      "Aprilie",
+      "Mai",
+      "Iunie",
+      "Iulie",
+      "August",
+      "Septembrie",
+      "Octombrie",
+      "Noiembrie",
+      "Decembrie",
+    ];
+
+    // Extract date parts
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+
+    return `${day} ${month} ${year}, ora ${hours}:${minutes}`;
+  }
 
   const documentUrls = Array.isArray(documents) ? documents : [documents];
 
@@ -34,10 +76,10 @@ function DocumentSingle({ companyName, month, documents }) {
     // Update button state and text
     if (cleanedUrls.length === 0) {
       setIsDownloadDisabled(true);
-      setButtonText("No documents");
+      setButtonText("Niciun document");
     } else {
       setIsDownloadDisabled(false);
-      setButtonText("Download all documents");
+      setButtonText("Descarcă documentele");
     }
   }, [documents, documentUrls]); // Run this whenever `documents` changes
 
@@ -106,20 +148,29 @@ function DocumentSingle({ companyName, month, documents }) {
     <DocumentItem>
       <div>
         <strong>
-          <span>Numele companiei: </span>
+          <span>Nume firmă: </span>
         </strong>
-        <strong>{companyName}</strong>
+        <span>{companyName}</span>
       </div>
       <div>
         <strong>
-          <span>Luna:</span>
+          <span>Luna: </span>
         </strong>
-        <strong>{month}</strong>
+        <span>{month}</span>
       </div>
       <div>
-        <button onClick={downloadDocuments} disabled={isDownloadDisabled}>
+        <strong>
+          <span>Documente încărcate la: </span>
+        </strong>
+        <span>{formatTimestamp(created_at)}</span>
+      </div>
+      <div>
+        <DownloadButton
+          onClick={downloadDocuments}
+          disabled={isDownloadDisabled}
+        >
           {buttonText}
-        </button>
+        </DownloadButton>
       </div>
     </DocumentItem>
   );
