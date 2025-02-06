@@ -71,7 +71,7 @@ Create new user functionality
 11. make sure that the delete in bulk modal is fully responsive (done)
 12. make sure that the pagination is fully responsive (done)
 13. make the cancel button on the add new user form work - we'll need to create a new component (done)
-14. test the counters from the homepage in other browsers as well
+14. test the counters from the homepage in other browsers as well - they all work in all the browsers - so maybe find a way to do it differently
 
 
 Supabase:
