@@ -6,15 +6,71 @@ import { useSignup } from "./useSignup";
 import { ModalContext } from "../../ui/Modal";
 import { useContext } from "react";
 import styled from "styled-components";
+import AddUserCancelButton from "../../ui/AddUserCancelButton";
 
 const Form = styled.form`
   max-width: 450px;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 1400px) {
+    overflow-x: hidden;
+  }
 `;
 
 const ActionContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 0.5rem;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    padding-top: 0.5rem;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    padding-top: 0.5rem;
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    padding-top: 0.5rem;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    padding-top: 0.5rem;
+  }
+
+  @media (min-width: 1400px) {
+    padding-top: 0.5rem;
+  }
+`;
+
+const CreateNewUserButton = styled.button`
+  white-space: nowrap;
 `;
 
 function SignupForm() {
@@ -100,17 +156,10 @@ function SignupForm() {
 
       <ActionContainer>
         {/* type is an HTML attribute! */}
-        <button
-          variation="secondary"
-          className="btn btn-danger"
-          type="reset"
-          disabled={isLoading}
-        >
-          Anulează
-        </button>
-        <button className="btn btn-success" disabled={isLoading}>
+        <AddUserCancelButton isLoading={isLoading} />
+        <CreateNewUserButton className="btn btn-success" disabled={isLoading}>
           Creează utilizator nou
-        </button>
+        </CreateNewUserButton>
       </ActionContainer>
     </Form>
   );

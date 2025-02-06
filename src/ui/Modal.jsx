@@ -48,43 +48,37 @@ const StyledModal = styled.div`
 
   @media (max-width: 576px) {
     padding: 3rem 1.5rem;
-    max-height: 80%;
     overflow: auto;
-    width: 90%;
+    width: 320px;
   }
 
   @media (min-width: 576px) and (max-width: 768px) {
     padding: 3.2rem 1.5rem;
-    max-height: 90%;
     overflow: auto;
-    width: 75%;
+    width: 350px;
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
     padding: 3.4rem 1.5rem;
-    max-height: 90%;
     overflow: auto;
-    width: 80%;
+    width: 400px;
   }
 
   @media (min-width: 992px) and (max-width: 1200px) {
     padding: 3.6rem 1.5rem;
-    max-height: 90%;
     overflow: auto;
-    width: 70%;
+    width: 450px;
   }
 
   @media (min-width: 1200px) and (max-width: 1400px) {
-    max-height: 90%;
     overflow: auto;
-    width: 60%;
+    width: 500px;
   }
 
   @media (min-width: 1400px) {
-    max-height: 90%;
     overflow: auto;
     position: absolute;
-    width: 25%;
+    width: 500px;
   }
 `;
 

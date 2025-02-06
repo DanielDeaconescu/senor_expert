@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import JSZip from "jszip";
 import styled from "styled-components";
 import { saveAs } from "file-saver";
 import supabase from "../services/supabase";
+import { useDeleteDocument } from "../features/documents/useDeleteDocument";
+import Modal, { ModalContext } from "../ui/Modal";
+import CancelButton from "./CancelButton";
+import DeleteButton from "./DeleteButton";
 
 const DocumentItem = styled.div`
   padding: 1rem;
@@ -22,9 +26,37 @@ const DownloadButton = styled.button`
   color: black;
 `;
 
-function DocumentSingle({ companyName, month, documents, created_at }) {
+const DocumentSingleActions = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const ConfirmationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ConfirmationActions = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+`;
+
+function DocumentSingle({
+  companyName,
+  month,
+  documents,
+  created_at,
+  documentId,
+}) {
   const [isDownloadDisabled, setIsDownloadDisabled] = useState(false);
   const [buttonText, setButtonText] = useState("Descarcă documentele");
+  const { deleteDocumentFunction, isDeleting } = useDeleteDocument();
 
   function formatTimestamp(timestamp) {
     const date = new Date(timestamp);
@@ -164,14 +196,44 @@ function DocumentSingle({ companyName, month, documents, created_at }) {
         </strong>
         <span>{formatTimestamp(created_at)}</span>
       </div>
-      <div>
+      <DocumentSingleActions>
         <DownloadButton
           onClick={downloadDocuments}
           disabled={isDownloadDisabled}
         >
           {buttonText}
         </DownloadButton>
-      </div>
+        <Modal>
+          <Modal.Open opens="delete-confirmation">
+            <button className="btn btn-danger" disabled={isDeleting}>
+              Șterge
+            </button>
+          </Modal.Open>
+          <Modal.Window name="delete-confirmation">
+            <ConfirmationContainer>
+              <h4 className="text-center">
+                Sigur doriți să ștergeți intrarea din baza de date?
+              </h4>
+              <p className="text-danger text-center">
+                Dacă ștergeți această intrare în baza de date, documentele și
+                informațiile corespunzătoare vor fi șterse definitiv. Această
+                acțiune este ireversibilă.
+              </p>
+              <ConfirmationActions>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => {
+                    deleteDocumentFunction(documentId);
+                  }}
+                >
+                  Șterge
+                </button>
+                <CancelButton />
+              </ConfirmationActions>
+            </ConfirmationContainer>
+          </Modal.Window>
+        </Modal>
+      </DocumentSingleActions>
     </DocumentItem>
   );
 }

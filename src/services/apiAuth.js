@@ -39,6 +39,17 @@ export async function getCurrentUser() {
   return data?.user;
 }
 
+export async function getAllUsers() {
+  const { data, error } = await supabase.auth.admin.listUsers();
+
+  if (error) {
+    console.error("Eroare la incarcarea utilizatorilor", error);
+    return;
+  }
+
+  return data;
+}
+
 export async function logout() {
   const { error } = await supabase.auth.signOut();
   if (error) throw new Error(error.message);

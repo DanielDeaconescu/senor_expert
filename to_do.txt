@@ -60,7 +60,17 @@ Create new user functionality
 1. Close the modal when the new user is created (done)
 2. Change the text to Romanian, both the label and the errors (done)
 3. Change the design of the <SignupForm /> to include Bootstrap (done)
-4. create pagination for the Admin page
+4. create pagination for the Admin page (done)
+5. create a button that will display all the current users (skipped)
+6. for each <DocumentSingle /> create a delete button (done)
+7. make sure that the create new user modal is fully responsive (done)
+8. create a functionality that allows the user to delete in bulk (done)
+9. for the delete and delete all functioanlities build a confirmation popup window (done)
+10. make sure that the delete single modal is fully responsive (done)
+11. make sure that the delete in bulk modal is fully responsive (done)
+12. make sure that the pagination is fully responsive (done)
+13. make the cancel button on the add new user form work - we'll need to create a new component (done)
+14. test the counters from the homepage in other browsers as well
 
 
 

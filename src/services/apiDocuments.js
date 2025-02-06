@@ -1,12 +1,53 @@
 import supabase from "./supabase";
+import { PAGE_SIZE } from "../../utils/constants";
 
-export async function getDocuments() {
-  const { data, error } = await supabase.from("documents").select("*");
+export async function getDocuments({ page }) {
+  let query = supabase.from("documents").select("*", { count: "exact" });
+
+  if (page) {
+    const from = (page - 1) * PAGE_SIZE;
+    const to = from + PAGE_SIZE - 1;
+    query = query.range(from, to);
+  }
+
+  const { data, error, count } = await query;
 
   if (error) {
     console.error(error);
     throw new Error("Documentele nu au putut fi incarcate!");
   }
+
+  return { data, count };
+}
+
+export async function deleteDocument(id) {
+  const { data, error } = await supabase
+    .from("documents")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Eroare la ștergerea documentului!");
+  }
+
+  console.log(data, error);
+
+  return data;
+}
+
+export async function deleteAllDocuments() {
+  const { data, error } = await supabase
+    .from("documents")
+    .delete()
+    .neq("id", 0);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Eroare la ștergerea în masă!");
+  }
+
+  console.log(data, error);
 
   return data;
 }
