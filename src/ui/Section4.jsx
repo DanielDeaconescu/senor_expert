@@ -41,8 +41,6 @@ const CallToActionTextContainer = styled.div`
 `;
 
 const CTAParagraph = styled.p`
-  width: 75%;
-
   @media (max-width: 576px) {
     width: 100%;
   }
@@ -64,8 +62,9 @@ function Section4() {
                 Încărcați documentele contabile rapid și sigur
               </h2>
               <CTAParagraph>
-                Folosiți contul de acces transmis de echipa noastră și aveți
-                acces la funcționalitatea de încărcare a documentelor online.
+                Folosiți <strong>contul de acces</strong> transmis de echipa
+                noastră și aveți acces la funcționalitatea de încărcare a
+                documentelor online.
               </CTAParagraph>
 
               <NavLink to="/connect" className="btn btn-primary text-white">

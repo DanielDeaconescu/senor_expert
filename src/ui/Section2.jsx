@@ -9,7 +9,7 @@ const StyledText = styled.div`
 `;
 
 const StyledTextModal = styled.div`
-  text-align: justify;
+  text-align: left;
   @media (max-width: 576px) {
     text-align: center;
   }
@@ -98,9 +98,10 @@ function Section2() {
                 <h2 className="display-6">Despre Senor Expert</h2>
                 <StyledText>
                   Oferim soluții complete pentru gestionarea financiară a
-                  afacerii tale. Cu o echipă dedicată și o experiență vastă în
-                  domeniul contabilității, îți oferim servicii contabile de
-                  înaltă calitate, astfel încât afacerea ta să prospere.
+                  afacerii tale. Dispunând de experiență vastă în domeniul
+                  contabilității și de o echipă dedicată, îți oferim servicii
+                  contabile de înaltă calitate, astfel încât afacerea ta să
+                  crească.
                 </StyledText>
                 <ul className="list-group list-group-flush lh-lg">
                   <li className="list-group-item">
@@ -116,7 +117,7 @@ function Section2() {
                     <StyledText>
                       Asigurăm înregistrarea și gestionarea tuturor
                       operațiunilor contabile, întocmirea situațiilor financiare
-                      și raportarea conform legislației în vigoare
+                      și raportarea conform legislației în vigoare.
                     </StyledText>
                   </li>
                   <li className="list-group-item">
@@ -172,17 +173,19 @@ function Section2() {
                 <Modal>
                   <Modal.Open opens="modal-1">
                     <button className="btn btn-primary text-white mt-4 align-self-start">
-                      Află mai mult
+                      Valorile noastre
                     </button>
                   </Modal.Open>
                   <Modal.Window name="modal-1">
                     <div className="container">
                       <ModalTitle>Valorile noastre</ModalTitle>
                       <StyledTextModal>
-                        Valorile noastre stau la baza fiecărei colaborări:
-                        profesionalismul în tot ceea ce facem, transparența în
-                        comunicare și acțiuni și angajamentul pe care ni-l luăm
-                        față de relațiile de lungă durată.
+                        Valorile noastre stau la baza fiecărei colaborări:{" "}
+                        <strong>profesionalismul</strong> în tot ceea ce facem,{" "}
+                        <strong>transparența</strong> în comunicare și acțiuni,
+                        precum și angajamentul pe care ni-l luăm față de{" "}
+                        <strong>relațiile de lungă durată</strong> sunt ceea ce
+                        ne caracterizează.
                       </StyledTextModal>
                       <ul className="list-group list-group-flush lh-lg">
                         <ListItem className="list-group-item">
@@ -191,10 +194,9 @@ function Section2() {
                             <h4>Profesionalism</h4>
                           </ItemTitle>
                           <ItemText>
-                            Ne dedicăm oferirii unor servicii contabile la cele
-                            mai înalte standarde de calitate, respectând
-                            legislația în vigoare și cele mai bune practici din
-                            domeniu.
+                            Suntem dedicați pentru a oferi servicii contabile de
+                            înaltă calitate, respectând legislația în vigoare și
+                            cele mai bune practici din domeniu.
                           </ItemText>
                         </ListItem>
                         <ListItem className="list-group-item">
@@ -203,21 +205,22 @@ function Section2() {
                             <h4>Transparență</h4>
                           </ItemTitle>
                           <ItemText>
-                            Construim relații bazate pe încredere, oferind
-                            soluții contabile clare, corecte și transparente
-                            pentru afacerea dumneavoastră.
+                            Ne străduim să construim relații bazate pe
+                            încredere, oferind soluții contabile clare, corecte
+                            și transparente.
                           </ItemText>
                         </ListItem>
 
                         <ListItem className="list-group-item ">
                           <ItemTitle>
                             <i class="fas fa-handshake"></i>
-                            <h4>Relații de Lungă Durată</h4>
+                            <h4>Relații Durabile</h4>
                           </ItemTitle>
                           <ItemText>
-                            Construim parteneriate durabile, bazate pe
-                            comunicare eficientă și sprijin constant, pentru
-                            succesul clienților noștri.
+                            Construim parteneriate stabile și durabile în timp
+                            bazându-ne pe o comunicare eficientă și oferirea de
+                            suport constant adaptat cerințelor clienților
+                            noștri.
                           </ItemText>
                         </ListItem>
                       </ul>

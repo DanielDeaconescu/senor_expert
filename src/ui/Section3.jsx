@@ -138,16 +138,16 @@ function Section3() {
               <h2 className="display-6">Servicii de Consultanță Integrate</h2>
 
               <StyledParagraph>
-                Ne remarcăm prin faptul că oferim servicii de consultanță
-                integrate clienților noștri folosind experiența cumulată de-a
-                lungul timpului.
+                Ne remarcăm prin faptul că oferim clienților noștri servicii de
+                consultanță integrate folosindu-ne de experiența vastă acumulată
+                de-a lungul timpului.
               </StyledParagraph>
               <StyledParagraph>
                 De la asistență în implementarea măsurilor impuse de legislația
                 în vigoare și până la explicarea conceptelor de contabilitate și
-                de business, ne străduim să oferim consultanță personalizată
-                astfel încât fiecare client să aibă parte de suportul necesar
-                pentru a naviga cu succes provocările antreprenoriatului.
+                de business, oferim consultanță personalizată astfel încât
+                fiecare client să aibă parte de suportul necesar pentru a naviga
+                cu succes provocările antreprenoriatului.
               </StyledParagraph>
               <ul className="list-group list-group-flush lh-lg">
                 <li className="list-group-item">
@@ -193,9 +193,9 @@ function Section3() {
                     </strong>
                   </Title>
                   <StyledParagraph>
-                    Punem la dispoziție sprijin pentru alegerea formei juridice
-                    potrivite, elaborarea actelor necesare și organizarea
-                    proceselor interne.
+                    Oferim asistență în alegerea formei juridice potrivite,
+                    elaborarea actelor necesare, organizarea proceselor interne
+                    și multe altele.
                   </StyledParagraph>
                 </li>
               </ul>

@@ -35,9 +35,9 @@ function FeaturesSection() {
             <div>
               <h5 className="fw-bold">Conectează-te</h5>
               <StyledText className="text-muted">
-                Dacă îți place tehnologia, îți putem crea un cont pe platforma
-                noastră și poți încărca aici o parte din documentele contabile
-                ale afacerii tale.
+                Dacă îți place tehnologia, îți putem crea un{" "}
+                <strong>cont pe platforma noastră</strong> și poți încărca aici
+                o parte din documentele contabile ale afacerii tale.
               </StyledText>
             </div>
           </div>
@@ -47,9 +47,9 @@ function FeaturesSection() {
             <div>
               <h5 className="fw-bold">Încarcă documente</h5>
               <StyledText className="text-muted">
-                Ai uitat să aduci un document contabil când ai predat
-                documentele la sediul nostru? Încarcă documentul care lipsește
-                online și ești scutit de un drum.
+                Ai uitat să aduci un document contabil când ai predat dosarul la
+                sediul nostru? Încarcă documentul care lipsește online și ești
+                scutit de un drum.
               </StyledText>
             </div>
           </div>
