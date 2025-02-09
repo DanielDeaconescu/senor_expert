@@ -1,10 +1,10 @@
 import { NavLink } from "react-router";
-import HeaderBackgroundServices from "../data/images/header-background-services.jpg";
+import CTABackground from "../data/images/CTA_background.jpg";
 import UploadImage from "../data/images/upload-image.jpg";
 import styled from "styled-components";
 
 const StyledCallToActionServices = styled.div`
-  background-image: url(${HeaderBackgroundServices});
+  background-image: url(${CTABackground});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

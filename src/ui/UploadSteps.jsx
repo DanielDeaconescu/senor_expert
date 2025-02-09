@@ -31,6 +31,14 @@ function UploadSteps() {
               <i class="bi bi-2-circle-fill pe-2"></i>
               Completează formularul cu atenție
             </h4>
+            <small>
+              <span className="pe-2">
+                <i class="fa-solid fa-circle-info"></i>
+              </span>
+              Pentru a încărca mai multe documente simultan, țineți apăsat
+              butonul "Ctrl" (butonul de Control din partea de stânga jos a
+              tastaturii) la selectarea documentelor.
+            </small>
           </div>
           <div className="col-md-4">
             <h4>

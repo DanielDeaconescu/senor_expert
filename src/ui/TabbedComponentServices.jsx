@@ -116,7 +116,6 @@ const StyledContent = styled.div`
   align-items: center;
   flex-direction: row;
   gap: 1rem;
-  padding: 1.5rem;
 `;
 
 const StyledContainer = styled.div`
@@ -144,12 +143,14 @@ function TabbedComponentServices() {
               <MdAttachMoney />
             </IconContainer>
             <TabTextContent>
-              Prin serviciile noastre de contabilitate financiară, asigurăm
-              întocmirea și gestionarea corectă a situațiilor financiare, astfel
-              încât afacerea ta să fie mereu conformă cu legislația în vigoare.
-              De la înregistrarea operațiunilor contabile până la realizarea
-              balanțelor și a bilanțurilor, oferim transparență și acuratețe în
-              raportarea financiară.
+              Gestionarea financiară corectă este esențială pentru succesul
+              oricărei afacceri. Astfel, prin serviciile noastre de{" "}
+              <strong>contabilitate financiară</strong> asigurăm conformitatea
+              cu reglementările în vigoare și oferim o imagine clară asupra
+              situației economice a companiei tale. De la evidența tranzacțiilor
+              și până la întocmirea situațiilor financiare, ne ocupăm de toate
+              aspectele contabile pentru ca tu să te poți concentra pe alte
+              aspecte legate de dezvoltarea afacerii tale.
             </TabTextContent>
           </StyledContent>
         );
@@ -160,11 +161,14 @@ function TabbedComponentServices() {
               <FaRegMoneyBillAlt />
             </IconContainer>
             <TabTextContent>
-              Obține sprijin profesional pentru optimizarea fiscală și
-              respectarea legislației. Echipa noastră de experți oferă
-              consultanță personalizată, analizând situația specifică a afacerii
-              tale pentru a identifica cele mai bune soluții fiscale, reducând
-              riscurile și costurile inutile.
+              Pentru luarea unor decizii informate este necesară o imagine clară
+              asupra costurilor și performanței afacerii tale. Serviciile de{" "}
+              <strong>contabilitate de gestiune</strong> Senor Expert te ajută
+              să monitorizezi și să optimizezi resursele, să analizezi
+              rentabilitatea și să îmbunătățești strategiile financiare. Îți
+              oferim suport în planificarea bugetară, controlul costurilor și
+              analiza indicatorilor de performanță, astfel încât să poți crește
+              sustenabil și profitabil.
             </TabTextContent>
           </StyledContent>
         );
@@ -176,11 +180,14 @@ function TabbedComponentServices() {
             </IconContainer>
             <TabTextContent>
               Simplifică procesul de gestionare a angajaților cu ajutorul
-              serviciilor noastre de salarizare și resurse umane. De la calculul
-              salariilor și întocmirea declarațiilor fiscale, până la
-              administrarea dosarelor de personal, ne ocupăm de toate detaliile,
-              astfel încât să ai mai mult timp pentru a te concentra pe echipa
-              ta.
+              serviciilor noastre de{" "}
+              <strong>salarizare și resurse umane</strong>. Oferim servicii
+              complete de salarizare, de la calculul corect al salariilor,
+              taxelor și contribuțiilor sociale, până la întocmirea și depunerea
+              declarațiilor obligatorii. De asemenea, ne ocupăm de gestionarea
+              contractelor de muncă, evidența concediilor și a beneficiilor
+              angajaților, astfel încât să ai siguranța că echipa ta este
+              administrată corect și eficient.
             </TabTextContent>
           </StyledContent>
         );
@@ -191,11 +198,13 @@ function TabbedComponentServices() {
               <MdAccountBalance />
             </IconContainer>
             <TabTextContent>
-              Optimizează-ți costurile și procesele interne cu ajutorul
-              serviciilor noastre de contabilitate de gestiune. Te ajutăm să
-              analizezi și să monitorizezi cheltuielile, veniturile și
-              profitabilitatea fiecărei activități din afacerea ta, pentru a lua
-              decizii informate și strategice.
+              Un plan fiscal bine structurat poate face diferența între stagnare
+              și creștere. Oferim <strong>consultanță fiscală</strong> în
+              funcție de nevoile afacerii tale, ajutându-te să optimizezi
+              taxele, să respecți reglementările în vigoare și să eviți
+              riscurile fiscale. Îți stăm la dispoziție pentru asistență în
+              declararea impozitelor, optimizarea obligațiilor fiscale și
+              planificare strategică pentru firma ta.
             </TabTextContent>
           </StyledContent>
         );
@@ -228,14 +237,14 @@ function TabbedComponentServices() {
               <MdAttachMoney />
             </StyledButtonSmall>
             <StyledButton
-              className={activeTab === "tab4" ? "tabbed-active" : ""}
-              onClick={() => handleTabClick("tab4")}
+              className={activeTab === "tab2" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab2")}
             >
               Contabilitate de Gestiune
             </StyledButton>
             <StyledButtonSmall
-              className={activeTab === "tab4" ? "tabbed-active" : ""}
-              onClick={() => handleTabClick("tab4")}
+              className={activeTab === "tab2" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab2")}
             >
               <MdAccountBalance />
             </StyledButtonSmall>
@@ -252,14 +261,14 @@ function TabbedComponentServices() {
               <IoIosPersonAdd />
             </StyledButtonSmall>
             <StyledButton
-              className={activeTab === "tab2" ? "tabbed-active" : ""}
-              onClick={() => handleTabClick("tab2")}
+              className={activeTab === "tab4" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab4")}
             >
               Consultanță Fiscală
             </StyledButton>
             <StyledButtonSmall
-              className={activeTab === "tab2" ? "tabbed-active" : ""}
-              onClick={() => handleTabClick("tab2")}
+              className={activeTab === "tab4" ? "tabbed-active" : ""}
+              onClick={() => handleTabClick("tab4")}
             >
               <FaRegMoneyBillAlt />
             </StyledButtonSmall>

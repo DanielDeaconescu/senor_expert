@@ -20,13 +20,17 @@ const InfoNote = styled.div`
   @media (max-width: 576px) {
     flex-direction: column;
   }
+
+  @media (min-width: 992px) {
+    padding: 2rem 7rem;
+  }
 `;
 
 const InfoNoteText = styled.span`
   color: var(--color-grey-700);
   padding-left: 0.5rem;
 
-  max-width: 60%;
+  /* max-width: 60%; */
   text-align: justify;
 
   @media (max-width: 576px) {
