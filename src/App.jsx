@@ -47,8 +47,8 @@ function App() {
                 </AdminRoute>
               }
             />
-            <Route path="/thank-you" element={<ThankYouPage />} />
           </Route>
+          <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
