@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 
@@ -67,40 +68,35 @@ function ContactForm() {
           <label htmlFor="fullName" className="form-label">
             Nume
           </label>
-          <input
-            type="text"
-            className="form-control"
-            name="fullName"
-            required
-          />
+          <input type="text" className="form-control" name="fullName" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email
           </label>
-          <input type="email" className="form-control" name="email" required />
+          <input type="email" className="form-control" name="email" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="phone" className="form-label">
             Număr de telefon
           </label>
-          <input type="tel" className="form-control" name="phone" required />
+          <input type="tel" className="form-control" name="phone" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="company" className="form-label">
             Numele societății
           </label>
-          <input type="text" className="form-control" name="company" required />
+          <input type="text" className="form-control" name="company" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="service" className="form-label">
             Alegeți serviciul (orientativ)
           </label>
-          <select className="form-select" name="service" required>
+          <select className="form-select" name="service">
             <option value="">Tipul serviciului dorit</option>
             <option value="contabilitate-financiara">
               Contabilitate financiară
@@ -134,11 +130,6 @@ function ContactForm() {
             data-callback="setTurnstileResponse"
           ></div>
           {/* Input for the turnstile response */}
-          {/* <input
-            type="hidden"
-            name="cf-turnstile-response-contact-form"
-            id="cf-turnstile-response-contact-form"
-          /> */}
           <button className="btn btn-primary">Trimite</button>
         </div>
       </form>
