@@ -27,6 +27,9 @@ function ContactForm() {
 
     const result = await response.json();
     if (result.success) {
+      // Store a flag in sessionStorage
+      sessionStorage.setItem("formSubmitted", "true");
+
       navigate("/thank-you");
     } else {
       alert("Eroare la trimiterea mesajului.");
