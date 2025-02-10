@@ -15,9 +15,9 @@ export default async function handler(req, res) {
   try {
     // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST, // Example: smtp.gmail.com
-      port: Number(process.env.SMTP_PORT) || 465, // Default to 465 if not specified
-      secure: Number(process.env.SMTP_PORT) === 465, // Secure true for port 465
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT) || 465,
+      secure: Number(process.env.SMTP_PORT) === 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -26,25 +26,25 @@ export default async function handler(req, res) {
 
     // Send the email
     await transporter.sendMail({
-      from: `"Contact Form" <${process.env.SMTP_USER}>`, // Sender
-      to: process.env.RECIPIENT_EMAIL, // Email recipient
-      subject: `New Contact Form Submission from ${fullName}`,
+      from: `"Contact Form" <${process.env.SMTP_USER}>`,
+      to: process.env.RECIPIENT_EMAIL,
+      subject: `Solicitare Formular Noua de la ${fullName}`,
       text: `
-        Name: ${fullName}
-        Email: ${email}
-        Phone: ${phone}
-        Company: ${company}
-        Service Requested: ${service}
-        Message: ${message || "No message provided"}
+        Nume: ${fullName}
+        Adresă de email: ${email}
+        Telefon: ${phone}
+        Societate: ${company}
+        Tipul serviciului: ${service}
+        Mesaj: ${message || "Fără mesaj"}
       `,
       html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Company:</strong> ${company}</p>
-        <p><strong>Service Requested:</strong> ${service}</p>
-        <p><strong>Message:</strong> ${message || "No message provided"}</p>
+        <h2>Solicitare Formular Nouă</h2>
+        <p><strong>Nume:</strong> ${fullName}</p>
+        <p><strong>Adresă de email:</strong> ${email}</p>
+        <p><strong>Telefon:</strong> ${phone}</p>
+        <p><strong>Societate:</strong> ${company}</p>
+        <p><strong>Tipul serviciului:</strong> ${service}</p>
+        <p><strong>Mesaj:</strong> ${message || "Fără mesaj"}</p>
       `,
     });
 
