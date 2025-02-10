@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -8,55 +8,54 @@ const Card = styled.div`
   font-size: 1.4rem;
 `;
 
-function InfoSection() {
+const Counter = ({ target }) => {
+  const [count, setCount] = useState(0);
+  const counterRef = useRef(null);
+  const animationStarted = useRef(false);
+
   useEffect(() => {
-    const counters = document.querySelectorAll(".counter");
-    const speed = 400;
-
-    const animateCounters = () => {
-      let completedAnimations = 0;
-      counters.forEach((counter) => {
-        const updateCount = () => {
-          const target = +counter.getAttribute("data-target");
-          const count = +counter.innerText.replace(/,/g, "");
-          const increment = target / speed;
-
-          if (count < target) {
-            counter.innerText = Math.ceil(count + increment).toLocaleString();
-            setTimeout(updateCount, 1);
-          } else {
-            counter.innerText = target.toLocaleString();
-            completedAnimations++;
-            if (completedAnimations === counters.length) {
-              observer.disconnect();
-            }
-          }
-        };
-
-        updateCount();
-      });
-    };
-
-    const statement = document.querySelector(".statement");
-    if (!statement) return;
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCounters();
-            observer.disconnect();
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting && !animationStarted.current) {
+          animationStarted.current = true; // Prevent re-triggering
+
+          let start = 0;
+          const duration = 2000; // 2 seconds animation
+          const startTime = performance.now();
+
+          const animate = (currentTime) => {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const newValue = Math.floor(progress * target);
+
+            setCount(newValue);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setCount(target); // Ensure final value is exact
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
       },
       { threshold: 0.2 }
     );
 
-    observer.observe(statement);
+    if (counterRef.current) observer.observe(counterRef.current);
 
     return () => observer.disconnect();
-  }, []);
+  }, [target]);
 
+  return (
+    <span ref={counterRef} className="counter">
+      {count.toLocaleString()}
+    </span>
+  );
+};
+
+function InfoSection() {
   return (
     <section className="statement mb-5">
       <div className="container">
@@ -65,14 +64,10 @@ function InfoSection() {
           <div className="col-md-4 col-sm-6">
             <Card className="statistic-card">
               <div className="icon">
-                <i class="fa-solid fa-briefcase"></i>
+                <i className="fa-solid fa-briefcase"></i>
               </div>
               <div className="title">
-                +
-                <span className="counter" data-target="10">
-                  10
-                </span>
-                <span> ani de experiență</span>
+                + <Counter target={10} /> <span> ani de experiență</span>
               </div>
             </Card>
             <small>oferind servicii de contabilitate.</small>
@@ -80,13 +75,10 @@ function InfoSection() {
           <div className="col-md-4 col-sm-6">
             <Card className="statistic-card">
               <div className="icon">
-                <i class="fa-solid fa-coins"></i>
+                <i className="fa-solid fa-coins"></i>
               </div>
               <div className="title">
-                +
-                <span className="counter" data-target="10000">
-                  10.000
-                </span>
+                + <Counter target={10000} />{" "}
                 <span> de declarații fiscale /an</span>
               </div>
             </Card>
@@ -95,14 +87,10 @@ function InfoSection() {
           <div className="col-md-4 col-sm-6">
             <Card className="statistic-card">
               <div className="icon">
-                <i class="fa-solid fa-piggy-bank"></i>
+                <i className="fa-solid fa-piggy-bank"></i>
               </div>
               <div className="title">
-                +
-                <span className="counter" data-target="30000">
-                  30.000
-                </span>
-                <span> de euro economii /an</span>
+                + <Counter target={30000} /> <span> de euro economii /an</span>
               </div>
             </Card>
             <small>pentru clienții care au ales Senor Expert.</small>
