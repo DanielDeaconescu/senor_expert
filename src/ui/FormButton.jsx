@@ -10,6 +10,7 @@ const StyledButton = styled.button`
   border-radius: 0.5rem;
   border: none;
   background-color: white;
+  color: #444444;
 `;
 
 function FormButton() {
@@ -18,7 +19,7 @@ function FormButton() {
       <Modal>
         <Modal.Open>
           <StyledButton>
-            <i class="fa-regular fa-message fa-2x"></i>
+            <i class="fa-solid fa-pen-to-square fa-2x"></i>
           </StyledButton>
         </Modal.Open>
         <Modal.Window>
