@@ -1,4 +1,26 @@
 function ContactForm() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      fullName: e.target.fullName.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      company: e.target.company.value,
+      service: e.target.service.value,
+      message: e.target.message.value,
+    };
+
+    const response = await fetch("/api/sendEmail", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+    alert(result.message);
+  };
+
   return (
     <form>
       <div className="mb-3">
