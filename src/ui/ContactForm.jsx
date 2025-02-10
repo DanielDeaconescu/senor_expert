@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router";
+
 function ContactForm() {
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -18,11 +21,15 @@ function ContactForm() {
     });
 
     const result = await response.json();
-    alert(result.message);
+    if (result.success) {
+      navigate("/thank-you");
+    } else {
+      alert("Eroare la trimiterea mesajului.");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} method="POST">
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="fullName" className="form-label">
           Nume

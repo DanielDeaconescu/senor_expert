@@ -46,6 +46,7 @@ function App() {
                 </AdminRoute>
               }
             />
+            <Route path="/thank-you" element={<ThankYouPage />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
