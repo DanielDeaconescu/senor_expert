@@ -22,43 +22,41 @@ function ContactForm() {
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
-        <label htmlFor="name" className="form-label">
+        <label htmlFor="fullName" className="form-label">
           Nume
         </label>
-        <input type="email" className="form-control name" name="name" />
+        <input type="text" className="form-control" name="fullName" required />
       </div>
+
       <div className="mb-3">
-        <label htmlFor="phone-number" className="form-label phone-number">
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input type="email" className="form-control" name="email" required />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="phone" className="form-label">
           Număr de telefon
         </label>
-        <input
-          type="tel"
-          className="form-control phone-number"
-          name="phone-number"
-        />
+        <input type="tel" className="form-control" name="phone" required />
       </div>
+
       <div className="mb-3">
-        <label htmlFor="company-name" className="form-label company-name">
+        <label htmlFor="company" className="form-label">
           Numele societății
         </label>
-        <input
-          type="text"
-          className="form-control company-name"
-          name="company-name"
-        />
+        <input type="text" className="form-control" name="company" required />
       </div>
+
       <div className="mb-3">
-        <label htmlFor="service-type" className="form-label service-type">
+        <label htmlFor="service" className="form-label">
           Alegeți serviciul (orientativ)
         </label>
-        <select
-          id="service-type"
-          className="form-select service-type"
-          name="service-type"
-        >
-          <option selected>Tipul serviciului dorit</option>
+        <select className="form-select" name="service" required>
+          <option value="">Tipul serviciului dorit</option>
           <option value="contabilitate-financiara">
             Contabilitate financiară
           </option>
@@ -67,21 +65,22 @@ function ContactForm() {
           </option>
           <option value="salarizare">Salarizare și resurse umane</option>
           <option value="consultanta-fiscala">Consultanță fiscală</option>
-          <option value="consultanta-fiscala">Alt serviciu</option>
+          <option value="alt-serviciu">Alt serviciu</option>
         </select>
       </div>
+
       <div className="mb-3">
-        <label htmlFor="request-details" className="form-label">
+        <label htmlFor="message" className="form-label">
           Detalii solicitare (opțional)
         </label>
         <textarea
           className="form-control"
-          name="request-details"
-          id="request-details"
+          name="message"
           rows="4"
           placeholder="Mesajul dumneavoastră..."
         ></textarea>
       </div>
+
       <div className="text-center">
         <button className="btn btn-primary">Trimite</button>
       </div>

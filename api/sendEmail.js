@@ -7,22 +7,27 @@ export default async function handler(req, res) {
 
   const { fullName, email, phone, company, service, message } = req.body;
 
-  // Create a transporter using SMTP (or an email provider like Gmail, SendGrid)
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST, // e.g., smtp.gmail.com
-    port: process.env.SMTP_PORT, // e.g., 587 for TLS
-    secure: process.env.SMTP_SECURE === "true", // true for 465, false for 587
-    auth: {
-      user: process.env.SMTP_USER, // Your email
-      pass: process.env.SMTP_PASS, // App password (if using Gmail)
-    },
-  });
+  // Validate input fields
+  if (!fullName || !email || !phone || !company || !service) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
 
   try {
+    // Create a transporter using SMTP
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST, // Example: smtp.gmail.com
+      port: Number(process.env.SMTP_PORT) || 465, // Default to 465 if not specified
+      secure: Number(process.env.SMTP_PORT) === 465, // Secure true for port 465
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
     // Send the email
     await transporter.sendMail({
       from: `"Contact Form" <${process.env.SMTP_USER}>`, // Sender
-      to: process.env.RECIPIENT_EMAIL, // Your email where you want to receive messages
+      to: process.env.RECIPIENT_EMAIL, // Email recipient
       subject: `New Contact Form Submission from ${fullName}`,
       text: `
         Name: ${fullName}
@@ -30,7 +35,7 @@ export default async function handler(req, res) {
         Phone: ${phone}
         Company: ${company}
         Service Requested: ${service}
-        Message: ${message}
+        Message: ${message || "No message provided"}
       `,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -39,7 +44,7 @@ export default async function handler(req, res) {
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Company:</strong> ${company}</p>
         <p><strong>Service Requested:</strong> ${service}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <p><strong>Message:</strong> ${message || "No message provided"}</p>
       `,
     });
 
