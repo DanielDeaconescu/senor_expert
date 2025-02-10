@@ -11,6 +11,7 @@ import ProtectedRoute from "./ui/ProtectedRoute";
 import AdminRoute from "./ui/AdminRoute";
 import AdminPage from "./pages/AdminPage";
 import PageNotFound from "./pages/PageNotFound";
+import ThankYouPage from "./pages/ThankYouPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
