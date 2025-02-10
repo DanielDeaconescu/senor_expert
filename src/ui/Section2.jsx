@@ -88,7 +88,10 @@ const ListItem = styled.li`
 `;
 
 const OurValuesContainer = styled.div`
-  height: 70vh;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 function Section2() {

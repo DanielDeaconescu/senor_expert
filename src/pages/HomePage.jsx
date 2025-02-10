@@ -21,13 +21,7 @@ function HomePage() {
       <Section2 />
       <InfoSection />
       <Section3 />
-      {/* <TestimonialsSection /> */}
       <Section4 />
-      {/* <SocialSection /> */}
-      {/* <div className="test">
-        <FormButton />
-        <WhatsAppButton />
-      </div> */}
       <SideButtons />
     </StyledHomePage>
   );

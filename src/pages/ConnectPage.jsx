@@ -3,6 +3,7 @@ import LoginForm from "../features/authentication/LoginForm";
 import WhatsAppButton from "../ui/WhatsAppButton";
 import Logo from "../ui/Logo";
 import LoginBackground from "../data/images/login-background.jpg";
+import SideButtons from "../ui/SideButtons";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -70,7 +71,7 @@ function ConnectPage() {
           <LoginForm />
         </AuthenticationContainer>
       </LoginContainer>
-      <WhatsAppButton />
+      <SideButtons />
     </div>
   );
 }

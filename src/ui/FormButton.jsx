@@ -15,6 +15,7 @@ const StyledButton = styled.button`
 
 const ContactFormContainer = styled.div`
   height: 70vh;
+  padding-bottom: 2rem;
 `;
 
 function FormButton() {

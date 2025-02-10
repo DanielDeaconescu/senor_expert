@@ -29,7 +29,7 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="py-2">
       <div className="mb-3">
         <label htmlFor="fullName" className="form-label">
           Nume

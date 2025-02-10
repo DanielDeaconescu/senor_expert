@@ -5,6 +5,7 @@ import UploadPageBackground from "../data/images/upload-page-background.jpg";
 
 import UploadDocuments from "../features/upload/UploadDocuments";
 import WhatsAppButton from "../ui/WhatsAppButton";
+import SideButtons from "../ui/SideButtons";
 
 const Main = styled.div`
   height: 100vh;
@@ -35,7 +36,7 @@ function UploadPage() {
         <UploadSteps />
         <UploadDocuments />
       </Main>
-      <WhatsAppButton />
+      <SideButtons />
     </div>
   );
 }

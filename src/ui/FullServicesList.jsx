@@ -165,7 +165,7 @@ const serviceCategories = {
 
 const TableContainer = styled.div`
   height: 70vh;
-  width: 400px;
+  width: 750px;
 `;
 
 const StyledContactFormButton = styled.button`
@@ -179,6 +179,10 @@ const StyledContactFormButton = styled.button`
   &:hover {
     background-color: grey;
   }
+`;
+
+const ContactFormContainer = styled.div`
+  height: 70vh;
 `;
 
 function FullServicesList() {
@@ -511,7 +515,9 @@ function FullServicesList() {
               </StyledContactFormButton>
             </Modal.Open>
             <Modal.Window>
-              <ContactForm />
+              <ContactFormContainer>
+                <ContactForm />
+              </ContactFormContainer>
             </Modal.Window>
           </Modal>
         </InfoNoteText>
