@@ -11,7 +11,7 @@ const StyledSideButtons = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  z-index: 10;
+  z-index: 100;
   border-radius: 0.5rem;
 `;
 

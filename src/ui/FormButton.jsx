@@ -13,6 +13,10 @@ const StyledButton = styled.button`
   color: #444444;
 `;
 
+const ContactFormContainer = styled.div`
+  height: 70vh;
+`;
+
 function FormButton() {
   return (
     <div>
@@ -23,7 +27,9 @@ function FormButton() {
           </StyledButton>
         </Modal.Open>
         <Modal.Window>
-          <ContactForm />
+          <ContactFormContainer>
+            <ContactForm />
+          </ContactFormContainer>
         </Modal.Window>
       </Modal>
     </div>
