@@ -22,7 +22,7 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} method="POST">
       <div className="mb-3">
         <label htmlFor="fullName" className="form-label">
           Nume
