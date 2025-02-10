@@ -27,14 +27,14 @@ function ThankYouPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const formSubmitted = sessionStorage.getItem("formSubmitted");
+    const contactFormSubmitted = sessionStorage.getItem("contactFormSubmitted");
 
-    if (formSubmitted !== "true") {
+    if (contactFormSubmitted !== "true") {
       navigate("/");
     }
 
     return () => {
-      sessionStorage.removeItem("formSubmitted");
+      sessionStorage.removeItem("contactFormSubmitted");
     };
   }, [navigate]);
 

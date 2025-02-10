@@ -28,7 +28,7 @@ function ContactForm() {
     const result = await response.json();
     if (result.success) {
       // Store a flag in sessionStorage
-      sessionStorage.setItem("formSubmitted", "true");
+      sessionStorage.setItem("contactFormSubmitted", "true");
 
       navigate("/thank-you");
     } else {
