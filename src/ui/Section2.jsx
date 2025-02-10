@@ -87,6 +87,10 @@ const ListItem = styled.li`
   text-align: center;
 `;
 
+const OurValuesContainer = styled.div`
+  height: 70vh;
+`;
+
 function Section2() {
   return (
     <>
@@ -177,7 +181,7 @@ function Section2() {
                     </button>
                   </Modal.Open>
                   <Modal.Window name="modal-1">
-                    <div className="container">
+                    <OurValuesContainer className="container">
                       <ModalTitle>Valorile noastre</ModalTitle>
                       <StyledTextModal>
                         Valorile noastre stau la baza fiecărei colaborări:{" "}
@@ -224,7 +228,7 @@ function Section2() {
                           </ItemText>
                         </ListItem>
                       </ul>
-                    </div>
+                    </OurValuesContainer>
                   </Modal.Window>
                 </Modal>
               </div>

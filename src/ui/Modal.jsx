@@ -78,7 +78,7 @@ const StyledModal = styled.div`
   @media (min-width: 1400px) {
     overflow: auto;
     position: absolute;
-    width: 500px;
+    /* width: 500px; */
   }
 `;
 

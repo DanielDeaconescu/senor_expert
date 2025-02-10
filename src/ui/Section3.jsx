@@ -123,6 +123,11 @@ const UnorderedListModal = styled.ul`
   padding: 0;
 `;
 
+const IntegratedConsultationContainer = styled.div`
+  width: 750px;
+  height: 70vh;
+`;
+
 function Section3() {
   return (
     <section className="details my-5">
@@ -206,7 +211,7 @@ function Section3() {
                   </button>
                 </Modal.Open>
                 <Modal.Window name="modal-2">
-                  <div className="container">
+                  <IntegratedConsultationContainer className="container">
                     <div className="row">
                       <ul className="list-group list-group-flush lh-lg">
                         <ListItem className="list-group-item">
@@ -328,7 +333,7 @@ function Section3() {
                         </ListItem>
                       </ul>
                     </div>
-                  </div>
+                  </IntegratedConsultationContainer>
                 </Modal.Window>
               </Modal>
             </div>

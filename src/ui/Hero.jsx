@@ -130,6 +130,11 @@ const ListItem = styled.li`
   text-align: center;
 `;
 
+const OurValuesContainer = styled.div`
+  width: 900px;
+  height: 70vh;
+`;
+
 function Hero() {
   return (
     <StyledHeader className="hero">
@@ -159,14 +164,14 @@ function Hero() {
 
                 <div className="form-container text-center">
                   <div className="d-grid">
-                    <Modal>
+                    <Modal className="test">
                       <Modal.Open>
                         <button className="btn btn-primary btn-lg text-white">
                           Află mai mult
                         </button>
                       </Modal.Open>
                       <Modal.Window>
-                        <div className="container">
+                        <OurValuesContainer className="container">
                           <ModalTitle>Valorile noastre</ModalTitle>
                           <StyledTextModal>
                             Valorile noastre stau la baza fiecărei colaborări:
@@ -211,7 +216,7 @@ function Hero() {
                               </ItemText>
                             </ListItem>
                           </ul>
-                        </div>
+                        </OurValuesContainer>
                       </Modal.Window>
                     </Modal>
                   </div>

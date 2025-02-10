@@ -121,6 +121,11 @@ html, body{
   overflow-x: hidden;
 }
 
+.test {
+          width: 900px!important;
+          background-color: red!important;
+        }
+
 html {
   /* font-size: 62.5%; */
 }
@@ -288,6 +293,8 @@ FOR DARK MODE
   overflow: hidden;
 }
 
+
+
 table {
             width: 100%;
             border-collapse: collapse;
@@ -317,7 +324,6 @@ table {
         .info-icon {
           font-size: 2rem;
         }
-
 `;
 
 export default GlobalStyles;
