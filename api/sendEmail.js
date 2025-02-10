@@ -39,7 +39,7 @@ export default async function handler(req, res) {
       `,
       html: `
         <meta charset="UTF-8">
-        <h2>Solicitare Formular | Nume: ${fullName} | Firma: ${company} </h2>
+        <h2>Un utilizator a completat formularul de contact de pe website și mai jos găsiți detaliile: </h2>
         <p><strong>Nume:</strong> ${fullName}</p>
         <p><strong>Adresă de email:</strong> ${email}</p>
         <p><strong>Telefon:</strong> ${phone}</p>
