@@ -39,13 +39,13 @@ export default async function handler(req, res) {
       `,
       html: `
         <meta charset="UTF-8">
-        <h2>Un utilizator a completat formularul de contact de pe website și mai jos găsiți detaliile: </h2>
-        <p><strong>Nume:</strong> ${fullName}</p>
-        <p><strong>Adresă de email:</strong> ${email}</p>
-        <p><strong>Telefon:</strong> ${phone}</p>
-        <p><strong>Societate:</strong> ${company}</p>
-        <p><strong>Tipul serviciului:</strong> ${service}</p>
-        <p><strong>Mesaj:</strong> ${message || "Fără mesaj"}</p>
+        <h2>Un utilizator a completat formularul de contact de pe website și mai jos găsiți detaliile solicitării: </h2>
+        <div><strong>Nume:</strong> ${fullName}</div>
+        <div><strong>Adresă de email:</strong> ${email}</div>
+        <div><strong>Telefon:</strong> ${phone}</div>
+        <div><strong>Societate:</strong> ${company}</div>
+        <div><strong>Tipul serviciului:</strong> ${service}</div>
+        <div><strong>Mesaj:</strong> ${message || "Fără mesaj"}</div>
       `,
     });
 
