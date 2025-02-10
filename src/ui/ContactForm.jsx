@@ -134,11 +134,11 @@ function ContactForm() {
             data-callback="setTurnstileResponse"
           ></div>
           {/* Input for the turnstile response */}
-          <input
+          {/* <input
             type="hidden"
             name="cf-turnstile-response-contact-form"
             id="cf-turnstile-response-contact-form"
-          />
+          /> */}
           <button className="btn btn-primary">Trimite</button>
         </div>
       </form>
