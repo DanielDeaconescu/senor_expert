@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 
@@ -7,8 +8,30 @@ const ContactFormContainer = styled.div`
 
 function ContactForm() {
   const navigate = useNavigate();
+  const [turnstileToken, setTurnstileToken] = useState("");
+
+  // Function to store the Turnstile response token
+
+  function setTurnstileResponse(token) {
+    setTurnstileToken(token);
+  }
+
+  useEffect(() => {
+    if (window.turnstile) {
+      window.turnstile.render(".cf-turnstile", {
+        sitekey: "0x4AAAAAAA8RURF0seaJgE_b",
+        callback: setTurnstileResponse, // This gets the token
+      });
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!turnstileToken) {
+      alert("Vă rugăm să finalizați verificarea Turnstile.");
+      return;
+    }
 
     const formData = {
       fullName: e.target.fullName.value,
@@ -17,6 +40,7 @@ function ContactForm() {
       company: e.target.company.value,
       service: e.target.service.value,
       message: e.target.message.value,
+      turnstileToken,
     };
 
     const response = await fetch("/api/sendEmail", {
@@ -103,6 +127,18 @@ function ContactForm() {
         </div>
 
         <div className="text-center">
+          {/* Turnstile Widget */}
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAAA8RURF0seaJgE_b"
+            data-callback="setTurnstileResponse"
+          ></div>
+          {/* Input for the turnstile response */}
+          <input
+            type="hidden"
+            name="cf-turnstile-response-contact-form"
+            id="cf-turnstile-response-contact-form"
+          />
           <button className="btn btn-primary">Trimite</button>
         </div>
       </form>
