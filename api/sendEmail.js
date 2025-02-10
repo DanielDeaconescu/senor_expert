@@ -26,9 +26,9 @@ export default async function handler(req, res) {
 
     // Send the email
     await transporter.sendMail({
-      from: `"Contact Form" <${process.env.SMTP_USER}>`,
+      from: `"Formular Senor Expert" <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
-      subject: `Solicitare Formular Noua de la ${fullName}`,
+      subject: `Solicitare Formular Nouă de la ${fullName} Firma: ${company}`,
       text: `
         Nume: ${fullName}
         Adresă de email: ${email}
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
         Mesaj: ${message || "Fără mesaj"}
       `,
       html: `
-        <h2>Solicitare Formular Nouă</h2>
+        <h2>Solicitare Formular Nouă de la ${fullName} Firma: ${company}</h2>
         <p><strong>Nume:</strong> ${fullName}</p>
         <p><strong>Adresă de email:</strong> ${email}</p>
         <p><strong>Telefon:</strong> ${phone}</p>
