@@ -293,7 +293,14 @@ FOR DARK MODE
   overflow: hidden;
 }
 
-
+.test{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: fixed;
+  bottom: 30%;
+  right: 1%;
+}
 
 table {
             width: 100%;

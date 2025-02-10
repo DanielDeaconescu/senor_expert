@@ -8,6 +8,8 @@ import Section4 from "../ui/Section4";
 import SocialSection from "../ui/SocialSection";
 import styled from "styled-components";
 import WhatsAppButton from "../ui/WhatsAppButton";
+import FormButton from "../ui/FormButton";
+import SideButtons from "../ui/SideButtons";
 
 const StyledHomePage = styled.div``;
 
@@ -22,7 +24,11 @@ function HomePage() {
       {/* <TestimonialsSection /> */}
       <Section4 />
       {/* <SocialSection /> */}
-      <WhatsAppButton />
+      {/* <div className="test">
+        <FormButton />
+        <WhatsAppButton />
+      </div> */}
+      <SideButtons />
     </StyledHomePage>
   );
 }
