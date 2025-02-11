@@ -11,7 +11,7 @@ import { useDeleteAllDocuments } from "../features/documents/useDeleteAllDocumen
 import CancelButton from "../ui/CancelButton";
 import DeleteButton from "../ui/DeleteButton";
 import { useSearchParams } from "react-router";
-import AdminNavbar from "./AdminNavbar";
+import AdminNavbar from "../ui/AdminNavbar";
 import AdminDashboard from "./AdminDashboard";
 
 const DocumentsContainer = styled.div`

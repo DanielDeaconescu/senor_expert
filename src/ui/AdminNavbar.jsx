@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Modal from "../ui/Modal";
+import Modal from "./Modal";
 import SingupForm from "../features/authentication/SignupForm";
-import DeleteButton from "../ui/DeleteButton";
-import CancelButton from "../ui/CancelButton";
-import AdminDashboard from "./AdminDashboard";
+import DeleteButton from "./DeleteButton";
+import CancelButton from "./CancelButton";
+import AdminDashboard from "../pages/AdminDashboard";
 
 const NavbarContainer = styled.nav`
   display: flex;
