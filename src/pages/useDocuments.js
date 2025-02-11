@@ -7,13 +7,16 @@ function useDocuments() {
   // pagination
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
 
+  // sorting
+  const sort = searchParams.get("sort") || "desc";
+
   const {
     isLoading,
     data: { data: documents, count } = {},
     error,
   } = useQuery({
-    queryKey: ["documents", page],
-    queryFn: () => getDocuments({ page }),
+    queryKey: ["documents", page, sort],
+    queryFn: () => getDocuments({ page, sort }),
   });
 
   return { isLoading, error, documents, count };

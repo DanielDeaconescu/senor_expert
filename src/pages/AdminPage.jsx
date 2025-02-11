@@ -10,6 +10,9 @@ import Pagination from "../ui/Pagination";
 import { useDeleteAllDocuments } from "../features/documents/useDeleteAllDocuments";
 import CancelButton from "../ui/CancelButton";
 import DeleteButton from "../ui/DeleteButton";
+import { useSearchParams } from "react-router";
+import AdminNavbar from "./AdminNavbar";
+import AdminDashboard from "./AdminDashboard";
 
 const DocumentsContainer = styled.div`
   display: flex;
@@ -108,64 +111,48 @@ const ConfirmationContainer = styled.div`
   flex-direction: column;
 `;
 
+const ButtonTest = styled.button`
+  z-index: 10;
+`;
+
 function AdminPage() {
   const { isLoading, documents, count } = useDocuments();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleSortChange = (sortOrder) => {
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set("sort", sortOrder);
+      return newParams;
+    });
+  };
+
   const { deleteAllDocumentsFunction } = useDeleteAllDocuments();
   return (
-    <DocumentsContainer className="container-fluid">
-      <DocumentsContainerInner className="container">
-        <Modal>
-          <Modal.Open opens="modal-create-user">
-            <div>
-              <CreateUserContainer>
-                <CreateUserButton>Creare utilizator nou</CreateUserButton>
-              </CreateUserContainer>
-            </div>
-          </Modal.Open>
-          <Modal.Window name="modal-create-user">
-            <SingupForm />
-          </Modal.Window>
-        </Modal>
-        <DelteAllBtnContainer>
-          <Modal>
-            <Modal.Open opens="delete-all-window">
-              <DeleteAllBtn>Șterge tot</DeleteAllBtn>
-            </Modal.Open>
-            <Modal.Window name="delete-all-window">
-              <ConfirmationContainer>
-                <h4 className="text-center">
-                  Sigur doriți să ștergeți toate intrările din baza de date?
-                </h4>
-                <p className="text-danger text-center">
-                  Atenție! Dacă ștergeți toate înregistrările din baza de date,
-                  toate documentele încărcate de utilizatori vor fi pierdute
-                  definitiv. Această acțiune este ireversibilă!
-                </p>
-                <ConfirmationActions>
-                  <DeleteButton
-                    deleteAllDocumentsFunction={deleteAllDocumentsFunction}
-                  />
-                  <CancelButton />
-                </ConfirmationActions>
-              </ConfirmationContainer>
-            </Modal.Window>
-          </Modal>
-        </DelteAllBtnContainer>
-        <DocumentsSection>
-          {documents?.map((doc) => (
-            <DocumentSingle
-              companyName={doc.company_name}
-              month={doc.month}
-              documents={doc.documents}
-              created_at={doc.created_at}
-              key={doc.id}
-              documentId={doc.id}
-            />
-          ))}
-        </DocumentsSection>
-        <Pagination count={count} />
-      </DocumentsContainerInner>
-    </DocumentsContainer>
+    <>
+      <DocumentsContainer className="container-fluid">
+        <AdminNavbar
+          handleSortChange={handleSortChange}
+          deleteAllDocumentsFunction={deleteAllDocumentsFunction}
+        />
+
+        <DocumentsContainerInner className="container">
+          <DocumentsSection>
+            {documents?.map((doc) => (
+              <DocumentSingle
+                companyName={doc.company_name}
+                month={doc.month}
+                documents={doc.documents}
+                created_at={doc.created_at}
+                key={doc.id}
+                documentId={doc.id}
+              />
+            ))}
+          </DocumentsSection>
+          <Pagination count={count} />
+        </DocumentsContainerInner>
+      </DocumentsContainer>
+    </>
   );
 }
 

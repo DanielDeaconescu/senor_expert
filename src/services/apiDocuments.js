@@ -1,8 +1,12 @@
 import supabase from "./supabase";
 import { PAGE_SIZE } from "../../utils/constants";
 
-export async function getDocuments({ page }) {
+export async function getDocuments({ page, sort }) {
   let query = supabase.from("documents").select("*", { count: "exact" });
+
+  if (sort) {
+    query = query.order("created_at", { ascending: sort === "asc" });
+  }
 
   if (page) {
     const from = (page - 1) * PAGE_SIZE;
