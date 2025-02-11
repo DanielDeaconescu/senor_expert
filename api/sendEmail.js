@@ -5,14 +5,43 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const { fullName, email, phone, company, service, message } = req.body;
+  const { fullName, email, phone, company, service, message, turnstileToken } =
+    req.body;
 
   // Validate input fields
-  if (!fullName || !email || !phone || !company || !service) {
+  if (
+    !fullName ||
+    !email ||
+    !phone ||
+    !company ||
+    !service ||
+    !turnstileToken
+  ) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
   try {
+    // Verify Turnstile token
+    const turnstileResponse = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          secret: process.env.TURNSTILE_SECRET_KEY,
+          response: turnstileToken,
+        }),
+      }
+    );
+
+    const turnstileData = await turnstileResponse.json();
+
+    if (!turnstileData.success) {
+      return res.status(400).json({ error: "Turnstile verification failed" });
+    }
+
     // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,

@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 
@@ -7,8 +9,30 @@ const ContactFormContainer = styled.div`
 
 function ContactForm() {
   const navigate = useNavigate();
+  const [turnstileToken, setTurnstileToken] = useState("");
+
+  // Function to store the Turnstile response token
+
+  function setTurnstileResponse(token) {
+    setTurnstileToken(token);
+  }
+
+  useEffect(() => {
+    if (window.turnstile) {
+      window.turnstile.render(".cf-turnstile", {
+        sitekey: "0x4AAAAAAA8RURF0seaJgE_b",
+        callback: setTurnstileResponse, // This gets the token
+      });
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!turnstileToken) {
+      alert("Vă rugăm să finalizați verificarea Turnstile.");
+      return;
+    }
 
     const formData = {
       fullName: e.target.fullName.value,
@@ -17,6 +41,7 @@ function ContactForm() {
       company: e.target.company.value,
       service: e.target.service.value,
       message: e.target.message.value,
+      turnstileToken,
     };
 
     const response = await fetch("/api/sendEmail", {
@@ -27,6 +52,9 @@ function ContactForm() {
 
     const result = await response.json();
     if (result.success) {
+      // Store a flag in sessionStorage
+      sessionStorage.setItem("contactFormSubmitted", "true");
+
       navigate("/thank-you");
     } else {
       alert("Eroare la trimiterea mesajului.");
@@ -40,40 +68,35 @@ function ContactForm() {
           <label htmlFor="fullName" className="form-label">
             Nume
           </label>
-          <input
-            type="text"
-            className="form-control"
-            name="fullName"
-            required
-          />
+          <input type="text" className="form-control" name="fullName" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email
           </label>
-          <input type="email" className="form-control" name="email" required />
+          <input type="email" className="form-control" name="email" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="phone" className="form-label">
             Număr de telefon
           </label>
-          <input type="tel" className="form-control" name="phone" required />
+          <input type="tel" className="form-control" name="phone" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="company" className="form-label">
             Numele societății
           </label>
-          <input type="text" className="form-control" name="company" required />
+          <input type="text" className="form-control" name="company" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="service" className="form-label">
             Alegeți serviciul (orientativ)
           </label>
-          <select className="form-select" name="service" required>
+          <select className="form-select" name="service">
             <option value="">Tipul serviciului dorit</option>
             <option value="contabilitate-financiara">
               Contabilitate financiară
@@ -100,6 +123,13 @@ function ContactForm() {
         </div>
 
         <div className="text-center">
+          {/* Turnstile Widget */}
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAAA8RURF0seaJgE_b"
+            data-callback="setTurnstileResponse"
+          ></div>
+          {/* Input for the turnstile response */}
           <button className="btn btn-primary">Trimite</button>
         </div>
       </form>

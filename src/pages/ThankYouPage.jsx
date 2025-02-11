@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Logo from "../ui/Logo";
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 const StyledThankYouPage = styled.div`
   height: 100vh;
@@ -24,6 +25,19 @@ const StyledButton = styled.button`
 
 function ThankYouPage() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const contactFormSubmitted = sessionStorage.getItem("contactFormSubmitted");
+
+    if (contactFormSubmitted !== "true") {
+      navigate("/");
+    }
+
+    return () => {
+      sessionStorage.removeItem("contactFormSubmitted");
+    };
+  }, [navigate]);
+
   return (
     <StyledThankYouPage className="container">
       <Logo />
