@@ -51,6 +51,9 @@ function ContactForm() {
   const {
     register,
     handleSubmit,
+    setError,
+    setValue,
+    clearErrors,
     formState: { errors },
   } = useForm();
 
@@ -58,14 +61,21 @@ function ContactForm() {
     if (window.turnstile) {
       window.turnstile.render(".cf-turnstile", {
         sitekey: "0x4AAAAAAA8RURF0seaJgE_b",
-        callback: setTurnstileToken,
+        callback: (token) => {
+          setTurnstileToken(token);
+          setValue("turnstile", token);
+          clearErrors("turnstile");
+        },
       });
     }
-  }, []);
+  }, [setValue, clearErrors]);
 
   const onSubmit = async (formData) => {
     if (!turnstileToken) {
-      alert("Vă rugăm să finalizați verificarea Turnstile.");
+      setError("turnstile", {
+        type: "manual",
+        message: "Completați verificarea Turnstile!",
+      });
       return;
     }
 
@@ -206,12 +216,25 @@ function ContactForm() {
           ></textarea>
         </div>
 
+        {/* Hidden input for Captcha validation */}
+        <input
+          type="hidden"
+          {...register("turnstile", {
+            required: "Vă rugăm să finalizați verificarea Turnstile.",
+          })}
+        />
+
         {/* Turnstile Widget */}
         <TurnstileContainer className="text-center">
           <TurnstileTest
             className="cf-turnstile"
             data-sitekey="0x4AAAAAAA8RURF0seaJgE_b"
           ></TurnstileTest>
+          {errors.turnstile && (
+            <p className="contact-form-error-message">
+              {errors.turnstile.message}
+            </p>
+          )}
           <button className="btn btn-primary">Trimite</button>
         </TurnstileContainer>
       </StyledContactForm>
