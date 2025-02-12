@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import Logo from "./Logo";
 
 const ContactFormContainer = styled.div`
   overflow: hidden;
@@ -85,7 +86,8 @@ function ContactForm() {
 
   return (
     <ContactFormContainer>
-      <h4 className="text-center mb-3">Formular contact Senor Expert</h4>
+      <Logo />
+      <h4 className="text-center mb-3 mt-3">Formular de Contact</h4>
       <StyledContactForm onSubmit={handleSubmit(onSubmit)} className="py-2">
         {/* Name Field */}
         <div className="mb-3">
