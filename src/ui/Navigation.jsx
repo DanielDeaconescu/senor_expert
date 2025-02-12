@@ -85,9 +85,9 @@ function Navigation({ isSticky }) {
     }
   }
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <StyledNavigation

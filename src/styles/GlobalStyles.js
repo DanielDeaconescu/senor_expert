@@ -302,6 +302,12 @@ FOR DARK MODE
   right: 1%;
 }
 
+.contact-form-error-message{
+  padding-top: 0.25rem;
+  color: red;
+  font-weight: 600;
+}
+
 table {
             width: 100%;
             border-collapse: collapse;

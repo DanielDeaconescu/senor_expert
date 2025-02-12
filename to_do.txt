@@ -79,7 +79,7 @@ Supabase:
 project-name: senor-expert
 db password: senorExpert$23
 account: mona@senorexpert.ro
-pw: senorExpert$23
+pw: senorexpert123
 
 user account: user@senorexpert.ro
-pw: senorexpert
+pw: senorexpertabc
