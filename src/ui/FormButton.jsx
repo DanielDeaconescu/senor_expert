@@ -16,7 +16,27 @@ const StyledButton = styled.button`
 const ContactFormContainer = styled.div`
   height: 70vh;
   padding-bottom: 2rem;
-  width: 320px;
+  width: 100%;
+
+  @media (max-width: 576px) {
+    /* overflow-x: hidden; */
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    /* overflow-x: hidden; */
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* overflow-x: hidden; */
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    /* overflow-x: hidden; */
+  }
+
+  @media (min-width: 1201px) {
+    /* overflow-x: hidden; */
+  }
 `;
 
 function FormButton() {

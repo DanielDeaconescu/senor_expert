@@ -31,6 +31,16 @@ const Actions = styled.div`
   gap: 0.5rem;
 `;
 
+const DeleteAllWindow = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 1200px) {
+    width: 300px;
+  }
+`;
+
 function AdminNavbar({ handleSortChange, deleteAllDocumentsFunction }) {
   return (
     <>
@@ -71,7 +81,7 @@ function AdminNavbar({ handleSortChange, deleteAllDocumentsFunction }) {
             <Button>Șterge tot</Button>
           </Modal.Open>
           <Modal.Window name="delete-all-window">
-            <div>
+            <DeleteAllWindow>
               <h4 className="text-center">
                 Sigur doriți să ștergeți toate intrările?
               </h4>
@@ -90,7 +100,7 @@ function AdminNavbar({ handleSortChange, deleteAllDocumentsFunction }) {
                 />
                 <CancelButton />
               </div>
-            </div>
+            </DeleteAllWindow>
           </Modal.Window>
         </Modal>
       </NavbarContainer>
