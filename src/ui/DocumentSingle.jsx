@@ -34,6 +34,10 @@ const DocumentSingleActions = styled.div`
 const ConfirmationContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1200px) {
+    width: 350px;
+  }
 `;
 
 const ConfirmationActions = styled.div`

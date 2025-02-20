@@ -15,6 +15,23 @@ const NavbarContainer = styled.nav`
   border-radius: 0.5rem;
   color: white;
   z-index: 10;
+
+  @media (max-width: 576px) {
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 992px) {
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Button = styled.button`
@@ -24,77 +41,162 @@ const Button = styled.button`
   background: #f2f2f2;
   cursor: pointer;
   color: black;
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    flex: 1;
+  }
+
+  @media (min-width: 992px) {
+    flex: unset;
+  }
 `;
 
 const Actions = styled.div`
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 576px) {
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+  }
+
+  @media (min-width: 992px) {
+    flex: unset;
+  }
+`;
+
+const DeleteAllWindow = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 1200px) {
+    width: 300px;
+  }
+`;
+
+const LargerScreenText = styled.span`
+  @media (max-width: 576px) {
+    display: none;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    display: none;
+  }
+
+  @media (min-width: 993px) {
+    display: flex;
+  }
+`;
+
+const SmallerScreenIcon = styled.span`
+  @media (min-width: 993px) {
+    display: none;
+  }
 `;
 
 function AdminNavbar({ handleSortChange, deleteAllDocumentsFunction }) {
   return (
-    <>
-      <NavbarContainer className="container">
-        {/* Create User */}
-        <Modal>
-          <Modal.Open opens="modal-create-user">
-            <Button>Creare utilizator nou</Button>
-          </Modal.Open>
-          <Modal.Window name="modal-create-user">
-            <SingupForm />
-          </Modal.Window>
-        </Modal>
-
-        {/* See all users */}
-        <Modal>
-          <Modal.Open>
-            <Button>Vezi utilizatorii curenți</Button>
-          </Modal.Open>
-          <Modal.Window>
-            <AdminDashboard />
-          </Modal.Window>
-        </Modal>
-
-        {/* Sorting Buttons */}
-        <Actions>
-          <Button onClick={() => handleSortChange("asc")}>
-            Sortează crescător
+    <NavbarContainer className="container">
+      {/* Create User */}
+      <Modal>
+        <Modal.Open opens="modal-create-user">
+          <Button>
+            <LargerScreenText>Creare utilizator nou</LargerScreenText>
+            <SmallerScreenIcon>
+              <i class="fas fa-user-plus"></i>
+            </SmallerScreenIcon>
           </Button>
-          <Button onClick={() => handleSortChange("desc")}>
-            Sortează descrescător
-          </Button>
-        </Actions>
+        </Modal.Open>
+        <Modal.Window name="modal-create-user">
+          <SingupForm />
+        </Modal.Window>
+      </Modal>
 
-        {/* Delete All */}
-        <Modal>
-          <Modal.Open opens="delete-all-window">
-            <Button>Șterge tot</Button>
-          </Modal.Open>
-          <Modal.Window name="delete-all-window">
-            <div>
-              <h4 className="text-center">
-                Sigur doriți să ștergeți toate intrările?
-              </h4>
-              <p className="text-danger text-center">
-                Această acțiune este ireversibilă!
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  gap: "1rem",
-                  justifyContent: "center",
-                }}
-              >
-                <DeleteButton
-                  deleteAllDocumentsFunction={deleteAllDocumentsFunction}
-                />
-                <CancelButton />
-              </div>
+      {/* See all users */}
+      <Modal>
+        <Modal.Open>
+          <Button>
+            <LargerScreenText>Vezi utilizatorii curenți</LargerScreenText>
+            <SmallerScreenIcon>
+              <i class="fas fa-users"></i>
+            </SmallerScreenIcon>
+          </Button>
+        </Modal.Open>
+        <Modal.Window>
+          <AdminDashboard />
+        </Modal.Window>
+      </Modal>
+
+      {/* Sorting Buttons */}
+      <Actions>
+        <Button onClick={() => handleSortChange("asc")}>
+          <LargerScreenText>Sortează crescător</LargerScreenText>
+          <SmallerScreenIcon>
+            <i class="fas fa-sort-amount-up"></i>
+          </SmallerScreenIcon>
+        </Button>
+        <Button onClick={() => handleSortChange("desc")}>
+          <LargerScreenText>Sortează descrescător</LargerScreenText>
+          <SmallerScreenIcon>
+            <i class="fas fa-sort-amount-down"></i>
+          </SmallerScreenIcon>
+        </Button>
+      </Actions>
+
+      {/* Delete All */}
+      <Modal>
+        <Modal.Open opens="delete-all-window">
+          <Button>
+            <LargerScreenText>Șterge tot</LargerScreenText>
+            <SmallerScreenIcon>
+              <i class="fas fa-trash-alt"></i>
+            </SmallerScreenIcon>
+          </Button>
+        </Modal.Open>
+        <Modal.Window name="delete-all-window">
+          <DeleteAllWindow>
+            <h4 className="text-center">
+              Sigur doriți să ștergeți toate intrările?
+            </h4>
+            <p className="text-danger text-center">
+              Această acțiune este ireversibilă!
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "1rem",
+                justifyContent: "center",
+              }}
+            >
+              <DeleteButton
+                deleteAllDocumentsFunction={deleteAllDocumentsFunction}
+              />
+              <CancelButton />
             </div>
-          </Modal.Window>
-        </Modal>
-      </NavbarContainer>
-    </>
+          </DeleteAllWindow>
+        </Modal.Window>
+      </Modal>
+    </NavbarContainer>
   );
 }
 

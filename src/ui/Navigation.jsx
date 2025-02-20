@@ -1,5 +1,5 @@
 import logoImg from "../data/images/senor_expert_logo_nobg.svg";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router";
 import { useUser } from "../features/authentication/useUser";
@@ -9,7 +9,6 @@ const StyledNavigation = styled.nav`
   position: relative;
   width: 100%;
   background-color: var(--color-grey-0);
-  transition: all 0.3s ease;
   border-bottom: 4px solid var(--clr-primary);
 
   &.navbar-sticky {
@@ -22,6 +21,8 @@ const StyledNavigation = styled.nav`
   @media (max-width: 768px) {
     padding: 1.5rem !important;
   }
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
 `;
 const StyledImage = styled.img`
   width: 225px;
@@ -52,10 +53,15 @@ function Navigation({ isSticky }) {
     refetch();
   }, [refetch]);
 
-  function toggleMenu(event) {
+  // function toggleMenu(event) {
+  //   event.stopPropagation();
+  //   setIsOpen((prev) => !prev);
+  // }
+
+  const toggleMenu = useCallback((event) => {
     event.stopPropagation();
     setIsOpen((prev) => !prev);
-  }
+  }, []);
 
   // handling click outside
   const handleClickOutside = (event) => {
@@ -69,12 +75,13 @@ function Navigation({ isSticky }) {
   };
 
   useEffect(() => {
-    if (isOpen) document.addEventListener("mousedown", handleClickOutside);
-
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  });
+  }, [isOpen]);
 
   async function handleLogout() {
     try {

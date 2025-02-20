@@ -2,10 +2,48 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import Logo from "./Logo";
 
 const ContactFormContainer = styled.div`
-  width: 320px;
+  overflow: hidden;
 `;
+
+const StyledContactForm = styled.form`
+  padding: 0.25rem;
+  @media (max-width: 576px) {
+    & div {
+      margin-bottom: 0.5rem !important;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    & div {
+      margin-bottom: 0.5rem !important;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    & div {
+      margin-bottom: 0.5rem !important;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    & div {
+      margin-bottom: 0.5rem !important;
+    }
+  }
+`;
+
+const TurnstileContainer = styled.div`
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TurnstileTest = styled.div``;
 
 function ContactForm() {
   const navigate = useNavigate();
@@ -13,6 +51,9 @@ function ContactForm() {
   const {
     register,
     handleSubmit,
+    setError,
+    setValue,
+    clearErrors,
     formState: { errors },
   } = useForm();
 
@@ -20,14 +61,21 @@ function ContactForm() {
     if (window.turnstile) {
       window.turnstile.render(".cf-turnstile", {
         sitekey: "0x4AAAAAAA8RURF0seaJgE_b",
-        callback: setTurnstileToken,
+        callback: (token) => {
+          setTurnstileToken(token);
+          setValue("turnstile", token);
+          clearErrors("turnstile");
+        },
       });
     }
-  }, []);
+  }, [setValue, clearErrors]);
 
   const onSubmit = async (formData) => {
     if (!turnstileToken) {
-      alert("Vă rugăm să finalizați verificarea Turnstile.");
+      setError("turnstile", {
+        type: "manual",
+        message: "Completați verificarea Turnstile!",
+      });
       return;
     }
 
@@ -48,7 +96,9 @@ function ContactForm() {
 
   return (
     <ContactFormContainer>
-      <form onSubmit={handleSubmit(onSubmit)} className="py-2">
+      <Logo />
+      <h4 className="text-center mb-3 mt-3">Formular de Contact</h4>
+      <StyledContactForm onSubmit={handleSubmit(onSubmit)} className="py-2">
         {/* Name Field */}
         <div className="mb-3">
           <label htmlFor="fullName" className="form-label">
@@ -166,15 +216,28 @@ function ContactForm() {
           ></textarea>
         </div>
 
+        {/* Hidden input for Captcha validation */}
+        <input
+          type="hidden"
+          {...register("turnstile", {
+            required: "Vă rugăm să finalizați verificarea Turnstile.",
+          })}
+        />
+
         {/* Turnstile Widget */}
-        <div className="text-center">
-          <div
+        <TurnstileContainer className="text-center">
+          <TurnstileTest
             className="cf-turnstile"
             data-sitekey="0x4AAAAAAA8RURF0seaJgE_b"
-          ></div>
+          ></TurnstileTest>
+          {errors.turnstile && (
+            <p className="contact-form-error-message">
+              {errors.turnstile.message}
+            </p>
+          )}
           <button className="btn btn-primary">Trimite</button>
-        </div>
-      </form>
+        </TurnstileContainer>
+      </StyledContactForm>
     </ContactFormContainer>
   );
 }
