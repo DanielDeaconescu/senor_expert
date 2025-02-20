@@ -28,23 +28,23 @@ function AppLayout() {
   const location = useLocation();
 
   useEffect(() => {
-    const heroElement = document.querySelector(".hero");
-    const navigationHeight = document
-      .querySelector(".navbar")
-      ?.getBoundingClientRect().height;
+    const handleScroll = () => {
+      const heroElement = document.querySelector(".hero");
+      const navigationHeight =
+        document.querySelector(".navbar")?.offsetHeight || 0;
 
-    if (!heroElement) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsSticky(!entry.isIntersecting);
-      },
-      { threshold: 0.1, rootMargin: `-${navigationHeight || 0}px` }
-    );
+      if (!heroElement) return;
 
-    observer.observe(heroElement);
+      const heroBottom = heroElement.getBoundingClientRect().bottom;
+
+      setIsSticky(heroBottom <= navigationHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Run once on mount to set initial state
 
     return () => {
-      observer.unobserve(heroElement);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [location]);
 
