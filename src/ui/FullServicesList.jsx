@@ -249,7 +249,7 @@ function FullServicesList() {
           </Modal.Open>
           <Modal.Window name="modal-price-list">
             <TableContainer>
-              <table border="1" cellspacing="0" cellpadding="5">
+              <table border="1" cellSpacing="0" cellPadding="5">
                 <thead>
                   <tr>
                     <th>Serviciu</th>
@@ -258,227 +258,121 @@ function FullServicesList() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td colspan="2">
-                      <strong>
-                        Obtinere certificat / inregistrare in scopuri de TVA
-                      </strong>
+                    <td colSpan="2">
+                      <strong>Obținere certificat TVA</strong>
                     </td>
                   </tr>
                   <tr>
-                    <td>Pentru cetateni romani</td>
+                    <td>Pentru cetățeni români</td>
                     <td>100 EURO</td>
                   </tr>
 
                   <tr>
-                    <td colspan="2">
-                      <strong>Tarife contabilitate</strong>
+                    <td colSpan="2">
+                      <strong>Prețuri servicii contabile</strong>
                     </td>
                   </tr>
                   <tr>
-                    <td>
-                      Activitate cu complexitate mica - cca 20 facturi de
-                      intrare si facturi iesire
-                    </td>
+                    <td>Contabilitate cu volum redus - 20 facturi</td>
                     <td>300 - 450 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Activitate cu complexitate medie - 11 - 50 facturi de
-                      intrare si facturi iesire
-                    </td>
+                    <td>Contabilitate cu complexitate medie - 11-50 facturi</td>
                     <td>450 - 700 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Activitate cu complexitate mare - 50 - 200 facturi de
-                      intrare si facturi iesire
-                    </td>
+                    <td>Contabilitate cu complexitate mare - 50-200 facturi</td>
                     <td>700 - 1200 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Activitate cu complexitate foarte mare - peste 200 facturi
-                      de intrare si facturi iesire
-                    </td>
-                    <td>se negociaza</td>
+                    <td>Contabilitate foarte complexă - peste 200 facturi</td>
+                    <td>Negociabil</td>
                   </tr>
 
                   <tr>
-                    <td colspan="2">
-                      <strong>Tarife servicii salarizare</strong>
+                    <td colSpan="2">
+                      <strong>Costuri pentru gestionarea salarizării</strong>
                     </td>
                   </tr>
                   <tr>
-                    <td>
-                      State de salarii, pontaje, declaratii (1-5 salariati)
-                    </td>
+                    <td>1-5 angajați</td>
                     <td>150 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      State de salarii, pontaje, declaratii (6-10 salariati)
-                    </td>
+                    <td>6-10 angajați</td>
                     <td>200 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      State de salarii, pontaje, declaratii (11-20 salariati)
-                    </td>
+                    <td>11-20 angajați</td>
                     <td>250 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      State de salarii, pontaje, declaratii (peste 20 salariati)
-                    </td>
-                    <td>se negociaza</td>
+                    <td>Peste 20 angajați</td>
+                    <td>Negociabil</td>
                   </tr>
                   <tr>
-                    <td>
-                      Contracte, decizii, acte aditionale, lichidari (1-5
-                      salariati)
-                    </td>
+                    <td>Elaborare contracte, decizii (1-5 angajați)</td>
                     <td>50 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Contracte, decizii, acte aditionale, lichidari (6-10
-                      salariati)
-                    </td>
+                    <td>Elaborare contracte, decizii (6-11 angajați)</td>
                     <td>100 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Contracte, decizii, acte aditionale, lichidari (11-20
-                      salariati)
-                    </td>
+                    <td>Elaborare contracte, decizii (11-20 angajați)</td>
                     <td>200 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Contracte, decizii, acte aditionale, lichidari (peste 20
-                      salariati)
-                    </td>
-                    <td>se negociaza</td>
+                    <td>Elaborare contracte, decizii (peste 20 angajați)</td>
+                    <td>Negociabil</td>
                   </tr>
                   <tr>
-                    <td>Intocmire fisa fiscala / salariat</td>
+                    <td>Întocmire fișă fiscală/salariat</td>
                     <td>25 RON</td>
                   </tr>
 
                   <tr>
-                    <td colspan="2">
-                      <strong>Certificare bilant</strong>
+                    <td colSpan="2">
+                      <strong>Servicii de certificare a bilanțului</strong>
                     </td>
                   </tr>
                   <tr>
-                    <td>Cifra de afaceri 100.000 RON</td>
+                    <td>Cifra de afaceri până la 100.000 RON</td>
                     <td>250 RON</td>
                   </tr>
                   <tr>
-                    <td>100.001 RON Cifra de Afaceri 200.000 RON</td>
+                    <td>100.001 - 200.000 RON</td>
                     <td>400 RON</td>
                   </tr>
                   <tr>
-                    <td>200.001 RON Cifra de Afaceri 450.000 RON</td>
+                    <td>200.001 - 450.000 RON</td>
                     <td>600 RON</td>
                   </tr>
                   <tr>
-                    <td>450.001 RON Cifra de Afaceri</td>
-                    <td>se negociaza</td>
+                    <td>Peste 450.001 RON</td>
+                    <td>Negociabil</td>
                   </tr>
 
                   <tr>
-                    <td colspan="2">
-                      <strong>Alte servicii</strong>
+                    <td colSpan="2">
+                      <strong>Servicii adiționale</strong>
                     </td>
                   </tr>
                   <tr>
-                    <td>Deplasare pentru ridicare acte</td>
+                    <td>Deplasare pentru colectarea actelor</td>
                     <td>200 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Depunere declaratii pentru somaj in situatia in care
-                      Clientul beneficiaza de subventii pentru salariati
-                    </td>
+                    <td>Depunerea declarațiilor de șomaj</td>
                     <td>200 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Lucrari specifice pentru participarea la licitatii publice
-                      de oferte
-                    </td>
+                    <td>Servicii pentru licitații publice</td>
                     <td>250 - 350 RON</td>
                   </tr>
                   <tr>
-                    <td>
-                      Analiza financiar-contabila asupra activitatii economice
-                    </td>
+                    <td>Analiză financiar-contabilă</td>
                     <td>400 - 650 RON</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Onorariu fix pentru intocmire si depunere declaratii firme
-                      fara activitate
-                    </td>
-                    <td>600 RON / an (200 RON / trimestru)</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Costuri materiale auxiliare pentru prestarea serviciilor
-                      de contabilitate
-                    </td>
-                    <td>50 RON / an</td>
-                  </tr>
-
-                  <tr>
-                    <td colspan="2">
-                      <strong>
-                        Tarife contabilitate pentru Persoana Fizica Autorizata
-                        platitoare de TVA
-                      </strong>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Pana la 50 documente lunar</td>
-                    <td>450 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Intre 51 - 100 documente lunar</td>
-                    <td>700 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Intre 101 - 200 documente lunar</td>
-                    <td>1000 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Tariful pentru peste 200 de documente lunar</td>
-                    <td>se negociaza</td>
-                  </tr>
-
-                  <tr>
-                    <td colspan="2">
-                      <strong>
-                        Tarife contabilitate pentru Persoana Fizica Autorizata
-                        neplatitoare de TVA
-                      </strong>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Pana la 50 documente lunar</td>
-                    <td>350 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Intre 51 - 100 documente lunar</td>
-                    <td>600 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Intre 101 - 200 documente lunar</td>
-                    <td>800 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Tariful pentru peste 200 de documente lunar</td>
-                    <td>se negociaza</td>
                   </tr>
                 </tbody>
               </table>

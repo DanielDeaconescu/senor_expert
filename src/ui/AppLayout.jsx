@@ -29,6 +29,12 @@ function AppLayout() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Prevent sticky behavior if a modal is open
+      if (document.body.classList.contains("modal-open")) {
+        setIsSticky(false);
+        return;
+      }
+
       const heroElement = document.querySelector(".hero");
       const navigationHeight =
         document.querySelector(".navbar")?.offsetHeight || 0;
@@ -36,12 +42,11 @@ function AppLayout() {
       if (!heroElement) return;
 
       const heroBottom = heroElement.getBoundingClientRect().bottom;
-
       setIsSticky(heroBottom <= navigationHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Run once on mount to set initial state
+    handleScroll(); // Run once on mount
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

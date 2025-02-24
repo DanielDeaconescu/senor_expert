@@ -1,4 +1,3 @@
-import Modal from "../ui/Modal";
 import HeaderHomeBackground from "../data/images/header-home-background.jpg";
 import HeaderHomeImage from "../data/images/header-home-image.jpg";
 import styled from "styled-components";
@@ -49,19 +48,6 @@ const StyledHeaderHomeImage = styled.img`
 
 const StyledText = styled.div`
   text-align: justify;
-`;
-
-const StyledTextModal = styled.div`
-  text-align: justify;
-  @media (max-width: 576px) {
-    text-align: center;
-  }
-`;
-
-const ModalTitle = styled.h4`
-  @media (max-width: 576px) {
-    font-size: 1.6rem;
-  }
 `;
 
 const ItemText = styled.div`
@@ -130,14 +116,6 @@ const ListItem = styled.li`
   text-align: center;
 `;
 
-const OurValuesContainer = styled.div`
-  width: 900px;
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
 function Hero() {
   return (
     <StyledHeader className="hero">
@@ -165,63 +143,88 @@ function Hero() {
                   comerciale și multe altele.
                 </StyledParagraph>
 
-                <div className="form-container text-center">
-                  <div className="d-grid">
-                    <Modal className="test">
-                      <Modal.Open>
-                        <button className="btn btn-primary btn-lg text-white">
-                          Află mai mult
-                        </button>
-                      </Modal.Open>
-                      <Modal.Window>
-                        <OurValuesContainer className="container">
-                          <ModalTitle>Valorile noastre</ModalTitle>
-                          <StyledTextModal>
-                            Valorile noastre stau la baza fiecărei colaborări:
-                            profesionalismul în tot ceea ce facem, transparența
-                            în comunicare și acțiuni și angajamentul pe care
-                            ni-l luăm față de relațiile de lungă durată.
-                          </StyledTextModal>
-                          <ul className="list-group list-group-flush lh-lg">
-                            <ListItem className="list-group-item">
-                              <ItemTitle>
-                                <i class="fa-solid fa-address-card"></i>
-                                <h4>Profesionalism</h4>
-                              </ItemTitle>
-                              <ItemText>
-                                Ne dedicăm oferirii unor servicii contabile la
-                                cele mai înalte standarde de calitate,
-                                respectând legislația în vigoare și cele mai
-                                bune practici din domeniu.
-                              </ItemText>
-                            </ListItem>
-                            <ListItem className="list-group-item">
-                              <ItemTitle>
-                                <i class="fas fa-eye"></i>
-                                <h4>Transparență</h4>
-                              </ItemTitle>
-                              <ItemText>
-                                Construim relații bazate pe încredere, oferind
-                                soluții contabile clare, corecte și transparente
-                                pentru afacerea dumneavoastră.
-                              </ItemText>
-                            </ListItem>
+                {/* <div className="form-container text-center"> */}
+                <button
+                  className="btn btn-primary btn-lg text-white"
+                  data-bs-target="#hero-find-out-more"
+                  data-bs-toggle="modal"
+                >
+                  Află mai mult
+                </button>
 
-                            <ListItem className="list-group-item ">
-                              <ItemTitle>
-                                <i class="fas fa-handshake"></i>
-                                <h4>Relații de Lungă Durată</h4>
-                              </ItemTitle>
-                              <ItemText>
-                                Construim parteneriate durabile, bazate pe
-                                comunicare eficientă și sprijin constant, pentru
-                                succesul clienților noștri.
-                              </ItemText>
-                            </ListItem>
-                          </ul>
-                        </OurValuesContainer>
-                      </Modal.Window>
-                    </Modal>
+                <div
+                  class="modal fade"
+                  id="hero-find-out-more"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body modal-body-custom">
+                        <h4>Valorile noastre</h4>
+                        <p>
+                          Valorile noastre stau la baza fiecărei colaborări:
+                          profesionalismul în tot ceea ce facem, transparența în
+                          comunicare și acțiuni și angajamentul pe care ni-l
+                          luăm față de relațiile de lungă durată.
+                        </p>
+                        <ul className="list-group list-group-flush lh-lg">
+                          <li className="list-group-item">
+                            <ItemTitle>
+                              <i class="fa-solid fa-address-card"></i>
+                              <h4>Profesionalism</h4>
+                            </ItemTitle>
+                            <ItemText>
+                              Ne dedicăm oferirii unor servicii contabile la
+                              cele mai înalte standarde de calitate, respectând
+                              legislația în vigoare și cele mai bune practici
+                              din domeniu.
+                            </ItemText>
+                          </li>
+                          <li className="list-group-item">
+                            <ItemTitle>
+                              <i class="fas fa-eye"></i>
+                              <h4>Transparență</h4>
+                            </ItemTitle>
+                            <ItemText>
+                              Construim relații bazate pe încredere, oferind
+                              soluții contabile clare, corecte și transparente
+                              pentru afacerea dumneavoastră.
+                            </ItemText>
+                          </li>
+
+                          <li className="list-group-item ">
+                            <ItemTitle>
+                              <i class="fas fa-handshake"></i>
+                              <h4>Relații de Lungă Durată</h4>
+                            </ItemTitle>
+                            <ItemText>
+                              Construim parteneriate durabile, bazate pe
+                              comunicare eficientă și sprijin constant, pentru
+                              succesul clienților noștri.
+                            </ItemText>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Închide
+                        </button>
+                      </div>
+                      {/* </div> */}
+                    </div>
                   </div>
                 </div>
               </div>

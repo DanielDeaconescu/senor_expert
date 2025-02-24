@@ -337,6 +337,13 @@ table {
         .info-icon {
           font-size: 2rem;
         }
+  .modal-backdrop{
+    z-index: 10;
+  }
+
+  .modal-body-custom{
+    color: black;
+  }
 `;
 
 export default GlobalStyles;
