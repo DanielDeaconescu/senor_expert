@@ -177,63 +177,81 @@ function Section2() {
                     </StyledText>
                   </li>
                 </ul>
-                <Modal>
-                  <Modal.Open opens="modal-1">
-                    <button className="btn btn-primary text-white mt-4 align-self-start">
-                      Valorile noastre
-                    </button>
-                  </Modal.Open>
-                  <Modal.Window name="modal-1">
-                    <OurValuesContainer className="container">
-                      <ModalTitle>Valorile noastre</ModalTitle>
-                      <StyledTextModal>
-                        Valorile noastre stau la baza fiecărei colaborări:{" "}
-                        <strong>profesionalismul</strong> în tot ceea ce facem,{" "}
-                        <strong>transparența</strong> în comunicare și acțiuni,
-                        precum și angajamentul pe care ni-l luăm față de{" "}
-                        <strong>relațiile de lungă durată</strong> sunt ceea ce
-                        ne caracterizează.
-                      </StyledTextModal>
-                      <ul className="list-group list-group-flush lh-lg">
-                        <ListItem className="list-group-item">
-                          <ItemTitle>
-                            <i class="fa-solid fa-address-card"></i>
-                            <h4>Profesionalism</h4>
-                          </ItemTitle>
-                          <ItemText>
-                            Suntem dedicați pentru a oferi servicii contabile de
-                            înaltă calitate, respectând legislația în vigoare și
-                            cele mai bune practici din domeniu.
-                          </ItemText>
-                        </ListItem>
-                        <ListItem className="list-group-item">
-                          <ItemTitle>
-                            <i class="fas fa-eye"></i>
-                            <h4>Transparență</h4>
-                          </ItemTitle>
-                          <ItemText>
-                            Ne străduim să construim relații bazate pe
-                            încredere, oferind soluții contabile clare, corecte
-                            și transparente.
-                          </ItemText>
-                        </ListItem>
 
-                        <ListItem className="list-group-item ">
-                          <ItemTitle>
-                            <i class="fas fa-handshake"></i>
-                            <h4>Relații Durabile</h4>
-                          </ItemTitle>
-                          <ItemText>
-                            Construim parteneriate stabile și durabile în timp
-                            bazându-ne pe o comunicare eficientă și oferirea de
-                            suport constant adaptat cerințelor clienților
-                            noștri.
-                          </ItemText>
-                        </ListItem>
-                      </ul>
-                    </OurValuesContainer>
-                  </Modal.Window>
-                </Modal>
+                <button
+                  className="btn btn-primary text-white mt-4 align-self-start"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Valorile noastre
+                </button>
+
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body modal-body-custom text-center">
+                        <h4>Valorile noastre</h4>
+                        <p>
+                          Valorile noastre stau la baza fiecărei colaborări:
+                          profesionalismul în tot ceea ce facem, transparența în
+                          comunicare și acțiuni și angajamentul pe care ni-l
+                          luăm față de relațiile de lungă durată.
+                        </p>
+                        <ul className="list-group list-group-flush lh-lg">
+                          <li className="list-group-item">
+                            <ItemTitle>
+                              <i class="fa-solid fa-address-card"></i>
+                              <h4>Profesionalism</h4>
+                            </ItemTitle>
+                            <ItemText>
+                              Ne dedicăm oferirii unor servicii contabile la
+                              cele mai înalte standarde de calitate, respectând
+                              legislația în vigoare și cele mai bune practici
+                              din domeniu.
+                            </ItemText>
+                          </li>
+                          <li className="list-group-item">
+                            <ItemTitle>
+                              <i class="fas fa-eye"></i>
+                              <h4>Transparență</h4>
+                            </ItemTitle>
+                            <ItemText>
+                              Construim relații bazate pe încredere, oferind
+                              soluții contabile clare, corecte și transparente
+                              pentru afacerea dumneavoastră.
+                            </ItemText>
+                          </li>
+
+                          <li className="list-group-item ">
+                            <ItemTitle>
+                              <i class="fas fa-handshake"></i>
+                              <h4>Relații de Lungă Durată</h4>
+                            </ItemTitle>
+                            <ItemText>
+                              Construim parteneriate durabile, bazate pe
+                              comunicare eficientă și sprijin constant, pentru
+                              succesul clienților noștri.
+                            </ItemText>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="col-lg-6">

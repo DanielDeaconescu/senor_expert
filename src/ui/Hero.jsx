@@ -22,7 +22,7 @@ const StyledHeader = styled.header`
 
   & .text-container {
     position: relative;
-    z-index: 100;
+    z-index: 98;
   }
 
   & .frame-decoration {
@@ -43,7 +43,7 @@ const StyledHeaderHomeImage = styled.img`
   width: 420px;
   border-radius: 1rem;
   position: relative;
-  z-index: 100;
+  z-index: 98;
 `;
 
 const StyledText = styled.div`
@@ -153,12 +153,12 @@ function Hero() {
                 </button>
 
                 <div
-                  class="modal fade"
+                  class="modal fade modal-custom"
                   id="hero-find-out-more"
                   aria-labelledby="exampleModalLabel"
                   aria-hidden="true"
                 >
-                  <div class="modal-dialog">
+                  <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button
@@ -168,7 +168,7 @@ function Hero() {
                           aria-label="Close"
                         ></button>
                       </div>
-                      <div class="modal-body modal-body-custom">
+                      <div class="modal-body modal-body-custom text-center">
                         <h4>Valorile noastre</h4>
                         <p>
                           Valorile noastre stau la baza fiecărei colaborări:
@@ -214,7 +214,7 @@ function Hero() {
                           </li>
                         </ul>
                       </div>
-                      <div class="modal-footer">
+                      <div class="modal-footer justify-content-end modal-footer-custom">
                         <button
                           type="button"
                           class="btn btn-secondary"

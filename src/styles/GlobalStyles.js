@@ -344,6 +344,58 @@ table {
   .modal-body-custom{
     color: black;
   }
+
+  .modal-custom{
+    padding-right: 0 !important;
+  }
+
+  /* .modal-footer-custom{
+    border-top: none;
+  } */
+
+   body.modal-open{
+    overflow: hidden !important;
+    padding-right: 0px !important;
+    margin-right: 0px !important;
+   }
+
+   .modal-form-custom{
+    overflow: hidden;
+   }
+
+
+.modal-body-custom::-webkit-scrollbar {
+  width: 0.5rem;
+}
+ 
+.modal-body-custom::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-grey-300);
+}
+ 
+.modal-body-custom::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey-400);
+  border-radius: 1rem;
+}
+
+.modal-header-custom{
+  border: none !important;
+}
+
+.modal-dialog-consulting::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+.modal-dialog-consulting::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-grey-300);
+}
+ 
+.modal-dialog-consulting::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey-400);
+  border-radius: 1rem;
+}
+
 `;
 
 export default GlobalStyles;

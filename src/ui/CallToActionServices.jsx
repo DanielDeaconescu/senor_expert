@@ -22,14 +22,14 @@ const StyledCallToActionServices = styled.div`
 
   & .text-container {
     position: relative;
-    z-index: 100;
+    z-index: 98;
   }
 `;
 
 const StyledUploadImage = styled.img`
   border-radius: 1rem;
   position: relative;
-  z-index: 100;
+  z-index: 98;
 `;
 
 function CallToActionServices() {

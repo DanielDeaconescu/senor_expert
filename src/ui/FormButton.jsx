@@ -42,18 +42,36 @@ const ContactFormContainer = styled.div`
 function FormButton() {
   return (
     <div>
-      <Modal>
-        <Modal.Open>
-          <StyledButton>
-            <i class="fa-solid fa-pen-to-square fa-2x"></i>
-          </StyledButton>
-        </Modal.Open>
-        <Modal.Window>
-          <ContactFormContainer>
-            <ContactForm />
-          </ContactFormContainer>
-        </Modal.Window>
-      </Modal>
+      <StyledButton
+        data-bs-toggle="modal"
+        data-bs-target="#contactFormSenorExpert"
+      >
+        <i class="fa-solid fa-pen-to-square fa-2x"></i>
+      </StyledButton>
+
+      <div
+        class="modal fade modal-form-custom"
+        id="contactFormSenorExpert"
+        tabindex="-1"
+        aria-labelledby="contactFormSenorExpert"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header modal-header-custom">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body modal-body-custom">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
