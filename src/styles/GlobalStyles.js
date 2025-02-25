@@ -396,6 +396,42 @@ table {
   border-radius: 1rem;
 }
 
+.modal-services-list{
+  overflow: hidden;
+}
+
+.modal-dialog-services-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-grey-300);
+}
+ 
+.modal-dialog-services-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey-400);
+  border-radius: 1rem;
+}
+
+.modal-dialog-services-list::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+.modal-prices-list{
+  overflow: hidden;
+}
+
+.modal-dialog-prices-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-grey-300);
+}
+ 
+.modal-dialog-prices-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey-400);
+  border-radius: 1rem;
+}
+
+.modal-dialog-prices-list::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
 `;
 
 export default GlobalStyles;

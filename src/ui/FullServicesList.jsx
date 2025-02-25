@@ -43,12 +43,6 @@ const InfoNoteText = styled.span`
 
 const FullServicesListContainer = styled.div``;
 
-const SearchServicesContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 70vh;
-`;
-
 const StyledFullServicesList = styled.div`
   display: flex;
   justify-content: center;
@@ -189,10 +183,7 @@ const serviceCategories = {
   ],
 };
 
-const TableContainer = styled.div`
-  height: 70vh;
-  width: 750px;
-`;
+const TableContainer = styled.div``;
 
 const StyledContactFormButton = styled.button`
   border: none;
@@ -236,187 +227,251 @@ function FullServicesList() {
             Descoperă întreaga gamă de servicii disponibile Senor Expert!
           </Text>
         </div>
-        <Modal>
-          <Modal.Open opens="modal-tabbed-component">
-            <ModalButton className="btn btn-primary text-white align-self-start">
-              Vezi lista completă de servicii
-            </ModalButton>
-          </Modal.Open>
-          <Modal.Open opens="modal-price-list">
-            <ModalButton className="btn btn-primary text-white align-self-start">
-              Vezi lista orientativa de preturi
-            </ModalButton>
-          </Modal.Open>
-          <Modal.Window name="modal-price-list">
-            <TableContainer>
-              <table border="1" cellSpacing="0" cellPadding="5">
-                <thead>
-                  <tr>
-                    <th>Serviciu</th>
-                    <th>Cost</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td colSpan="2">
-                      <strong>Obținere certificat TVA</strong>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Pentru cetățeni români</td>
-                    <td>100 EURO</td>
-                  </tr>
 
-                  <tr>
-                    <td colSpan="2">
-                      <strong>Prețuri servicii contabile</strong>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Contabilitate cu volum redus - 20 facturi</td>
-                    <td>300 - 450 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Contabilitate cu complexitate medie - 11-50 facturi</td>
-                    <td>450 - 700 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Contabilitate cu complexitate mare - 50-200 facturi</td>
-                    <td>700 - 1200 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Contabilitate foarte complexă - peste 200 facturi</td>
-                    <td>Negociabil</td>
-                  </tr>
+        <ModalButton
+          className="btn btn-primary text-white align-self-start"
+          data-bs-toggle="modal"
+          data-bs-target="#completeServices"
+        >
+          Vezi lista completă de servicii
+        </ModalButton>
 
-                  <tr>
-                    <td colSpan="2">
-                      <strong>Costuri pentru gestionarea salarizării</strong>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1-5 angajați</td>
-                    <td>150 RON</td>
-                  </tr>
-                  <tr>
-                    <td>6-10 angajați</td>
-                    <td>200 RON</td>
-                  </tr>
-                  <tr>
-                    <td>11-20 angajați</td>
-                    <td>250 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Peste 20 angajați</td>
-                    <td>Negociabil</td>
-                  </tr>
-                  <tr>
-                    <td>Elaborare contracte, decizii (1-5 angajați)</td>
-                    <td>50 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Elaborare contracte, decizii (6-11 angajați)</td>
-                    <td>100 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Elaborare contracte, decizii (11-20 angajați)</td>
-                    <td>200 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Elaborare contracte, decizii (peste 20 angajați)</td>
-                    <td>Negociabil</td>
-                  </tr>
-                  <tr>
-                    <td>Întocmire fișă fiscală/salariat</td>
-                    <td>25 RON</td>
-                  </tr>
+        <ModalButton
+          className="btn btn-primary text-white align-self-start"
+          data-bs-toggle="modal"
+          data-bs-target="#pricesList"
+        >
+          Vezi lista orientativa de preturi
+        </ModalButton>
 
-                  <tr>
-                    <td colSpan="2">
-                      <strong>Servicii de certificare a bilanțului</strong>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Cifra de afaceri până la 100.000 RON</td>
-                    <td>250 RON</td>
-                  </tr>
-                  <tr>
-                    <td>100.001 - 200.000 RON</td>
-                    <td>400 RON</td>
-                  </tr>
-                  <tr>
-                    <td>200.001 - 450.000 RON</td>
-                    <td>600 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Peste 450.001 RON</td>
-                    <td>Negociabil</td>
-                  </tr>
-
-                  <tr>
-                    <td colSpan="2">
-                      <strong>Servicii adiționale</strong>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Deplasare pentru colectarea actelor</td>
-                    <td>200 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Depunerea declarațiilor de șomaj</td>
-                    <td>200 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Servicii pentru licitații publice</td>
-                    <td>250 - 350 RON</td>
-                  </tr>
-                  <tr>
-                    <td>Analiză financiar-contabilă</td>
-                    <td>400 - 650 RON</td>
-                  </tr>
-                </tbody>
-              </table>
-            </TableContainer>
-          </Modal.Window>
-          <Modal.Window name="modal-tabbed-component">
-            <SearchServicesContainer>
-              <input
-                type="text"
-                placeholder="Caută un serviciu..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                style={{ marginBottom: "10px", padding: "5px", width: "100%" }}
-              />
-              {query ? (
-                <ul>
-                  {filteredServices.length > 0 ? (
-                    filteredServices.map(({ service, category }, index) => (
-                      <li key={index}>
-                        <strong>{category}:</strong> {service}
-                      </li>
-                    ))
+        <div
+          class="modal fade modal-services-list"
+          id="completeServices"
+          aria-labelledby="completeServices"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-scrollable ">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="completeServices">
+                  Caută în lista de servicii
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body modal-dialog-services-list">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Caută un serviciu..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    style={{
+                      marginBottom: "10px",
+                      padding: "5px",
+                      width: "100%",
+                    }}
+                  />
+                  {query ? (
+                    <ul>
+                      {filteredServices.length > 0 ? (
+                        filteredServices.map(({ service, category }, index) => (
+                          <li key={index}>
+                            <strong>{category}:</strong> {service}
+                          </li>
+                        ))
+                      ) : (
+                        <li>Niciun serviciu găsit.</li>
+                      )}
+                    </ul>
                   ) : (
-                    <li>Niciun serviciu găsit.</li>
+                    Object.entries(serviceCategories).map(
+                      ([category, services]) => (
+                        <div key={category} style={{ marginBottom: "15px" }}>
+                          <h3>{category}</h3>
+                          <ul>
+                            {services.slice(0, 2).map((service, index) => (
+                              <li key={index}>{service}</li>
+                            ))}
+                            {services.length > 2 && <li>...mai mult</li>}
+                          </ul>
+                        </div>
+                      )
+                    )
                   )}
-                </ul>
-              ) : (
-                Object.entries(serviceCategories).map(
-                  ([category, services]) => (
-                    <div key={category} style={{ marginBottom: "15px" }}>
-                      <h3>{category}</h3>
-                      <ul>
-                        {services.slice(0, 2).map((service, index) => (
-                          <li key={index}>{service}</li>
-                        ))}
-                        {services.length > 2 && <li>...mai mult</li>}
-                      </ul>
-                    </div>
-                  )
-                )
-              )}
-            </SearchServicesContainer>
-          </Modal.Window>
-        </Modal>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="modal fade modal-prices-list"
+          id="pricesList"
+          aria-labelledby="pricesList"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="pricesList">
+                  Vezi lista orientativă de prețuri
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body modal-dialog-prices-list">
+                <TableContainer>
+                  <table border="1" cellSpacing="0" cellPadding="5">
+                    <thead>
+                      <tr>
+                        <th>Serviciu</th>
+                        <th>Cost</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td colSpan="2">
+                          <strong>Obținere certificat TVA</strong>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Pentru cetățeni români</td>
+                        <td>100 EURO</td>
+                      </tr>
+
+                      <tr>
+                        <td colSpan="2">
+                          <strong>Prețuri servicii contabile</strong>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Contabilitate cu volum redus - 20 facturi</td>
+                        <td>300 - 450 RON</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Contabilitate cu complexitate medie - 11-50 facturi
+                        </td>
+                        <td>450 - 700 RON</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Contabilitate cu complexitate mare - 50-200 facturi
+                        </td>
+                        <td>700 - 1200 RON</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Contabilitate foarte complexă - peste 200 facturi
+                        </td>
+                        <td>Negociabil</td>
+                      </tr>
+
+                      <tr>
+                        <td colSpan="2">
+                          <strong>
+                            Costuri pentru gestionarea salarizării
+                          </strong>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>1-5 angajați</td>
+                        <td>150 RON</td>
+                      </tr>
+                      <tr>
+                        <td>6-10 angajați</td>
+                        <td>200 RON</td>
+                      </tr>
+                      <tr>
+                        <td>11-20 angajați</td>
+                        <td>250 RON</td>
+                      </tr>
+                      <tr>
+                        <td>Peste 20 angajați</td>
+                        <td>Negociabil</td>
+                      </tr>
+                      <tr>
+                        <td>Elaborare contracte, decizii (1-5 angajați)</td>
+                        <td>50 RON</td>
+                      </tr>
+                      <tr>
+                        <td>Elaborare contracte, decizii (6-11 angajați)</td>
+                        <td>100 RON</td>
+                      </tr>
+                      <tr>
+                        <td>Elaborare contracte, decizii (11-20 angajați)</td>
+                        <td>200 RON</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Elaborare contracte, decizii (peste 20 angajați)
+                        </td>
+                        <td>Negociabil</td>
+                      </tr>
+                      <tr>
+                        <td>Întocmire fișă fiscală/salariat</td>
+                        <td>25 RON</td>
+                      </tr>
+
+                      <tr>
+                        <td colSpan="2">
+                          <strong>Servicii de certificare a bilanțului</strong>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Cifra de afaceri până la 100.000 RON</td>
+                        <td>250 RON</td>
+                      </tr>
+                      <tr>
+                        <td>100.001 - 200.000 RON</td>
+                        <td>400 RON</td>
+                      </tr>
+                      <tr>
+                        <td>200.001 - 450.000 RON</td>
+                        <td>600 RON</td>
+                      </tr>
+                      <tr>
+                        <td>Peste 450.001 RON</td>
+                        <td>Negociabil</td>
+                      </tr>
+
+                      <tr>
+                        <td colSpan="2">
+                          <strong>Servicii adiționale</strong>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Deplasare pentru colectarea actelor</td>
+                        <td>200 RON</td>
+                      </tr>
+                      <tr>
+                        <td>Depunerea declarațiilor de șomaj</td>
+                        <td>200 RON</td>
+                      </tr>
+                      <tr>
+                        <td>Servicii pentru licitații publice</td>
+                        <td>250 - 350 RON</td>
+                      </tr>
+                      <tr>
+                        <td>Analiză financiar-contabilă</td>
+                        <td>400 - 650 RON</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </TableContainer>
+              </div>
+            </div>
+          </div>
+        </div>
       </StyledFullServicesList>
       <InfoNote>
         <div>
