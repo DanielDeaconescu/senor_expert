@@ -432,6 +432,24 @@ table {
   width: 0.5rem;
 }
 
+.modal-services-form{
+  overflow: hidden;
+}
+
+.modal-body-services-form::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-grey-300);
+}
+ 
+.modal-body-services-form::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey-400);
+  border-radius: 1rem;
+}
+
+.modal-body-services-form::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
 `;
 
 export default GlobalStyles;

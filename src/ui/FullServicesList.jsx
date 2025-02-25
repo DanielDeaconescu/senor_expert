@@ -198,9 +198,9 @@ const StyledContactFormButton = styled.button`
   }
 `;
 
-const ContactFormContainer = styled.div`
-  height: 70vh;
-`;
+// const ContactFormContainer = styled.div`
+//   height: 70vh;
+// `;
 
 function FullServicesList() {
   const [query, setQuery] = useState("");
@@ -483,18 +483,39 @@ function FullServicesList() {
           complexitatea activității contabile și cerințele specifice ale
           fiecărei firme. Pentru o ofertă personalizată, adaptată nevoilor
           afacerii dumneavoastră, vă invităm să ne contactați folosind următorul{" "}
-          <Modal>
-            <Modal.Open>
-              <StyledContactFormButton>
-                Formular de contact
-              </StyledContactFormButton>
-            </Modal.Open>
-            <Modal.Window>
-              <ContactFormContainer>
-                <ContactForm />
-              </ContactFormContainer>
-            </Modal.Window>
-          </Modal>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Formular de contact
+          </button>
+          <div
+            class="modal fade modal-services-form"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body modal-body-services-form">
+                  <div>
+                    <ContactForm />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </InfoNoteText>
       </InfoNote>
     </FullServicesListContainer>

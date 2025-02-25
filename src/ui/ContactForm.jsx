@@ -116,7 +116,6 @@ function ContactForm() {
             </p>
           )}
         </div>
-
         {/* Email Field */}
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -137,7 +136,6 @@ function ContactForm() {
             <p className="contact-form-error-message">{errors.email.message}</p>
           )}
         </div>
-
         {/* Phone Field */}
         <div className="mb-3">
           <label htmlFor="phone" className="form-label">
@@ -154,7 +152,6 @@ function ContactForm() {
             <p className="contact-form-error-message">{errors.phone.message}</p>
           )}
         </div>
-
         {/* Company Field */}
         <div className="mb-3">
           <label htmlFor="company" className="form-label">
@@ -173,7 +170,6 @@ function ContactForm() {
             </p>
           )}
         </div>
-
         {/* Service Field */}
         <div className="mb-3">
           <label htmlFor="service" className="form-label">
@@ -202,7 +198,6 @@ function ContactForm() {
             </p>
           )}
         </div>
-
         {/* Message Field */}
         <div className="mb-3">
           <label htmlFor="message" className="form-label">
@@ -215,7 +210,6 @@ function ContactForm() {
             placeholder="Mesajul dumneavoastră..."
           ></textarea>
         </div>
-
         {/* Hidden input for Captcha validation */}
         <input
           type="hidden"
@@ -223,7 +217,6 @@ function ContactForm() {
             required: "Vă rugăm să finalizați verificarea Turnstile.",
           })}
         />
-
         {/* Turnstile Widget */}
         <TurnstileContainer className="text-center">
           <TurnstileTest
