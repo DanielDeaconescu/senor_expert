@@ -53,6 +53,20 @@ export async function getAllUsers() {
   return data;
 }
 
+export const resetPassword = async (email) => {
+  try {
+    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    if (error) throw error;
+
+    return {
+      success: true,
+      message: "Password reset email sent successfully.",
+    };
+  } catch (error) {
+    return { success: false, message: error.message };
+  }
+};
+
 export async function logout() {
   const { error } = await supabase.auth.signOut();
   if (error) throw new Error(error.message);

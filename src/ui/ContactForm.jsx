@@ -10,6 +10,7 @@ const ContactFormContainer = styled.div`
 
 const StyledContactForm = styled.form`
   padding: 0.25rem;
+  text-align: left;
   @media (max-width: 576px) {
     & div {
       margin-bottom: 0.5rem !important;

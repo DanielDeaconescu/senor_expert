@@ -12,6 +12,7 @@ import AdminRoute from "./ui/AdminRoute";
 import AdminPage from "./pages/AdminPage";
 import PageNotFound from "./pages/PageNotFound";
 import ThankYouPage from "./pages/ThankYouPage";
+import ResetPasswordForm from "./pages/ResetPasswordForm";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +49,7 @@ function App() {
               }
             />
           </Route>
+          <Route path="/reset-password" element={<ResetPasswordForm />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

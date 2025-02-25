@@ -450,6 +450,11 @@ table {
   width: 0.5rem;
 }
 
+.container-services-hero-custom{
+  position: relative;
+  z-index: 8;
+}
+
 `;
 
 export default GlobalStyles;

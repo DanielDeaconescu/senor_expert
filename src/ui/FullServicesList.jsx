@@ -8,18 +8,16 @@ const Text = styled.div`
   text-align: justify;
 `;
 
-const IconContainer = styled.div``;
-
 const InfoNote = styled.div`
   color: var(--clr-primary);
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 1rem;
   padding: 0 1rem 1rem 1rem;
 
   @media (max-width: 576px) {
     flex-direction: column;
+    align-items: center;
   }
 
   @media (min-width: 992px) {
@@ -28,6 +26,11 @@ const InfoNote = styled.div`
 `;
 
 const InfoNoteText = styled.span`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   color: var(--color-grey-700);
   padding-left: 0.5rem;
 
@@ -37,11 +40,13 @@ const InfoNoteText = styled.span`
   @media (max-width: 576px) {
     text-align: center;
     max-width: 100%;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 `;
 
-const FullServicesListContainer = styled.div``;
+const FullServicesListContainer = styled.div`
+  padding: 2rem;
+`;
 
 const StyledFullServicesList = styled.div`
   display: flex;
@@ -82,6 +87,7 @@ const StyledFullServicesList = styled.div`
 const ModalButton = styled.button`
   @media (max-width: 576px) {
     margin: auto;
+    font-size: 0.8rem;
   }
   @media (min-width: 576px) and (max-width: 768px) {
     margin: auto;
@@ -91,6 +97,9 @@ const ModalButton = styled.button`
   }
   @media (min-width: 992px) and (max-width: 1200px) {
     margin: auto;
+  }
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    font-size: 0.8rem;
   }
 `;
 
@@ -201,6 +210,18 @@ const StyledContactFormButton = styled.button`
 // const ContactFormContainer = styled.div`
 //   height: 70vh;
 // `;
+
+const StyledButton = styled.button`
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: lightgray;
+  color: black;
+
+  &:hover {
+    background-color: darkgrey;
+  }
+`;
 
 function FullServicesList() {
   const [query, setQuery] = useState("");
@@ -482,25 +503,24 @@ function FullServicesList() {
           funcție de mai mulți factori, precum volumul de documente procesate,
           complexitatea activității contabile și cerințele specifice ale
           fiecărei firme. Pentru o ofertă personalizată, adaptată nevoilor
-          afacerii dumneavoastră, vă invităm să ne contactați folosind următorul{" "}
-          <button
+          afacerii dumneavoastră, vă invităm să ne contactați folosind
+          formularul de contact de mai jos.
+          <StyledButton
             type="button"
-            class="btn btn-secondary"
             data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            data-bs-target="#servicesContactForm"
           >
             Formular de contact
-          </button>
+          </StyledButton>
           <div
-            class="modal fade modal-services-form"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
+            class="modal fade modal-form-custom"
+            id="servicesContactForm"
+            aria-labelledby="servicesContactForm"
             aria-hidden="true"
           >
-            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header modal-header-custom">
                   <button
                     type="button"
                     class="btn-close"
@@ -508,10 +528,8 @@ function FullServicesList() {
                     aria-label="Close"
                   ></button>
                 </div>
-                <div class="modal-body modal-body-services-form">
-                  <div>
-                    <ContactForm />
-                  </div>
+                <div class="modal-body modal-body-custom">
+                  <ContactForm />
                 </div>
               </div>
             </div>

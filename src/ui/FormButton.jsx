@@ -52,7 +52,6 @@ function FormButton() {
       <div
         class="modal fade modal-form-custom"
         id="contactFormSenorExpert"
-        tabindex="-1"
         aria-labelledby="contactFormSenorExpert"
         aria-hidden="true"
       >

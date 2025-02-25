@@ -8,17 +8,48 @@ const StyledHeader = styled.header`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+`;
+
+const StyledTitle = styled.h1`
+  @media (max-width: 576px) {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+`;
+
+const StyledParagraph = styled.p`
+  @media (max-width: 576px) {
+    font-size: 1.2rem;
+    text-align: center;
+  }
 `;
 
 const Image = styled.img`
   border-radius: 1rem;
 `;
 
+const StyledNavLink = styled(NavLink)`
+  @media (max-width: 576px) {
+    font-size: 1rem;
+  }
+`;
+
 function ServicesHeader() {
   return (
     <StyledHeader className="hero">
-      <div className="hero text-white pt-7">
-        <div className="container-xl">
+      <div className="hero text-white pt-6">
+        <div className="container-xl container-services-hero-custom">
           <div className="row">
             <div className="image-container col-md-6">
               <div className="mb-5 px-4">
@@ -26,22 +57,24 @@ function ServicesHeader() {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="text-container p-4 d-flex flex-column justify-content-center h-100 mb-5">
-                <h1 className="display-3 fw-bold">Servicii Senor Expert</h1>
-                <p className="lead custom-paragraph">
+              <div className="text-container d-flex flex-column justify-content-center align-items-center h-100 mb-5">
+                <StyledTitle className="display-3 fw-bold">
+                  Servicii Senor Expert
+                </StyledTitle>
+                <StyledParagraph className="lead custom-paragraph">
                   Alături de serviciile de contabilitate și fiscalitate despre
                   care poți citi mai jos, îți oferim posibilitatea de a încărca
                   documentele contabile online într-un mediu securizat.
-                </p>
+                </StyledParagraph>
 
                 <div className="text-center">
                   <div className="d-grid">
-                    <NavLink
+                    <StyledNavLink
                       to="/connect"
                       className="btn btn-primary btn-lg text-white"
                     >
                       Conectare
-                    </NavLink>
+                    </StyledNavLink>
                   </div>
                 </div>
               </div>
