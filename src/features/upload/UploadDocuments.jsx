@@ -11,7 +11,7 @@ const StyledButton = styled.button`
   color: var(--color-grey-0);
   font-weight: 600;
   position: relative;
-  z-index: 100;
+  z-index: 98;
   &:hover {
     background-color: var(--color-green-800);
   }

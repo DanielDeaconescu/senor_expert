@@ -22,7 +22,8 @@ const StyledModal = styled.div`
   padding: 3.2rem 4rem;
   transition: all 0.5s;
   min-height: 350px;
-  overflow: auto;
+  /* overflow: auto; */
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
 

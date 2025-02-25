@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledUploadSteps = styled.div`
   color: white;
-  z-index: 100;
+  z-index: 8;
   padding-bottom: 5rem;
 `;
 

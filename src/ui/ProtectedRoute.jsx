@@ -13,28 +13,24 @@ const FullPage = styled.div`
 
 function ProtectedRoute({ children }) {
   const navigate = useNavigate();
-
-  // 1. Load the authenticated user
   const { isLoading, isAuthenticated } = useUser();
 
-  // 2. If there is no authenticated user, redirect to the /connect (original: /login)
-  useEffect(
-    function () {
-      if (!isAuthenticated && !isLoading) navigate("/connect");
-    },
-    [isAuthenticated, isLoading, navigate]
-  );
+  // Wait until authentication is confirmed before redirecting
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      navigate("/connect");
+    }
+  }, [isAuthenticated, isLoading, navigate]);
 
-  // 3. While loading, show a spinner - we should return a full-page element
+  // Show loading screen while checking authentication
   if (isLoading)
     return (
       <FullPage>
-        <p>Se incarca...</p>
+        <p>Se încarcă...</p>
       </FullPage>
     );
 
-  // 4. If there is a user, render the app
-  if (isAuthenticated) return children;
+  return children;
 }
 
 export default ProtectedRoute;

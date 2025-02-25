@@ -1,9 +1,9 @@
 import logoImg from "../data/images/senor_expert_logo_nobg.svg";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { useUser } from "../features/authentication/useUser";
-import { getCurrentUser, logout } from "../services/apiAuth";
+import { logout } from "../services/apiAuth";
 
 const StyledNavigation = styled.nav`
   position: relative;
@@ -24,6 +24,7 @@ const StyledNavigation = styled.nav`
 
   transition: transform 0.3s ease, opacity 0.3s ease;
 `;
+
 const StyledImage = styled.img`
   width: 225px;
 `;
@@ -44,26 +45,37 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
+const LogoutButton = styled.button`
+  border: none;
+  background: none;
+  padding: 1.5rem;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--clr-primary);
+    color: var(--color-grey-0) !important;
+    cursor: pointer;
+  }
+`;
+
 function Navigation({ isSticky }) {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
   const { user, isLoading, refetch } = useUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     refetch();
   }, [refetch]);
-
-  // function toggleMenu(event) {
-  //   event.stopPropagation();
-  //   setIsOpen((prev) => !prev);
-  // }
 
   const toggleMenu = useCallback((event) => {
     event.stopPropagation();
     setIsOpen((prev) => !prev);
   }, []);
 
-  // handling click outside
   const handleClickOutside = (event) => {
     if (
       navRef.current &&
@@ -86,15 +98,19 @@ function Navigation({ isSticky }) {
   async function handleLogout() {
     try {
       await logout();
-      refetch();
+
+      setIsOpen(false);
+      await refetch();
+
+      navigate("/connect");
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     } catch (error) {
       console.error("Error during logout: ", error.message);
     }
   }
-
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
 
   return (
     <StyledNavigation
@@ -137,7 +153,7 @@ function Navigation({ isSticky }) {
                 Servicii
               </StyledNavLink>
             </li>
-            {user && user.email !== "mona@senorexpert.ro" ? (
+            {user && user.email !== "mona@senorexpert.ro" && (
               <li className="nav-item">
                 <StyledNavLink
                   to="/upload"
@@ -147,21 +163,19 @@ function Navigation({ isSticky }) {
                   Upload
                 </StyledNavLink>
               </li>
-            ) : (
-              ""
             )}
             <li className="nav-item">
-              <StyledNavLink
-                to="/connect"
-                className="nav-link"
-                onClick={() => setIsOpen(false)}
-              >
-                {user ? (
-                  <span onClick={handleLogout}>Deconectare</span>
-                ) : (
-                  "Conectare"
-                )}
-              </StyledNavLink>
+              {user ? (
+                <LogoutButton onClick={handleLogout}>Deconectare</LogoutButton>
+              ) : (
+                <StyledNavLink
+                  to="/connect"
+                  className="nav-link"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Conectare
+                </StyledNavLink>
+              )}
             </li>
             {user?.email === "mona@senorexpert.ro" && (
               <li className="nav-item">
