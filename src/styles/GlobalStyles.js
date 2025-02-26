@@ -467,6 +467,17 @@ table {
   text-decoration: underline;
 }
 
+.info-reset-password{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-reset-password i{
+  color: var(--color-green-700);
+}
+
 `;
 
 export default GlobalStyles;

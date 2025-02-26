@@ -123,6 +123,13 @@ const LoginForm = () => {
               Introduceți adresa de email și veți primi un link de resetare a
               parolei
             </label>
+            <div className="info-reset-password">
+              <i class="fa-solid fa-circle-info"></i>
+              <small>
+                Linkul de resetare al parolei poate veni în 5 minute. Vă rugăm
+                așteptați înainte de a trimite o nouă solicitare.
+              </small>
+            </div>
             <StyledInput
               type="email"
               id="reset-email"
