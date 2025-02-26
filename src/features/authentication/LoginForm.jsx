@@ -104,27 +104,24 @@ const LoginForm = () => {
             {!isLoading ? "Conectare" : "Se conectează..."}
           </button>
 
-          <div>
+          <div className="text-center pt-3">
             <a
               href="#"
               onClick={() => setIsForgotPassword(true)}
-              style={{
-                textDecoration: "underline",
-                color: "blue",
-                cursor: "pointer",
-              }}
+              className="forgot-password-link"
             >
-              Forgot your password?
+              Ați uitat parola?
             </a>
           </div>
         </StyledLoginForm>
       ) : (
         // Reset Password Form
         <StyledLoginForm onSubmit={handleSubmitResetPassword}>
-          <h2>Reset Your Password</h2>
+          <h2 className="text-center">Resetați parola</h2>
           <div className="mb-3">
-            <label htmlFor="reset-email" className="form-label">
-              Enter your email to receive a reset link
+            <label htmlFor="reset-email" className="form-label text-center">
+              Introduceți adresa de email și veți primi un link de resetare a
+              parolei
             </label>
             <StyledInput
               type="email"
@@ -141,13 +138,13 @@ const LoginForm = () => {
             className="btn btn-primary"
             disabled={resetLoading}
           >
-            {resetLoading ? "Sending..." : "Send Reset Link"}
+            {resetLoading ? "Se trimite..." : "Trimite Link Resetare"}
           </button>
 
           {error && <p style={{ color: "red" }}>{error}</p>}
-          {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+          {/* {successMessage && <p style={{ color: "green" }}>{successMessage}</p>} */}
 
-          <div>
+          <div className="text-center pt-3">
             <a
               href="#"
               onClick={() => setIsForgotPassword(false)}
@@ -156,8 +153,9 @@ const LoginForm = () => {
                 color: "blue",
                 cursor: "pointer",
               }}
+              className="back-to-login-link"
             >
-              Back to login
+              Înapoi la pagina de logare
             </a>
           </div>
         </StyledLoginForm>

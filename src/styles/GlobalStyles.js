@@ -455,6 +455,18 @@ table {
   z-index: 8;
 }
 
+.forgot-password-link{
+  color: var(--color-green-700) !important;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.back-to-login-link{
+  color: var(--color-green-700) !important;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 `;
 
 export default GlobalStyles;

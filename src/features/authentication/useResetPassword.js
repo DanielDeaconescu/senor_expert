@@ -1,5 +1,6 @@
 import { resetPassword } from "../../services/apiAuth";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const useResetPassword = () => {
   const [loading, setLoading] = useState(false);
@@ -16,8 +17,10 @@ const useResetPassword = () => {
 
     if (result.success) {
       setSuccessMessage(result.message);
+      toast.success(result.message);
     } else {
       setError(result.message);
+      toast.error(result.message);
     }
   };
 
