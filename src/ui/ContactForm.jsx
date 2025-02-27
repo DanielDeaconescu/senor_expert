@@ -88,18 +88,18 @@ function ContactForm({ isModalOpen }) {
       return;
     }
 
-    const response = await fetch("/api/sendEmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formData, turnstileToken }),
-    });
+    sessionStorage.setItem("contactFormSubmitted", "true");
+    navigate("/thank-you");
 
-    const result = await response.json();
-    if (result.success) {
-      sessionStorage.setItem("contactFormSubmitted", "true");
-      navigate("/thank-you");
-    } else {
-      alert("Eroare la trimiterea mesajului.");
+    try {
+      await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, turnstileToken }),
+      });
+    } catch (error) {
+      console.error("Eroare la trimiterea emailului: ", error);
+      toast.error("Eroare la trimiterea mesajului.");
     }
   };
 
