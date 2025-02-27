@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import supabase from "../services/supabase";
 import styled from "styled-components";
 import Logo from "../ui/Logo";
+import toast from "react-hot-toast";
 
 const StyledResetPasswordForm = styled.div`
   display: flex;
@@ -61,8 +62,11 @@ const ResetPasswordForm = () => {
     if (error) {
       setError(error.message);
     } else {
-      setSuccessMessage("Parola a fost resetată cu succes!");
-      setTimeout(() => navigate("/connect"), 3000);
+      // setSuccessMessage("Parola a fost resetată cu succes!");
+      toast.success(
+        "Parola a fost resetata cu success! Imediat veți fi redirecționat la pagina de logare!"
+      );
+      setTimeout(() => navigate("/connect"), 2000);
     }
   };
 

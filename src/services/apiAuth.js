@@ -63,7 +63,7 @@ export const resetPassword = async (email) => {
     return {
       success: true,
       message:
-        "Un link de resetare al parolei a fost trimis pe adresa de email. Vă rugăm să urmați pașii menționați în email.",
+        "Un link de resetare al parolei a fost trimis pe adresa de email. Urmați pașii specificați în email.",
     };
   } catch (error) {
     return { success: false, message: error.message };
