@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import Logo from "./Logo";
+import toast from "react-hot-toast";
 
 const ContactFormContainer = styled.div`
   overflow: hidden;
@@ -92,6 +93,7 @@ function ContactForm() {
       navigate("/thank-you");
     } else {
       alert("Eroare la trimiterea mesajului.");
+      // toast.error("Eroare la trimiterea mesajului.");
     }
   };
 
