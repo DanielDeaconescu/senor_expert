@@ -231,7 +231,9 @@ function ContactForm() {
               {errors.turnstile.message}
             </p>
           )}
-          <button className="btn btn-primary">Trimite</button>
+          <button className="btn btn-primary" data-bs-dismiss="modal">
+            Trimite
+          </button>
         </TurnstileContainer>
       </StyledContactForm>
     </ContactFormContainer>

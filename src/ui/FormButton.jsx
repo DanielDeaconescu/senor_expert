@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import Modal from "./Modal";
 import ContactForm from "./ContactForm";
 
 const StyledButton = styled.button`
@@ -13,52 +13,60 @@ const StyledButton = styled.button`
   color: #444444;
 `;
 
+const ContactFormContainer = styled.div`
+  height: 70vh;
+  padding-bottom: 2rem;
+  width: 100%;
+
+  @media (max-width: 576px) {
+    /* overflow-x: hidden; */
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    /* overflow-x: hidden; */
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* overflow-x: hidden; */
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    /* overflow-x: hidden; */
+  }
+
+  @media (min-width: 1201px) {
+    /* overflow-x: hidden; */
+  }
+`;
+
 function FormButton() {
-  const formRef = useRef(null);
-
-  useEffect(() => {
-    const modalElement = document.getElementById("contactFormSenorExpert");
-
-    const handleModalClose = () => {
-      if (formRef.current) {
-        formRef.current.reset(); // Resets form fields
-      }
-    };
-
-    modalElement.addEventListener("hidden.bs.modal", handleModalClose);
-
-    return () => {
-      modalElement.removeEventListener("hidden.bs.modal", handleModalClose);
-    };
-  }, []);
-
   return (
     <div>
       <StyledButton
         data-bs-toggle="modal"
         data-bs-target="#contactFormSenorExpert"
       >
-        <i className="fa-solid fa-pen-to-square fa-2x"></i>
+        <i class="fa-solid fa-pen-to-square fa-2x"></i>
       </StyledButton>
 
       <div
-        className="modal fade modal-form-custom"
+        class="modal fade modal-form-custom"
         id="contactFormSenorExpert"
         aria-labelledby="contactFormSenorExpert"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div className="modal-content">
-            <div className="modal-header modal-header-custom">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header modal-header-custom">
               <button
                 type="button"
-                className="btn-close"
+                class="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body modal-body-custom">
-              <ContactForm formRef={formRef} />
+            <div class="modal-body modal-body-custom">
+              <ContactForm />
             </div>
           </div>
         </div>
