@@ -62,10 +62,10 @@ const ResetPasswordForm = () => {
     if (error) {
       setError(error.message);
     } else {
-      setSuccessMessage("Parola a fost resetată cu succes!");
-      // toast.success(
-      //   "Parola a fost resetata cu success! Imediat veți fi redirecționat la pagina de logare!"
-      // );
+      // setSuccessMessage("Parola a fost resetată cu succes!");
+      toast.success(
+        "Parola a fost resetata cu success! Imediat veți fi redirecționat la pagina de logare!"
+      );
       setTimeout(() => navigate("/connect"), 2000);
     }
   };

@@ -10,6 +10,9 @@ export function useSignup() {
         "Contul a fost creat cu succes! Noul utilizator trebuie să verifice adresa de email pentru a putea folosi contul!"
       );
     },
+    onError: (error) => {
+      toast.error(`Eroare la crearea contului: ${error.message}`);
+    },
   });
 
   return { signup, isLoading };
