@@ -478,6 +478,8 @@ table {
   color: var(--color-green-700);
 }
 
+
+
 `;
 
 export default GlobalStyles;
