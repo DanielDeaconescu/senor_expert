@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import CTABackground from "../data/images/CTA_background.jpg";
+import CTABackground from "../data/images/background_hero_services.jpg";
 import UploadImage from "../data/images/upload-image.jpg";
 import styled from "styled-components";
 

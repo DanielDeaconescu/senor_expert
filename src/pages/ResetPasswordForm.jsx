@@ -12,6 +12,10 @@ const StyledResetPasswordForm = styled.div`
   align-items: center;
   height: 100vh;
   gap: 1rem;
+
+  @media (max-width: 576px) {
+    padding: 0 2rem;
+  }
 `;
 
 const StyledForm = styled.form`
