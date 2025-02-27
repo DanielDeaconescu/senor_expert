@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Modal from "./Modal";
 import ContactForm from "./ContactForm";
+import { useEffect, useState } from "react";
 
 const StyledButton = styled.button`
   display: flex;
@@ -40,11 +40,27 @@ const ContactFormContainer = styled.div`
 `;
 
 function FormButton() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const modalElement = document.getElementById("contactFormSenorExpert");
+    const handleModalClose = () => setIsModalOpen(false);
+
+    modalElement?.addEventListener("hidden.bs.modal", handleModalClose);
+
+    return () => {
+      modalElement?.removeEventListener("hidden.bs.modal", handleModalClose);
+    };
+  }, []);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+
   return (
     <div>
       <StyledButton
         data-bs-toggle="modal"
         data-bs-target="#contactFormSenorExpert"
+        onClick={handleOpenModal}
       >
         <i class="fa-solid fa-pen-to-square fa-2x"></i>
       </StyledButton>
@@ -66,7 +82,7 @@ function FormButton() {
               ></button>
             </div>
             <div class="modal-body modal-body-custom">
-              <ContactForm />
+              <ContactForm isModalOpen={isModalOpen} />
             </div>
           </div>
         </div>

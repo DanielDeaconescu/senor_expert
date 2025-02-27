@@ -47,7 +47,7 @@ const TurnstileContainer = styled.div`
 
 const TurnstileTest = styled.div``;
 
-function ContactForm() {
+function ContactForm({ isModalOpen }) {
   const navigate = useNavigate();
   const [turnstileToken, setTurnstileToken] = useState("");
   const {
@@ -56,8 +56,15 @@ function ContactForm() {
     setError,
     setValue,
     clearErrors,
+    reset,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (!isModalOpen) {
+      reset();
+    }
+  }, [isModalOpen, reset]);
 
   useEffect(() => {
     if (window.turnstile) {
@@ -93,7 +100,6 @@ function ContactForm() {
       navigate("/thank-you");
     } else {
       alert("Eroare la trimiterea mesajului.");
-      // toast.error("Eroare la trimiterea mesajului.");
     }
   };
 
