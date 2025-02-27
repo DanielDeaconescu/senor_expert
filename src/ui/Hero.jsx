@@ -22,7 +22,7 @@ const StyledHeader = styled.header`
 
   & .text-container {
     position: relative;
-    z-index: 98;
+    z-index: 8;
   }
 
   & .frame-decoration {
@@ -43,7 +43,7 @@ const StyledHeaderHomeImage = styled.img`
   width: 420px;
   border-radius: 1rem;
   position: relative;
-  z-index: 98;
+  z-index: 8;
 `;
 
 const StyledText = styled.div`
