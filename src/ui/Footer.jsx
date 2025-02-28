@@ -213,8 +213,8 @@ function Footer() {
                         Închide
                       </button>
                       <a
-                        href="../data/pdfs/autorizatie-ceccar.pdf"
-                        download="autorizatie-ceccar.pdf"
+                        href="/data/pdfs/autorizatie-ceccar.pdf"
+                        download
                         class="btn btn-primary"
                       >
                         Descarcă PDF
