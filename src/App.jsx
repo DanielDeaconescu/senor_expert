@@ -13,6 +13,7 @@ import AdminPage from "./pages/AdminPage";
 import PageNotFound from "./pages/PageNotFound";
 import ThankYouPage from "./pages/ThankYouPage";
 import ResetPasswordForm from "./pages/ResetPasswordForm";
+import ScrollToTop from "./ui/ScrollToTop";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,6 +28,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <GlobalStyles />
+        <ScrollToTop />
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<HomePage />} />

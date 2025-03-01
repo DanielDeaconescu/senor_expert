@@ -136,6 +136,14 @@ const DanielDevLink = styled.a`
   text-decoration: underline;
 `;
 
+const CloseButton = styled.button`
+  flex: 1;
+`;
+
+const DownloadButton = styled.a`
+  flex: 1;
+`;
+
 function Footer() {
   const [phoneVisible, setPhoneVisible] = useState(false);
 
@@ -178,26 +186,26 @@ function Footer() {
               </li>
 
               <div
-                class="modal fade"
+                className="modal fade"
                 id="authorizationModal"
                 tabindex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header text-center">
+                      <h5 className="modal-title" id="exampleModalLabel">
                         Autorizație C.E.C.C.A.R.
                       </h5>
                       <button
                         type="button"
-                        class="btn-close"
+                        className="btn-close"
                         data-bs-dismiss="modal"
                         aria-label="Close"
                       ></button>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                       <img
                         src={AuthorizationImage}
                         alt=""
@@ -205,20 +213,20 @@ function Footer() {
                       />
                     </div>
                     <div class="modal-footer">
-                      <button
+                      <CloseButton
                         type="button"
-                        class="btn btn-secondary"
+                        className="btn btn-secondary"
                         data-bs-dismiss="modal"
                       >
                         Închide
-                      </button>
-                      <a
+                      </CloseButton>
+                      <DownloadButton
                         href="/data/pdfs/autorizatie-ceccar.pdf"
                         download
-                        class="btn btn-primary"
+                        className="btn btn-primary"
                       >
                         Descarcă PDF
-                      </a>
+                      </DownloadButton>
                     </div>
                   </div>
                 </div>
@@ -291,7 +299,7 @@ function Footer() {
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="pricesList">
-                Vezi lista orientativă de prețuri
+                Lista orientativă de prețuri
               </h5>
               <button
                 type="button"
