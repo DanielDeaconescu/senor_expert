@@ -4,6 +4,8 @@ import SingupForm from "../features/authentication/SignupForm";
 import DeleteButton from "./DeleteButton";
 import CancelButton from "./CancelButton";
 import AdminDashboard from "../pages/AdminDashboard";
+import { useEditPrice } from "../services/useEditPrice";
+import { useState } from "react";
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -119,6 +121,13 @@ function AdminNavbar({
   deleteAllDocumentsFunction,
   pricesList,
 }) {
+  const { isEditing, editPrice } = useEditPrice();
+  const [editedPrices, setEditedPrices] = useState({});
+
+  function handleChange(id, value) {
+    setEditedPrices((prev) => ({ ...prev, [] }))
+  }
+
   return (
     <NavbarContainer className="container">
       {/* Create User */}
