@@ -6,6 +6,7 @@ import CancelButton from "./CancelButton";
 import AdminDashboard from "../pages/AdminDashboard";
 import { useEditPrice } from "../services/useEditPrice";
 import { useState } from "react";
+import usePrices from "../services/usePrices";
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -116,17 +117,33 @@ const SmallerScreenIcon = styled.span`
   }
 `;
 
+const StyledUnorderedList = styled.ul`
+  padding: 0;
+`;
+
 function AdminNavbar({
   handleSortChange,
   deleteAllDocumentsFunction,
   pricesList,
 }) {
+  const { isLoading, data, error } = usePrices();
   const { isEditing, editPrice } = useEditPrice();
   const [editedPrices, setEditedPrices] = useState({});
 
+  // const pricesList = data || [];
+
   function handleChange(id, value) {
-    setEditedPrices((prev) => ({ ...prev, [] }))
+    setEditedPrices((prev) => ({ ...prev, [id]: value }));
   }
+
+  function handleSave() {
+    Object.entries(editedPrices).forEach(([id, newPrice]) => {
+      editPrice({ newPrice, id });
+    });
+  }
+
+  if (isLoading) return <p>Prețurile se încarcă...</p>;
+  if (error) return <p>A avut loc o eroare: {error.message}</p>;
 
   return (
     <NavbarContainer className="container">
@@ -209,29 +226,6 @@ function AdminNavbar({
           </DeleteAllWindow>
         </Modal.Window>
       </Modal>
-      {/* <Modal>
-        <Modal.Open>
-          <button className="btn btn-secondary">Editeaza preturile</button>
-        </Modal.Open>
-        <Modal.Window>
-          <form action="">
-            <ul>
-              {pricesList?.prices_list?.map((item, index) => (
-                <li key={index}>
-                  <label htmlFor={`service-${index}`}>
-                    {item.service_name}
-                  </label>
-                  <input
-                    type="text"
-                    id={`service-${index}`}
-                    defaultValue={item.service_price}
-                  />
-                </li>
-              ))}
-            </ul>
-          </form>
-        </Modal.Window>
-      </Modal> */}
 
       <button
         type="button"
@@ -239,7 +233,7 @@ function AdminNavbar({
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Editeaza preturile
+        Editează prețurile
       </button>
       <div
         class="modal fade"
@@ -251,8 +245,8 @@ function AdminNavbar({
         <div class="modal-dialog modal-dialog-scrollable modal-test">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Modal title
+              <h5 className="modal-title text-dark" id="exampleModalLabel">
+                Prețuri orientative
               </h5>
               <button
                 type="button"
@@ -264,22 +258,35 @@ function AdminNavbar({
             <div class="modal-body">
               <form className="text-dark" action="">
                 <ul>
-                  {pricesList?.prices_list?.map((item, index) => (
-                    <li key={index}>
-                      <label
-                        htmlFor={`service-${index}`}
-                        className="form-label"
-                      >
-                        {item.service_name}
-                      </label>
-                      <input
-                        type="text"
-                        id={`service-${index}`}
-                        defaultValue={item.service_price}
-                        className="form-control"
-                      />
-                    </li>
-                  ))}
+                  {data &&
+                    Object.entries(data).map(([category, items], index) => (
+                      <li key={index} className="mb-3">
+                        <h5>{category}</h5>
+                        <StyledUnorderedList>
+                          {items.map((item) => (
+                            <li key={item.id} className="mb-3">
+                              <label
+                                htmlFor={`service-${item.id}`}
+                                className="form-label"
+                              >
+                                {item.service_name}
+                              </label>
+                              <input
+                                type="text"
+                                id={`service-${item.id}`}
+                                value={
+                                  editedPrices[item.id] ?? item.service_price
+                                }
+                                className="form-control"
+                                onChange={(e) =>
+                                  handleChange(item.id, e.target.value)
+                                }
+                              />
+                            </li>
+                          ))}
+                        </StyledUnorderedList>
+                      </li>
+                    ))}
                 </ul>
               </form>
             </div>
@@ -289,10 +296,14 @@ function AdminNavbar({
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                Închide
               </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
+              <button
+                type="button"
+                class="btn btn-primary"
+                onClick={handleSave}
+              >
+                Salvează modificările
               </button>
             </div>
           </div>
