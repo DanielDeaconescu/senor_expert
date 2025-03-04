@@ -14,7 +14,7 @@ const NavbarContainer = styled.nav`
   padding: 1rem;
   border-radius: 0.5rem;
   color: white;
-  z-index: 10;
+  z-index: 9;
 
   @media (max-width: 576px) {
     /* flex-direction: column; */
@@ -114,7 +114,11 @@ const SmallerScreenIcon = styled.span`
   }
 `;
 
-function AdminNavbar({ handleSortChange, deleteAllDocumentsFunction }) {
+function AdminNavbar({
+  handleSortChange,
+  deleteAllDocumentsFunction,
+  pricesList,
+}) {
   return (
     <NavbarContainer className="container">
       {/* Create User */}
@@ -196,6 +200,95 @@ function AdminNavbar({ handleSortChange, deleteAllDocumentsFunction }) {
           </DeleteAllWindow>
         </Modal.Window>
       </Modal>
+      {/* <Modal>
+        <Modal.Open>
+          <button className="btn btn-secondary">Editeaza preturile</button>
+        </Modal.Open>
+        <Modal.Window>
+          <form action="">
+            <ul>
+              {pricesList?.prices_list?.map((item, index) => (
+                <li key={index}>
+                  <label htmlFor={`service-${index}`}>
+                    {item.service_name}
+                  </label>
+                  <input
+                    type="text"
+                    id={`service-${index}`}
+                    defaultValue={item.service_price}
+                  />
+                </li>
+              ))}
+            </ul>
+          </form>
+        </Modal.Window>
+      </Modal> */}
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Editeaza preturile
+      </button>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable modal-test">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Modal title
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form className="text-dark" action="">
+                <ul>
+                  {pricesList?.prices_list?.map((item, index) => (
+                    <li key={index}>
+                      <label
+                        htmlFor={`service-${index}`}
+                        className="form-label"
+                      >
+                        {item.service_name}
+                      </label>
+                      <input
+                        type="text"
+                        id={`service-${index}`}
+                        defaultValue={item.service_price}
+                        className="form-control"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </NavbarContainer>
   );
 }

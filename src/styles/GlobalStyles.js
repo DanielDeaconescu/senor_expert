@@ -338,7 +338,7 @@ table {
           font-size: 2rem;
         }
   .modal-backdrop{
-    z-index: 10;
+    z-index: 8;
   }
 
   .modal-body-custom{
@@ -480,6 +480,10 @@ table {
 
 .upload-accounting-docs{
   align-items: flex-start;
+}
+
+.modal-test{
+  z-index: 1000 !important;
 }
 
 `;

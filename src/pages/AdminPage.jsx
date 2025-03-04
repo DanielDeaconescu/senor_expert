@@ -13,6 +13,7 @@ import DeleteButton from "../ui/DeleteButton";
 import { useSearchParams } from "react-router";
 import AdminNavbar from "../ui/AdminNavbar";
 import AdminDashboard from "./AdminDashboard";
+import usePrices from "../services/usePrices";
 
 const DocumentsContainer = styled.div`
   display: flex;
@@ -117,6 +118,7 @@ const ButtonTest = styled.button`
 
 function AdminPage() {
   const { isLoading, documents, count } = useDocuments();
+  const { isLoading1, data: prices_list, error } = usePrices();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSortChange = (sortOrder) => {
@@ -134,6 +136,7 @@ function AdminPage() {
         <AdminNavbar
           handleSortChange={handleSortChange}
           deleteAllDocumentsFunction={deleteAllDocumentsFunction}
+          pricesList={prices_list}
         />
 
         <DocumentsContainerInner className="container">
