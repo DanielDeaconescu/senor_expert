@@ -10,6 +10,7 @@ const StyledNavigation = styled.nav`
   width: 100%;
   background-color: var(--color-grey-0);
   border-bottom: 4px solid var(--clr-primary);
+  margin-top: ${(props) => (props.$isSticky ? "0px" : "40px")};
 
   &.navbar-sticky {
     position: fixed;
@@ -114,6 +115,7 @@ function Navigation({ isSticky }) {
 
   return (
     <StyledNavigation
+      $isSticky={isSticky}
       className={`${
         isSticky ? "navbar-sticky" : ""
       } navbar navbar-expand-md navbar-light navbar-custom`}

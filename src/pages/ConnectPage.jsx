@@ -17,7 +17,7 @@ const LoginContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  z-index: 100;
+  z-index: 8;
   font-weight: 600;
   &::after {
     content: "";

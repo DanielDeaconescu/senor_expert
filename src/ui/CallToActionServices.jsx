@@ -38,7 +38,7 @@ function CallToActionServices() {
       <div className="container">
         <div className="row">
           <div className="col-lg-7">
-            <div className="text-container text-white d-flex flex-column justify-content-center h-100 mb-5">
+            <div className="text-container text-white d-flex flex-column justify-content-center h-100 mb-5 upload-accounting-docs">
               <h2 className="fw-bold">Încărcați Fișerele Contabile</h2>
               <p>
                 Ați uitat să aduceți unele documente contabile? Nicio problemă!

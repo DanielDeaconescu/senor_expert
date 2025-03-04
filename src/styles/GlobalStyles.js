@@ -478,7 +478,9 @@ table {
   color: var(--color-green-700);
 }
 
-
+.upload-accounting-docs{
+  align-items: flex-start;
+}
 
 `;
 

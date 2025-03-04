@@ -10,6 +10,7 @@ import styled from "styled-components";
 import WhatsAppButton from "../ui/WhatsAppButton";
 import FormButton from "../ui/FormButton";
 import SideButtons from "../ui/SideButtons";
+import WorkingHours from "../ui/WorkingHours";
 
 const StyledHomePage = styled.div``;
 

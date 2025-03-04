@@ -11,6 +11,7 @@ import Footer from "./Footer";
 import { Outlet, useLocation } from "react-router";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
+import WorkingHours from "./WorkingHours";
 
 const Main = styled.main``;
 
@@ -55,6 +56,7 @@ function AppLayout() {
 
   return (
     <div>
+      <WorkingHours />
       <Navigation isSticky={isSticky} />
       <div ref={heroRef}></div>
       <Main>

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 import { useState } from "react";
 import styled from "styled-components";
-import AuthorizationImage from "../data/images/autorizatie-ceccar.jpg";
+import AuthorizationImage from "../data/images/certificat_ceccar.jpg";
 
 const StyledFooter = styled.footer`
   border-top: 4px solid var(--clr-primary);
@@ -221,7 +221,7 @@ function Footer() {
                         Închide
                       </CloseButton>
                       <DownloadButton
-                        href="/data/pdfs/autorizatie-ceccar.pdf"
+                        href="/data/pdfs/certificat_ceccar.pdf"
                         download
                         className="btn btn-primary"
                       >
@@ -238,12 +238,14 @@ function Footer() {
           <div className="col-md-4">
             <h5>Contact</h5>
             <p>
+              <i class="fa-solid fa-envelope me-2"></i>
               <strong>Email:</strong>{" "}
               <StyledEmailLink href="mailto:stefan.1mihai@yahoo.com">
                 stefan.1mihai@yahoo.com
               </StyledEmailLink>
             </p>
             <p>
+              <i class="fa-solid fa-phone me-2"></i>
               <strong>Telefon:</strong>{" "}
               {phoneVisible ? (
                 <StyledPhoneLink href="tel:+40751159264">
@@ -256,6 +258,7 @@ function Footer() {
               )}
             </p>
             <p>
+              <i class="fa-solid fa-clock me-2"></i>
               <strong>Program:</strong> Luni-Vineri: 09:00 - 17:00
             </p>
           </div>
@@ -267,9 +270,9 @@ function Footer() {
               Toate drepturile rezervate &copy; {new Date().getFullYear()}
             </CopyrightText>
             <CopyrightText className="text-end">
-              <NavLink to="/privacy-policy" className="text-dark">
+              <StyledNavLink to="/privacy-policy" className="text-dark">
                 Politica de confidențialitate
-              </NavLink>
+              </StyledNavLink>
             </CopyrightText>
 
             <CopyrightText className="text-end ">
