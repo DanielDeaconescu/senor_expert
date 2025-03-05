@@ -285,7 +285,6 @@ FOR DARK MODE
   top: 0;
   left: 0;
   width: 100%;
-
   z-index: 1000;
 }
 
@@ -338,7 +337,7 @@ table {
           font-size: 2rem;
         }
   .modal-backdrop{
-    z-index: 8;
+    z-index: 5;
   }
 
   .modal-body-custom{
@@ -483,6 +482,30 @@ table {
 }
 
 .modal-test{
+  z-index: 1000 !important;
+}
+
+/* Modal with all the prices */
+
+.modal-all-services::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-grey-300);
+}
+ 
+.modal-all-services::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey-400);
+  border-radius: 1rem;
+}
+
+.modal-all-services::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+.hello-world{
+  z-index: 1000 !important;
+}
+
+.modal-edit-users{
   z-index: 1000 !important;
 }
 

@@ -1,3 +1,4 @@
+// useLogin.js
 import { useMutation, useQueryClient } from "react-query";
 import { login as loginApi } from "../../services/apiAuth";
 import { useNavigate } from "react-router";
@@ -14,7 +15,17 @@ export function useLogin() {
       navigate("/upload", { replace: true });
     },
     onError: (err) => {
-      toast.error("Credențialele introduse nu sunt corecte.");
+      // Check for the specific error message if account is inactive
+      if (
+        err.message ===
+        "Contul dumneavoastră este inactiv, vă rugăm contactați administratorul!"
+      ) {
+        toast.error(
+          "Contul dumneavoastră este inactiv, vă rugăm contactați administratorul!"
+        );
+      } else {
+        toast.error("Credențialele introduse nu sunt corecte.");
+      }
     },
   });
 

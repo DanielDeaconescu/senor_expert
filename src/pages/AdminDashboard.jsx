@@ -1,10 +1,20 @@
+import { useState, useEffect } from "react";
 import { useUsers } from "../features/getAllUsers/useUsers";
+import { useToggleUser } from "../services/useToggleUser";
 
 function AdminDashboard() {
-  const { users, loading, error } = useUsers();
+  const { users: initialUsers, loading, error } = useUsers();
+  const {
+    toggleUser,
+    loading: toggleLoading,
+    error: toggleError,
+  } = useToggleUser();
 
-  if (loading) return <p>Loading users...</p>;
-  if (error) return <p>Error: {error}</p>;
+  const [users, setUsers] = useState(initialUsers); // Local state for users
+
+  useEffect(() => {
+    setUsers(initialUsers); // Update the local state when users data is fetched
+  }, [initialUsers]);
 
   const formatDate = (dateString) => {
     if (!dateString) return "N/A";
@@ -21,9 +31,25 @@ function AdminDashboard() {
     })}`;
   };
 
+  const handleToggleUser = (userId, isActive) => {
+    toggleUser(userId, isActive, () => {
+      // Update the local state to reflect the change immediately
+      setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user.id === userId ? { ...user, active: !isActive } : user
+        )
+      );
+    });
+  };
+
+  if (loading) return <p>Loading users...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div className="container mt-4">
       <h2>Toți utilizatorii</h2>
+
+      {toggleError && <p className="text-danger">{toggleError}</p>}
 
       {/* Table view for larger screens */}
       <div className="d-none d-md-block">
@@ -33,6 +59,8 @@ function AdminDashboard() {
               <th>#</th>
               <th>Email</th>
               <th>Ultima autentificare</th>
+              <th>Status</th>
+              <th>Acțiune</th>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +69,22 @@ function AdminDashboard() {
                 <td>{index + 1}</td>
                 <td>{user.email}</td>
                 <td>{formatDate(user.last_login)}</td>
+                <td>{user.active ? "Activ" : "Inactiv"}</td>
+                <td>
+                  <button
+                    className={`btn ${
+                      user.active ? "btn-danger" : "btn-success"
+                    }`}
+                    onClick={() => handleToggleUser(user.id, user.active)}
+                    disabled={toggleLoading}
+                  >
+                    {toggleLoading
+                      ? "Se actualizează..."
+                      : user.active
+                      ? "Dezactivează"
+                      : "Activează"}
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -63,7 +107,24 @@ function AdminDashboard() {
                       <strong>Ultima autentificare:</strong>{" "}
                       {formatDate(user.last_login)}
                     </li>
+                    <li className="list-group-item">
+                      <strong>Status:</strong>{" "}
+                      {user.active ? "Activ" : "Inactiv"}
+                    </li>
                   </ul>
+                  <button
+                    className={`btn ${
+                      user.active ? "btn-danger" : "btn-success"
+                    } mt-2`}
+                    onClick={() => handleToggleUser(user.id, user.active)}
+                    disabled={toggleLoading}
+                  >
+                    {toggleLoading
+                      ? "Se actualizează..."
+                      : user.active
+                      ? "Dezactivează"
+                      : "Activează"}
+                  </button>
                 </div>
               </div>
             </div>

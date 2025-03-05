@@ -28,6 +28,26 @@ export async function login({ email, password }) {
     console.error("Login Error: ", error);
     throw new Error(error.message);
   }
+
+  // Fetch user profile details (assuming you have a table for user profiles)
+  const { data: userProfile, error: profileError } = await supabase
+    .from("retrieved_users") // replace with your actual table name
+    .select("active")
+    .eq("email", email)
+    .single(); // Ensure we only get a single user
+
+  if (profileError) {
+    console.error("Profile Error: ", profileError);
+    throw new Error("A avut loc o eroare.");
+  }
+
+  // Check if the user is active
+  if (!userProfile || !userProfile.active) {
+    throw new Error(
+      "Contul dumneavoastră este inactiv, vă rugăm contactați administratorul!"
+    );
+  }
+
   return data;
 }
 

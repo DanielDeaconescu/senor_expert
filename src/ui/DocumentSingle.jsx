@@ -14,7 +14,7 @@ const DocumentItem = styled.div`
   width: 100%;
   border-radius: 0.5rem;
   position: relative;
-  z-index: 8;
+  z-index: 5;
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
 `;

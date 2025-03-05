@@ -4,8 +4,8 @@ import usePrices from "../services/usePrices";
 function PricesTable() {
   const { isLoading, data, error } = usePrices();
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Something went wrong: {error.message}</p>;
+  if (isLoading) return <p>Prețurile se încarcă...</p>;
+  if (error) return <p>A avut loc o eroare: {error.message}</p>;
 
   // Check if the data is available and properly grouped
   if (!data || Object.keys(data).length === 0) {

@@ -13,3 +13,18 @@ export const getUsers = async () => {
 
   return data;
 };
+
+export const toggleUserStatus = async (userId, isActive) => {
+  const { data, error } = await supabase
+    .from("retrieved_users")
+    .update({ active: !isActive })
+    .eq("id", userId)
+    .select();
+
+  if (error) {
+    console.error("Eroare la modificarea statusului: ", error);
+    return null;
+  }
+
+  return data;
+};

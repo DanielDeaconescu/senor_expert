@@ -17,7 +17,7 @@ const NavbarContainer = styled.nav`
   padding: 1rem;
   border-radius: 0.5rem;
   color: white;
-  z-index: 9;
+  /* z-index: 8; */
 
   @media (max-width: 576px) {
     /* flex-direction: column; */
@@ -121,6 +121,20 @@ const StyledUnorderedList = styled.ul`
   padding: 0;
 `;
 
+const StyledCloseButton = styled.button`
+  flex: 1;
+`;
+
+const StyledSaveButton = styled.button`
+  flex: 1;
+`;
+
+const NavigationInner = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  z-index: 6;
+`;
+
 function AdminNavbar({
   handleSortChange,
   deleteAllDocumentsFunction,
@@ -148,105 +162,141 @@ function AdminNavbar({
   return (
     <NavbarContainer className="container">
       {/* Create User */}
-      <Modal>
-        <Modal.Open opens="modal-create-user">
-          <Button>
-            <LargerScreenText>Creare utilizator nou</LargerScreenText>
-            <SmallerScreenIcon>
-              <i class="fas fa-user-plus"></i>
-            </SmallerScreenIcon>
-          </Button>
-        </Modal.Open>
-        <Modal.Window name="modal-create-user">
-          <SingupForm />
-        </Modal.Window>
-      </Modal>
+      <NavigationInner>
+        <Modal>
+          <Modal.Open opens="modal-create-user">
+            <Button>
+              <LargerScreenText>Creare utilizator nou</LargerScreenText>
+              <SmallerScreenIcon>
+                <i class="fas fa-user-plus"></i>
+              </SmallerScreenIcon>
+            </Button>
+          </Modal.Open>
+          <Modal.Window name="modal-create-user">
+            <SingupForm />
+          </Modal.Window>
+        </Modal>
 
-      {/* See all users */}
-      <Modal>
-        <Modal.Open>
-          <Button>
-            <LargerScreenText>Vezi utilizatorii curenți</LargerScreenText>
-            <SmallerScreenIcon>
-              <i class="fas fa-users"></i>
-            </SmallerScreenIcon>
-          </Button>
-        </Modal.Open>
-        <Modal.Window>
-          <AdminDashboard />
-        </Modal.Window>
-      </Modal>
-
-      {/* Sorting Buttons */}
-      <Actions>
-        <Button onClick={() => handleSortChange("asc")}>
-          <LargerScreenText>Sortează crescător</LargerScreenText>
+        {/* See all users */}
+        <Button
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#adminUsersModal"
+        >
+          <LargerScreenText>Vezi utilizatorii curenți</LargerScreenText>
           <SmallerScreenIcon>
-            <i class="fas fa-sort-amount-up"></i>
+            <i class="fas fa-users"></i>
           </SmallerScreenIcon>
         </Button>
-        <Button onClick={() => handleSortChange("desc")}>
-          <LargerScreenText>Sortează descrescător</LargerScreenText>
-          <SmallerScreenIcon>
-            <i class="fas fa-sort-amount-down"></i>
-          </SmallerScreenIcon>
-        </Button>
-      </Actions>
 
-      {/* Delete All */}
-      <Modal>
-        <Modal.Open opens="delete-all-window">
-          <Button>
-            <LargerScreenText>Șterge tot</LargerScreenText>
-            <SmallerScreenIcon>
-              <i class="fas fa-trash-alt"></i>
-            </SmallerScreenIcon>
-          </Button>
-        </Modal.Open>
-        <Modal.Window name="delete-all-window">
-          <DeleteAllWindow>
-            <h4 className="text-center">
-              Sigur doriți să ștergeți toate intrările?
-            </h4>
-            <p className="text-danger text-center">
-              Această acțiune este ireversibilă!
-            </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                justifyContent: "center",
-              }}
-            >
-              <DeleteButton
-                deleteAllDocumentsFunction={deleteAllDocumentsFunction}
-              />
-              <CancelButton />
+        <div
+          class="modal fade"
+          id="adminUsersModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-scrollable modal-edit-users">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-dark" id="exampleModalLabel">
+                  Utilizatorii curenți
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <AdminDashboard />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Închide
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Salvează modificările
+                </button>
+              </div>
             </div>
-          </DeleteAllWindow>
-        </Modal.Window>
-      </Modal>
+          </div>
+        </div>
 
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Editează prețurile
-      </button>
+        {/* Sorting Buttons */}
+        <Actions>
+          <Button onClick={() => handleSortChange("asc")}>
+            <LargerScreenText>Sortează crescător</LargerScreenText>
+            <SmallerScreenIcon>
+              <i class="fas fa-sort-amount-up"></i>
+            </SmallerScreenIcon>
+          </Button>
+          <Button onClick={() => handleSortChange("desc")}>
+            <LargerScreenText>Sortează descrescător</LargerScreenText>
+            <SmallerScreenIcon>
+              <i class="fas fa-sort-amount-down"></i>
+            </SmallerScreenIcon>
+          </Button>
+        </Actions>
+
+        {/* Delete All */}
+        <Modal>
+          <Modal.Open opens="delete-all-window">
+            <Button>
+              <LargerScreenText>Șterge tot</LargerScreenText>
+              <SmallerScreenIcon>
+                <i class="fas fa-trash-alt"></i>
+              </SmallerScreenIcon>
+            </Button>
+          </Modal.Open>
+          <Modal.Window name="delete-all-window">
+            <DeleteAllWindow>
+              <h4 className="text-center">
+                Sigur doriți să ștergeți toate intrările?
+              </h4>
+              <p className="text-danger text-center">
+                Această acțiune este ireversibilă!
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  justifyContent: "center",
+                }}
+              >
+                <DeleteButton
+                  deleteAllDocumentsFunction={deleteAllDocumentsFunction}
+                />
+                <CancelButton />
+              </div>
+            </DeleteAllWindow>
+          </Modal.Window>
+        </Modal>
+
+        <Button data-bs-toggle="modal" data-bs-target="#editPricesModal">
+          <LargerScreenText>Editează prețurile</LargerScreenText>
+          <SmallerScreenIcon>
+            <i class="fa-solid fa-pencil"></i>
+          </SmallerScreenIcon>
+        </Button>
+      </NavigationInner>
       <div
         class="modal fade"
-        id="exampleModal"
+        id="editPricesModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-scrollable modal-test">
+        <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 className="modal-title text-dark" id="exampleModalLabel">
-                Prețuri orientative
+              <h5 className="modal-title text-dark" id="editPricesModal">
+                Editează lista de prețuri
               </h5>
               <button
                 type="button"
@@ -255,7 +305,7 @@ function AdminNavbar({
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-all-services">
               <form className="text-dark" action="">
                 <ul>
                   {data &&
@@ -291,20 +341,20 @@ function AdminNavbar({
               </form>
             </div>
             <div class="modal-footer">
-              <button
+              <StyledCloseButton
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Închide
-              </button>
-              <button
+              </StyledCloseButton>
+              <StyledSaveButton
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 onClick={handleSave}
               >
                 Salvează modificările
-              </button>
+              </StyledSaveButton>
             </div>
           </div>
         </div>

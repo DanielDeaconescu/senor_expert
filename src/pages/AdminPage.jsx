@@ -1,18 +1,11 @@
 import styled from "styled-components";
 import useDocuments from "./useDocuments";
 import DocumentSingle from "../ui/DocumentSingle";
-import { useEffect } from "react";
-import supabase from "../services/supabase";
-import Modal from "../ui/Modal";
-import SingupForm from "../features/authentication/SignupForm";
 import AdminBackground from "../data/images/admin_background.jpg";
 import Pagination from "../ui/Pagination";
 import { useDeleteAllDocuments } from "../features/documents/useDeleteAllDocuments";
-import CancelButton from "../ui/CancelButton";
-import DeleteButton from "../ui/DeleteButton";
 import { useSearchParams } from "react-router";
 import AdminNavbar from "../ui/AdminNavbar";
-import AdminDashboard from "./AdminDashboard";
 import usePrices from "../services/usePrices";
 
 const DocumentsContainer = styled.div`
@@ -61,18 +54,6 @@ const DocumentsContainer = styled.div`
   }
 `;
 
-const CreateUserButton = styled.button`
-  border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  z-index: 10;
-`;
-
-const CreateUserContainer = styled.div`
-  display: flex;
-  z-index: 10;
-`;
-
 const DocumentsContainerInner = styled.div`
   display: flex;
   flex-direction: column;
@@ -84,36 +65,6 @@ const DocumentsSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-`;
-
-const DeleteAllBtn = styled.button`
-  z-index: 10;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-`;
-
-const DelteAllBtnContainer = styled.div`
-  z-index: 10;
-`;
-
-const ConfirmationActions = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-
-  @media (max-width: 576px) {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-`;
-const ConfirmationContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ButtonTest = styled.button`
-  z-index: 10;
 `;
 
 function AdminPage() {
