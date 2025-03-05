@@ -337,7 +337,7 @@ table {
           font-size: 2rem;
         }
   .modal-backdrop{
-    z-index: 5;
+    z-index: 3;
   }
 
   .modal-body-custom{
@@ -506,7 +506,11 @@ table {
 }
 
 .modal-edit-users{
-  z-index: 1000 !important;
+  max-width: 900px;
+}
+
+.modal-dialog-sign-up-form{
+  z-index: 100 !important;
 }
 
 `;

@@ -8,7 +8,7 @@ const StyledPagination = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 5;
+  z-index: 3;
 
   @media (max-width: 576px) {
     flex-direction: column;

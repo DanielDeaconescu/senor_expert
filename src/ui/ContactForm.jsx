@@ -109,7 +109,7 @@ function ContactForm({ isModalOpen }) {
       <h4 className="text-center mb-3 mt-3">Formular de Contact</h4>
       <StyledContactForm onSubmit={handleSubmit(onSubmit)} className="py-2">
         {/* Name Field */}
-        <div className="mb-3">
+        <div className="mb-2">
           <label htmlFor="fullName" className="form-label">
             Nume
           </label>
@@ -126,7 +126,7 @@ function ContactForm({ isModalOpen }) {
           )}
         </div>
         {/* Email Field */}
-        <div className="mb-3">
+        <div className="mb-2">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -146,7 +146,7 @@ function ContactForm({ isModalOpen }) {
           )}
         </div>
         {/* Phone Field */}
-        <div className="mb-3">
+        <div className="mb-2">
           <label htmlFor="phone" className="form-label">
             Număr de telefon
           </label>

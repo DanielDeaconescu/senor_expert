@@ -40,7 +40,7 @@ const ResetPasswordForm = () => {
     const accessToken = params.get("access_token");
 
     if (!accessToken) {
-      setError("Invalid or missing reset token.");
+      setError("Token-ul de resetare lipseste sau este invalid!");
     }
   }, []);
 

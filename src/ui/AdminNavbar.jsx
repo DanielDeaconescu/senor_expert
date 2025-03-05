@@ -7,6 +7,7 @@ import AdminDashboard from "../pages/AdminDashboard";
 import { useEditPrice } from "../services/useEditPrice";
 import { useState } from "react";
 import usePrices from "../services/usePrices";
+import SignupForm from "../features/authentication/SignupForm";
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -132,7 +133,7 @@ const StyledSaveButton = styled.button`
 const NavigationInner = styled.div`
   display: flex;
   gap: 0.5rem;
-  z-index: 6;
+  z-index: 3;
 `;
 
 function AdminNavbar({
@@ -163,19 +164,24 @@ function AdminNavbar({
     <NavbarContainer className="container">
       {/* Create User */}
       <NavigationInner>
-        <Modal>
-          <Modal.Open opens="modal-create-user">
-            <Button>
-              <LargerScreenText>Creare utilizator nou</LargerScreenText>
-              <SmallerScreenIcon>
-                <i class="fas fa-user-plus"></i>
-              </SmallerScreenIcon>
-            </Button>
-          </Modal.Open>
-          <Modal.Window name="modal-create-user">
-            <SingupForm />
-          </Modal.Window>
-        </Modal>
+        <Button data-bs-toggle="modal" data-bs-target="#createNewUserModal">
+          <LargerScreenText>Creare utilizator nou</LargerScreenText>
+          <SmallerScreenIcon>
+            <i class="fas fa-user-plus"></i>
+          </SmallerScreenIcon>
+        </Button>
+
+        {/* Create new user
+        <Button
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#createNewUserModal"
+        >
+          <LargerScreenText>Creare utilizator nou</LargerScreenText>
+          <SmallerScreenIcon>
+            <i class="fa-solid fa-user-plus"></i>
+          </SmallerScreenIcon>
+        </Button>
 
         {/* See all users */}
         <Button
@@ -188,45 +194,6 @@ function AdminNavbar({
             <i class="fas fa-users"></i>
           </SmallerScreenIcon>
         </Button>
-
-        <div
-          class="modal fade"
-          id="adminUsersModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-scrollable modal-edit-users">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title text-dark" id="exampleModalLabel">
-                  Utilizatorii curenți
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <AdminDashboard />
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Închide
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Salvează modificările
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Sorting Buttons */}
         <Actions>
@@ -285,6 +252,70 @@ function AdminNavbar({
           </SmallerScreenIcon>
         </Button>
       </NavigationInner>
+
+      <div
+        class="modal fade"
+        id="createNewUserModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-sign-up-form">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark" id="exampleModalLabel">
+                Creare utilizator nou
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <SignupForm />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="adminUsersModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable modal-edit-users">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark" id="exampleModalLabel">
+                Utilizatorii curenți
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <AdminDashboard />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Închide
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div
         class="modal fade"
         id="editPricesModal"

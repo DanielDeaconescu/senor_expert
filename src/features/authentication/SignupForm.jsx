@@ -1,15 +1,12 @@
-// Email regex: /\S+@\S+\.\S+/
-
 import { useForm } from "react-hook-form";
 import FormRow from "../../ui/FormRow";
 import { useSignup } from "./useSignup";
-import { ModalContext } from "../../ui/Modal";
-import { useContext } from "react";
 import styled from "styled-components";
 import AddUserCancelButton from "../../ui/AddUserCancelButton";
 
 const Form = styled.form`
   max-width: 450px;
+  color: black;
 
   @media (max-width: 576px) {
     width: 100%;
@@ -78,7 +75,6 @@ function SignupForm() {
   const { signup, isLoading } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
-  const { close } = useContext(ModalContext);
 
   function onSubmit({ fullName, email, password }) {
     signup(
@@ -86,7 +82,15 @@ function SignupForm() {
       {
         onSettled: () => {
           reset();
-          close();
+          // Instead of manually using the Modal API, rely on data-bs-dismiss="modal" to close it
+          // Trigger the modal close action programmatically by dispatching the close event
+          const modalElement = document.getElementById("createNewUserModal");
+          const modalCloseButton = modalElement.querySelector(
+            "[data-bs-dismiss='modal']"
+          );
+          if (modalCloseButton) {
+            modalCloseButton.click();
+          }
         },
       }
     );
@@ -157,10 +161,12 @@ function SignupForm() {
 
       <ActionContainer>
         {/* type is an HTML attribute! */}
-        <AddUserCancelButton isLoading={isLoading} />
         <CreateNewUserButton className="btn btn-success" disabled={isLoading}>
           Creează utilizator nou
         </CreateNewUserButton>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Închide
+        </button>
       </ActionContainer>
     </Form>
   );
