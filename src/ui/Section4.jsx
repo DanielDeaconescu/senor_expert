@@ -12,7 +12,7 @@ const StyledSection4 = styled.section`
 
   & .text-container {
     position: relative;
-    z-index: 9;
+    z-index: 3;
   }
 
   &::after {
@@ -29,7 +29,7 @@ const StyledSection4 = styled.section`
 
 const StyledImage = styled.img`
   border-radius: 1rem;
-  z-index: 9;
+  z-index: 3;
 `;
 
 const CallToActionTextContainer = styled.div`

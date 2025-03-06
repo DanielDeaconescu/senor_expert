@@ -12,11 +12,9 @@ import FormButton from "../ui/FormButton";
 import SideButtons from "../ui/SideButtons";
 import WorkingHours from "../ui/WorkingHours";
 
-const StyledHomePage = styled.div``;
-
 function HomePage() {
   return (
-    <StyledHomePage>
+    <div>
       <Hero />
       <FeaturesSection />
       <Section2 />
@@ -24,7 +22,7 @@ function HomePage() {
       <Section3 />
       <Section4 />
       <SideButtons />
-    </StyledHomePage>
+    </div>
   );
 }
 
