@@ -2,6 +2,8 @@ import heroServices from "../data/images/hero_services.jpg";
 import backgroundHeroServices from "../data/images/background_hero_services.jpg";
 import styled from "styled-components";
 import { NavLink } from "react-router";
+import HeroImage from "./HeroImage";
+import LogoImage from "../data/images/senor_expert_logo_nobg.png";
 
 const StyledHeader = styled.header`
   background-image: url(${backgroundHeroServices});
@@ -9,6 +11,7 @@ const StyledHeader = styled.header`
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  z-index: 3;
 
   &::after {
     content: "";
@@ -53,7 +56,11 @@ function ServicesHeader() {
           <div className="row">
             <div className="image-container col-md-6">
               <div className="mb-5 px-4">
-                <Image src={heroServices} className="img-fluid" alt="" />
+                <HeroImage
+                  image={heroServices}
+                  logo={LogoImage}
+                  text="Servicii contabile de încredere. Precizie, siguranță, eficiență."
+                />
               </div>
             </div>
             <div className="col-md-6">
@@ -63,7 +70,7 @@ function ServicesHeader() {
                 </StyledTitle>
                 <StyledParagraph className="lead custom-paragraph">
                   Alături de serviciile de contabilitate și fiscalitate despre
-                  care poți citi mai jos, îți oferim posibilitatea de a încărca
+                  care puteți citi mai jos, vă oferim posibilitatea de a încărca
                   documentele contabile online într-un mediu securizat.
                 </StyledParagraph>
 

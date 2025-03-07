@@ -5,6 +5,7 @@ import HeroImage from "./HeroImage";
 import WelcomeText from "./WelcomeText";
 import ModalHeroFindOutMore from "./ModalHeroFindOutMore";
 import SvgDecorationHero from "./SvgDecorationHero";
+import LogoImage from "../../src/data/images/senor_expert_logo_nobg.png";
 
 const StyledHeader = styled.header`
   background-image: url(${HeaderHomeBackground});
@@ -75,7 +76,11 @@ function Hero() {
           <div className="row">
             <div className="col-md-6">
               <div className="image-container mb-5 px-4">
-                <HeroImage />
+                <HeroImage
+                  image={HeaderHomeImage}
+                  logo={LogoImage}
+                  text="Noi gestionăm cifrele. Dumneavoastră vă ocupați de succes."
+                />
               </div>
             </div>
             <div className="col-md-6 d-flex">

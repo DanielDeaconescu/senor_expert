@@ -1,7 +1,4 @@
-import HeaderHomeImage from "../data/images/header-home-image.jpg";
-import LogoImage from "../data/images/senor_expert_logo_nobg.svg";
 import styled from "styled-components";
-import ContactForm from "./ContactForm";
 
 // Wrapper for the flip effect
 const FlipContainer = styled.div`
@@ -46,7 +43,7 @@ const FlipCardSide = styled.div`
 
 // Front of the card (image)
 const FlipCardFront = styled(FlipCardSide)`
-  background-image: url(${HeaderHomeImage});
+  background-image: ${({ image }) => `url(${image})`};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -58,85 +55,46 @@ const FlipCardBack = styled(FlipCardSide)`
   background-color: hsla(195, 53%, 79%, 0.4);
   color: white;
   transform: rotateY(180deg);
-  /* cursor: default; */
   border-radius: 1rem;
 `;
 
-// Styled components
-const StyledHomeImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 1rem;
-`;
-
+// Styled logo
 const StyledLogoImage = styled.img`
   max-width: 250px;
   margin-bottom: 1rem;
 `;
 
+// Mission statement text
 const MissionStatement = styled.p`
   font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
-  color: #4b0082; /* Deep purple for sophistication */
+  color: #4b0082;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1rem;
 
-  /* Purple gradient for a premium feel */
   background: linear-gradient(90deg, #6a0dad, #b266ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* Subtle shadow for better readability */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 `;
 
-const FormText = styled.p`
-  font-size: 1rem;
-  margin-bottom: 1rem;
-`;
-
-const ContactButton = styled.a`
-  text-transform: uppercase;
-  padding: 0.75rem 1.5rem;
-  background-color: #3e7b27;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 0.5rem;
-  display: inline-block;
-  transition: background-color 0.3s ease, color 0.3s ease;
-
-  &:hover {
-    background-color: #3e7b27;
-    color: white;
-    cursor: pointer;
-  }
-`;
-
-function HeroImage() {
+function HeroImage({ image, logo, text }) {
   return (
-    <>
-      <FlipContainer>
-        <FlipCard>
-          {/* Front Side */}
-          <FlipCardFront>
-            {/* <StyledHomeImage src={HeaderHomeImage} alt="Hero" /> */}
-          </FlipCardFront>
+    <FlipContainer>
+      <FlipCard>
+        {/* Front Side */}
+        <FlipCardFront image={image} />
 
-          {/* Back Side */}
-          <FlipCardBack>
-            <StyledLogoImage src={LogoImage} alt="Senor Expert Logo" />
-            <MissionStatement>
-              Noi gestionăm cifrele. Dumneavoastră vă ocupați de succes.
-            </MissionStatement>
-          </FlipCardBack>
-        </FlipCard>
-      </FlipContainer>
-    </>
+        {/* Back Side */}
+        <FlipCardBack>
+          {logo && <StyledLogoImage src={logo} alt="Logo" />}
+          {text && <MissionStatement>{text}</MissionStatement>}
+        </FlipCardBack>
+      </FlipCard>
+    </FlipContainer>
   );
 }
 

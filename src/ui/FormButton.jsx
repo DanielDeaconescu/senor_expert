@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import ContactForm from "./ContactForm";
-import { useEffect, useState } from "react";
 
 const StyledButton = styled.button`
   display: flex;
@@ -13,45 +13,46 @@ const StyledButton = styled.button`
   color: #444444;
 `;
 
-const ContactFormContainer = styled.div`
-  height: 70vh;
-  padding-bottom: 2rem;
-  width: 100%;
-
-  @media (max-width: 576px) {
-    /* overflow-x: hidden; */
-  }
-
-  @media (min-width: 576px) and (max-width: 768px) {
-    /* overflow-x: hidden; */
-  }
-
-  @media (min-width: 768px) and (max-width: 992px) {
-    /* overflow-x: hidden; */
-  }
-
-  @media (min-width: 992px) and (max-width: 1200px) {
-    /* overflow-x: hidden; */
-  }
-
-  @media (min-width: 1201px) {
-    /* overflow-x: hidden; */
-  }
-`;
-
 function FormButton() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [turnstileInitialized, setTurnstileInitialized] = useState(false);
 
   useEffect(() => {
     const modalElement = document.getElementById("contactFormSenorExpert");
-    const handleModalClose = () => setIsModalOpen(false);
 
+    // Initialize Turnstile when the modal is shown and Turnstile is not initialized
+    const initializeTurnstile = () => {
+      if (window.turnstile && !turnstileInitialized) {
+        const turnstileElement = modalElement?.querySelector(".cf-turnstile");
+        if (turnstileElement) {
+          window.turnstile.render(turnstileElement, {
+            sitekey: "0x4AAAAAAA8RURF0seaJgE_b",
+            callback: (token) => {
+              // handle token (if needed)
+            },
+          });
+          setTurnstileInitialized(true); // Mark Turnstile as initialized
+        }
+      }
+    };
+
+    const handleModalShow = () => {
+      initializeTurnstile();
+    };
+
+    const handleModalClose = () => {
+      setIsModalOpen(false);
+      setTurnstileInitialized(false); // Reset Turnstile initialization when modal is closed
+    };
+
+    modalElement?.addEventListener("shown.bs.modal", handleModalShow);
     modalElement?.addEventListener("hidden.bs.modal", handleModalClose);
 
     return () => {
+      modalElement?.removeEventListener("shown.bs.modal", handleModalShow);
       modalElement?.removeEventListener("hidden.bs.modal", handleModalClose);
     };
-  }, []);
+  }, [turnstileInitialized]); // Depend on turnstileInitialized to avoid infinite loop
 
   const handleOpenModal = () => setIsModalOpen(true);
 
@@ -62,26 +63,26 @@ function FormButton() {
         data-bs-target="#contactFormSenorExpert"
         onClick={handleOpenModal}
       >
-        <i class="fa-solid fa-pen-to-square fa-2x"></i>
+        <i className="fa-solid fa-pen-to-square fa-2x"></i>
       </StyledButton>
 
       <div
-        class="modal fade modal-form-custom"
+        className="modal fade modal-form-custom"
         id="contactFormSenorExpert"
         aria-labelledby="contactFormSenorExpert"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header modal-header-custom">
+        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div className="modal-content">
+            <div className="modal-header modal-header-custom">
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body modal-body-custom">
+            <div className="modal-body modal-body-custom">
               <ContactForm isModalOpen={isModalOpen} />
             </div>
           </div>

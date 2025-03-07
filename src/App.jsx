@@ -14,6 +14,7 @@ import PageNotFound from "./pages/PageNotFound";
 import ThankYouPage from "./pages/ThankYouPage";
 import ResetPasswordForm from "./pages/ResetPasswordForm";
 import ScrollToTop from "./ui/ScrollToTop";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,6 +54,7 @@ function App() {
           </Route>
           <Route path="/reset-password" element={<ResetPasswordForm />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

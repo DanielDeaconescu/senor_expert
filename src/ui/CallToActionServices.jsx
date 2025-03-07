@@ -2,6 +2,9 @@ import { NavLink } from "react-router";
 import CTABackground from "../data/images/background_hero_services.jpg";
 import UploadImage from "../data/images/upload-image.jpg";
 import styled from "styled-components";
+import HeroImage from "./HeroImage";
+import LogoImage from "../data/images/senor_expert_logo_nobg.png";
+import Logo from "./Logo";
 
 const StyledCallToActionServices = styled.div`
   background-image: url(${CTABackground});
@@ -22,7 +25,7 @@ const StyledCallToActionServices = styled.div`
 
   & .text-container {
     position: relative;
-    z-index: 98;
+    z-index: 3;
   }
 `;
 
@@ -37,7 +40,7 @@ function CallToActionServices() {
     <StyledCallToActionServices>
       <div className="container">
         <div className="row">
-          <div className="col-lg-7">
+          <div className="col-lg-6">
             <div className="text-container text-white d-flex flex-column justify-content-center h-100 mb-5 upload-accounting-docs">
               <h2 className="fw-bold">Încărcați Fișerele Contabile</h2>
               <p>
@@ -53,12 +56,17 @@ function CallToActionServices() {
               </NavLink>
             </div>
           </div>
-          <div className="col-lg-5">
+          <div className="col-lg-6">
             <div className="image-container mb-5">
-              <StyledUploadImage
+              {/* <StyledUploadImage
                 src={UploadImage}
                 alt=""
                 className="img-fluid"
+              /> */}
+              <HeroImage
+                image={UploadImage}
+                logo={LogoImage}
+                text="Încărcați fișierele contabile rapid și în siguranță!"
               />
             </div>
           </div>

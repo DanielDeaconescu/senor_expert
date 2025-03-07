@@ -3,6 +3,9 @@ import styled from "styled-components";
 import BackgroundImage from "../data/images/header-home-background.jpg";
 import { NavLink } from "react-router";
 import { useQueryClient } from "react-query";
+import HeroImage from "./HeroImage";
+import UploadImage from "../data/images/upload-image.jpg";
+import LogoImage from "../data/images/senor_expert_logo_nobg.png";
 
 const StyledSection4 = styled.section`
   background-image: url(${BackgroundImage});
@@ -38,13 +41,12 @@ const CallToActionTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   height: 100%;
 `;
 
 const CTAParagraph = styled.p`
-  text-align: center;
   @media (max-width: 576px) {
     width: 100%;
   }
@@ -66,12 +68,16 @@ function Section4() {
         <div className="row">
           <div className="col-lg-6">
             <div className="image-container mt-5 mb-5">
-              <StyledImage src={CallToActionImage} alt="" />
+              <HeroImage
+                image={UploadImage}
+                logo={LogoImage}
+                text="Trimite documentele. Noi ne ocupăm de restul."
+              />
             </div>
           </div>
           <OuterContainer className="col-lg-6">
             <CallToActionTextContainer className="text-container text-white mb-5">
-              <h2 className="fw-bold text-center">
+              <h2 className="fw-bold">
                 Încărcați documentele contabile rapid și sigur
               </h2>
               <CTAParagraph>

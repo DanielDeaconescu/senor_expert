@@ -12,29 +12,7 @@ const ContactFormContainer = styled.div`
 const StyledContactForm = styled.form`
   padding: 0.25rem;
   text-align: left;
-  @media (max-width: 576px) {
-    & div {
-      margin-bottom: 0.5rem !important;
-    }
-  }
-
-  @media (min-width: 576px) and (max-width: 768px) {
-    & div {
-      margin-bottom: 0.5rem !important;
-    }
-  }
-
-  @media (min-width: 768px) and (max-width: 992px) {
-    & div {
-      margin-bottom: 0.5rem !important;
-    }
-  }
-
-  @media (min-width: 992px) and (max-width: 1200px) {
-    & div {
-      margin-bottom: 0.5rem !important;
-    }
-  }
+  /* Add styles as needed */
 `;
 
 const TurnstileContainer = styled.div`
@@ -67,16 +45,42 @@ function ContactForm({ isModalOpen }) {
   }, [isModalOpen, reset]);
 
   useEffect(() => {
-    if (window.turnstile) {
-      window.turnstile.render(".cf-turnstile", {
-        sitekey: "0x4AAAAAAA8RURF0seaJgE_b",
-        callback: (token) => {
-          setTurnstileToken(token);
-          setValue("turnstile", token);
-          clearErrors("turnstile");
-        },
-      });
+    if (!window.turnstile) {
+      // Load the Turnstile script dynamically
+      const script = document.createElement("script");
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+      script.async = true;
+      script.defer = true;
+      script.onload = () => initializeTurnstile();
+      document.body.appendChild(script);
+    } else {
+      // If the Turnstile script is already loaded, initialize it
+      initializeTurnstile();
     }
+
+    function initializeTurnstile() {
+      const turnstileElement = document.querySelector(".cf-turnstile");
+
+      // Ensure that Turnstile only renders if it's not already rendered
+      if (turnstileElement && !turnstileElement.hasChildNodes()) {
+        window.turnstile.render(".cf-turnstile", {
+          sitekey: "0x4AAAAAAA8RURF0seaJgE_b",
+          callback: (token) => {
+            setTurnstileToken(token);
+            setValue("turnstile", token);
+            clearErrors("turnstile");
+          },
+        });
+      }
+    }
+
+    // Cleanup function to remove the Turnstile widget when the component is unmounted
+    return () => {
+      const turnstileElement = document.querySelector(".cf-turnstile");
+      if (turnstileElement) {
+        turnstileElement.innerHTML = ""; // Clear the Turnstile element
+      }
+    };
   }, [setValue, clearErrors]);
 
   const onSubmit = async (formData) => {
