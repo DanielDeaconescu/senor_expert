@@ -5,7 +5,7 @@ const LogoContainer = styled.div`
   background-color: var(--color-grey-0);
   border-radius: 0.5rem;
   width: 250px;
-  /* margin: auto; */
+  margin: auto;
 `;
 
 const LogoImg = styled.img`

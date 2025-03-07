@@ -23,6 +23,7 @@ const TextContainer = styled.div`
   overflow: hidden;
   position: relative;
   z-index: 3;
+  gap: 0.5rem;
 `;
 
 const StyledHeading = styled.h1`
@@ -31,7 +32,7 @@ const StyledHeading = styled.h1`
   text-align: center;
   margin-bottom: 1rem;
   animation: ${fadeInOut} 4s ease-in-out infinite; /* Apply fade in/out animation */
-  height: 100px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,6 +40,9 @@ const StyledHeading = styled.h1`
 
 const StyledParagraph = styled.p`
   text-align: justify;
+  font-weight: 400;
+  line-height: 1.8;
+  font-size: 1.2rem;
 `;
 
 function WelcomeText() {
@@ -66,7 +70,7 @@ function WelcomeText() {
       <StyledHeading className="display-3 fw-bold">
         {textArray[currentTextIndex]}
       </StyledHeading>
-      <StyledParagraph className="lead">
+      <StyledParagraph>
         Suntem o echipă de experți contabili care oferă soluții complete de
         contabilitate, fiscalitate, resurse umane și salarizare, consultanță
         pentru înființarea societăților comerciale și multe altele.
@@ -77,7 +81,7 @@ function WelcomeText() {
         data-bs-target="#hero-find-out-more"
         data-bs-toggle="modal"
       >
-        Află mai mult
+        Mai mult
       </button>
     </TextContainer>
   );

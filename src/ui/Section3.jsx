@@ -238,7 +238,7 @@ function Section3() {
                                   Echipa noastră vă oferă suport pentru
                                   configurarea, utilizarea și optimizarea
                                   programului de contabilitate SAGA. Fie că este
-                                  vorba despre instalare, configurarea
+                                  vorba despre instalarea, configurarea
                                   conturilor contabile sau utilizarea avansată a
                                   funcțiilor software-ului, suntem aici să vă
                                   ghidăm pas cu pas.
@@ -249,20 +249,20 @@ function Section3() {
                                     <i class="fa-solid fa-circle-check text-primary"></i>
                                     <span className="ps-2">
                                       Economisiți timp prin utilizarea eficientă
-                                      a programului.
+                                      a programului
                                     </span>
                                   </ListItemSmall>
                                   <ListItemSmall>
                                     <i class="fa-solid fa-circle-check text-primary"></i>
                                     <span className="ps-2">
-                                      Evitați erorile contabile frecvente.
+                                      Evitați erorile contabile frecvente
                                     </span>
                                   </ListItemSmall>
                                   <ListItemSmall>
                                     <i class="fa-solid fa-circle-check text-primary"></i>
                                     <span className="ps-2">
                                       Configurație personalizată pentru afacerea
-                                      dvs.
+                                      dumneavoastră
                                     </span>
                                   </ListItemSmall>
                                 </UnorderedListModal>
@@ -286,21 +286,21 @@ function Section3() {
                                     <i class="fa-solid fa-circle-check text-primary"></i>
                                     <span className="ps-2">
                                       Verificare periodică a documentelor și
-                                      proceselor contabile.
+                                      proceselor contabile
                                     </span>
                                   </ListItemSmall>
                                   <ListItemSmall>
                                     <i class="fa-solid fa-circle-check text-primary"></i>
                                     <span className="ps-2">
                                       Consultanță pentru întocmirea
-                                      declarațiilor fiscale.
+                                      declarațiilor fiscale
                                     </span>
                                   </ListItemSmall>
                                   <ListItemSmall>
                                     <i class="fa-solid fa-circle-check text-primary"></i>
                                     <span className="ps-2">
                                       Sprijin în pregătirea pentru controalele
-                                      autorităților fiscale.
+                                      autorităților fiscale
                                     </span>
                                   </ListItemSmall>
                                 </UnorderedListModal>
@@ -332,14 +332,14 @@ function Section3() {
                                     <i class="fa-solid fa-circle-check text-primary"></i>
                                     <span className="ps-2">
                                       Întocmirea și depunerea dosarului la
-                                      Registrul Comerțului.
+                                      Registrul Comerțului
                                     </span>
                                   </ListItemSmall>
                                   <ListItemSmall>
                                     <i class="fa-solid fa-circle-check text-primary"></i>
                                     <span className="ps-2">
                                       Consiliere privind codurile CAEN și
-                                      specificul activității.
+                                      specificul activității
                                     </span>
                                   </ListItemSmall>
                                 </UnorderedListModal>

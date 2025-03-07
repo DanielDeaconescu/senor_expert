@@ -94,6 +94,14 @@ const OurValuesContainer = styled.div`
   justify-content: center;
 `;
 
+const StrongText = styled.i`
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+`;
+
 function Section2() {
   return (
     <>
@@ -102,13 +110,15 @@ function Section2() {
           <div className="row">
             <div className="col-lg-6">
               <div className="text-container d-flex flex-column justify-content-center h-100">
-                <h2 className="display-6">Despre Senor Expert</h2>
+                <h2 className="display-6">
+                  Despre <StrongText>Senor Expert</StrongText>
+                </h2>
                 <StyledText>
-                  Oferim soluții complete pentru gestionarea financiară a
-                  afacerii tale. Dispunând de experiență vastă în domeniul
-                  contabilității și de o echipă dedicată, îți oferim servicii
-                  contabile de înaltă calitate, astfel încât afacerea ta să
-                  crească.
+                  Vă oferim soluții complete pentru gestionarea financiară a
+                  afacerii dumneavoastră. Dispunând de experiență vastă în
+                  domeniul contabilității și de o echipă dedicată, vă oferim
+                  servicii contabile de înaltă calitate, astfel încât afacerea
+                  dumneavoastră să prospere.
                 </StyledText>
                 <ul className="list-group list-group-flush lh-lg">
                   <li className="list-group-item">
@@ -138,9 +148,9 @@ function Section2() {
                     </Title>
 
                     <StyledText>
-                      Îți oferim soluții personalizate pentru optimizarea
-                      fiscală și respectarea obligațiilor legale, reducând
-                      riscurile și costurile inutile.
+                      Vă oferim soluții personalizate pentru optimizare fiscală
+                      și respectarea obligațiilor legale, contribuind la
+                      reducerea riscurilor și costurilor inutile.
                     </StyledText>
                   </li>
                   <li className="list-group-item">
@@ -154,8 +164,8 @@ function Section2() {
                     </Title>
                     <StyledText>
                       Analizăm și monitorizăm costurile și veniturile,
-                      ajutându-te să iei decizii strategice bazate pe o imagine
-                      clară a performanței afacerii tale.
+                      ajutându-vă să luați decizii strategice bazate pe o
+                      imagine clară a performanței afacerii dumneavoastră.
                     </StyledText>
                   </li>
                   <li className="list-group-item">
@@ -173,7 +183,8 @@ function Section2() {
                     <StyledText>
                       Gestionăm calculul salariilor, întocmirea declarațiilor și
                       administrarea dosarelor de personal, astfel încât să
-                      economisești timp și să te concentrezi pe echipa ta.
+                      puteți economisi timp și să vă puteți concentra pe echipa
+                      dumneavoastră.
                     </StyledText>
                   </li>
                 </ul>
@@ -181,16 +192,16 @@ function Section2() {
                 <button
                   className="btn btn-primary text-white mt-4 align-self-start"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
+                  data-bs-target="#ourValuesModal"
                 >
                   Valorile noastre
                 </button>
 
                 <div
                   class="modal fade"
-                  id="exampleModal"
+                  id="ourValuesModal"
                   tabindex="-1"
-                  aria-labelledby="exampleModalLabel"
+                  aria-labelledby="ourValuesModal"
                   aria-hidden="true"
                 >
                   <div class="modal-dialog">

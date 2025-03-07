@@ -131,39 +131,11 @@ function HeroImage() {
           <FlipCardBack>
             <StyledLogoImage src={LogoImage} alt="Senor Expert Logo" />
             <MissionStatement>
-              Noi gestionăm cifrele. Tu te ocupi de succes.
+              Noi gestionăm cifrele. Dumneavoastră vă ocupați de succes.
             </MissionStatement>
-            <ContactButton
-              data-bs-toggle="modal"
-              data-bs-target="#modal-contact-form"
-            >
-              Formular de contact
-            </ContactButton>
           </FlipCardBack>
         </FlipCard>
       </FlipContainer>
-      <div
-        class="modal fade modal-form-custom"
-        id="modal-contact-form"
-        aria-labelledby="contactFormSenorExpert"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header modal-header-custom">
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body modal-body-custom">
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

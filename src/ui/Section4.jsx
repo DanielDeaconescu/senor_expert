@@ -2,6 +2,7 @@ import CallToActionImage from "../data/images/call-to-action-image.jpg";
 import styled from "styled-components";
 import BackgroundImage from "../data/images/header-home-background.jpg";
 import { NavLink } from "react-router";
+import { useQueryClient } from "react-query";
 
 const StyledSection4 = styled.section`
   background-image: url(${BackgroundImage});
@@ -30,35 +31,47 @@ const StyledSection4 = styled.section`
 const StyledImage = styled.img`
   border-radius: 1rem;
   z-index: 3;
+  max-width: 350px;
 `;
 
 const CallToActionTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  gap: 0.75rem;
   height: 100%;
 `;
 
 const CTAParagraph = styled.p`
+  text-align: center;
   @media (max-width: 576px) {
     width: 100%;
   }
 `;
 
+const OuterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 function Section4() {
+  const queryClient = useQueryClient();
+  const user = queryClient.getQueryData(["user"]);
+
   return (
     <StyledSection4 className="download">
       <div className="container">
         <div className="row">
-          <div className="col-lg-4">
+          <div className="col-lg-6">
             <div className="image-container mt-5 mb-5">
               <StyledImage src={CallToActionImage} alt="" />
             </div>
           </div>
-          <div className="col-lg-8">
+          <OuterContainer className="col-lg-6">
             <CallToActionTextContainer className="text-container text-white mb-5">
-              <h2 className="fw-bold">
+              <h2 className="fw-bold text-center">
                 Încărcați documentele contabile rapid și sigur
               </h2>
               <CTAParagraph>
@@ -67,11 +80,14 @@ function Section4() {
                 documentelor online.
               </CTAParagraph>
 
-              <NavLink to="/connect" className="btn btn-primary text-white">
+              <NavLink
+                to={user ? "/upload" : "/connect"}
+                className="btn btn-primary text-white"
+              >
                 Încărcare documente
               </NavLink>
             </CallToActionTextContainer>
-          </div>
+          </OuterContainer>
         </div>
       </div>
     </StyledSection4>

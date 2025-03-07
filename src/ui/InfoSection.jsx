@@ -82,7 +82,9 @@ function InfoSection() {
                 <span> de declarații fiscale /an</span>
               </div>
             </Card>
-            <small>asigurându-ne că respectam întotdeauna legislația.</small>
+            <small>
+              asigurându-ne că respectam întotdeauna legislația în vigoare.
+            </small>
           </div>
           <div className="col-md-4 col-sm-6">
             <Card className="statistic-card">

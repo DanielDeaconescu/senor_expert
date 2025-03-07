@@ -99,7 +99,7 @@ function ModalHeroFindOutMore() {
                 </ItemTitle>
                 <ItemText>
                   Construim parteneriate durabile, bazate pe comunicare
-                  eficientă și sprijin constant, pentru succesul clienților
+                  eficientă și sprijin constant pentru succesul clienților
                   noștri.
                 </ItemText>
               </li>
