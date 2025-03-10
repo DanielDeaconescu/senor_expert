@@ -51,10 +51,10 @@ function App() {
                 </AdminRoute>
               }
             />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Route>
           <Route path="/reset-password" element={<ResetPasswordForm />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
