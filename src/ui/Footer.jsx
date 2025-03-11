@@ -57,9 +57,14 @@ const NavListFooter = styled.ul`
 `;
 
 const StyledEmailLink = styled.a`
+  background: none;
+  border: none;
   color: inherit;
-  text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+  position: relative;
   transition: color 0.3s ease-in-out;
 
   &::after {
@@ -74,14 +79,12 @@ const StyledEmailLink = styled.a`
     transition: transform 0.3s ease-in-out;
   }
 
-  @media (min-width: 768px) {
-    &:hover {
-      color: var(--clr-primary);
-    }
+  &:hover {
+    color: var(--clr-primary);
+  }
 
-    &:hover::after {
-      transform: scaleX(1);
-    }
+  &:hover::after {
+    transform: scaleX(1);
   }
 `;
 
@@ -263,12 +266,9 @@ function Footer() {
             <p>
               <i className="fa-solid fa-envelope me-2"></i>
               <strong>Email:</strong>{" "}
-              <StyledEmailLink
-                onClick={(e) => e.stopPropagation()}
-                href="mailto:stefan.1mihai@yahoo.com"
-              >
+              <a href="mailto:stefan.1mihai@yahoo.com">
                 stefan.1mihai@yahoo.com
-              </StyledEmailLink>
+              </a>
             </p>
             <p>
               <i className="fa-solid fa-phone me-2"></i>
