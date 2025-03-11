@@ -64,9 +64,12 @@ function ContactForm({ isModalOpen }) {
     function initializeTurnstile() {
       const turnstileElement = document.querySelector(".cf-turnstile");
 
-      // Ensure that Turnstile only renders if it's not already rendered
-      if (turnstileElement && !turnstileElement.hasChildNodes()) {
-        window.turnstile.render(".cf-turnstile", {
+      if (turnstileElement && turnstileElement.hasChildNodes()) {
+        turnstileElement.innerHTML = "";
+      }
+
+      if (turnstileElement && !turnstileElement.dataset.rendered) {
+        window.turnstile.render(turnstileElement, {
           sitekey: "0x4AAAAAAA8RURF0seaJgE_b",
           callback: (token) => {
             setTurnstileToken(token);
@@ -74,6 +77,7 @@ function ContactForm({ isModalOpen }) {
             clearErrors("turnstile");
           },
         });
+        turnstileElement.dataset.rendered = "true"; // Mark it as rendered
       }
     }
 
