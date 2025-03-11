@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router";
 import styled from "styled-components";
 
 const CookiesPopup = () => {
@@ -22,13 +23,15 @@ const CookiesPopup = () => {
     <PopupContainer>
       <PopupContent>
         <Message>
-          Momentan, site-ul nostru nu utilizează cookie-uri pentru a stoca
-          informațiile utilizatorilor.
+          Momentan, website-ul nostru folosește doar cookie-urile strict
+          necesare pentru funcționarea site-ului. Nu stocăm informații despre
+          utilizatori. Dacă pe viitor vom implementa cookie-uri suplimentare, ne
+          vom asigura că vă anunțăm.
         </Message>
         <ButtonContainer>
           <AcceptButton onClick={handleAccept}>Ok</AcceptButton>
-          <LearnMoreButton href="https://www.aboutcookies.org/" target="_blank">
-            Afla mai multe despre cookies
+          <LearnMoreButton to="/privacy-policy" target="_blank">
+            Aflați mai multe despre cookies
           </LearnMoreButton>
         </ButtonContainer>
       </PopupContent>
@@ -81,7 +84,7 @@ const AcceptButton = styled.button`
   }
 `;
 
-const LearnMoreButton = styled.a`
+const LearnMoreButton = styled(NavLink)`
   background: #007bff;
   color: white;
   text-decoration: none;
