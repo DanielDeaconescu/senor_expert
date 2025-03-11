@@ -16,7 +16,7 @@ const StyledNavigation = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 10;
   }
 
   @media (max-width: 768px) {
@@ -54,6 +54,8 @@ const LogoutButton = styled.button`
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
 
   &:hover {
     background-color: var(--clr-primary);

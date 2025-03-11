@@ -513,6 +513,10 @@ table {
   z-index: 100 !important;
 }
 
+.modal-form-custom{
+  z-index: 1000;
+}
+
 `;
 
 export default GlobalStyles;

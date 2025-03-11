@@ -32,6 +32,11 @@ const NavbarContainer = styled.nav`
     justify-content: center;
   }
 
+  @media (min-width: 768px) and (max-width: 992px) {
+    align-items: center;
+    justify-content: center;
+  }
+
   @media (min-width: 992px) {
     align-items: center;
     justify-content: center;
@@ -45,6 +50,10 @@ const Button = styled.button`
   background: #f2f2f2;
   cursor: pointer;
   color: black;
+
+  @media (max-width: 576px) {
+    padding: 0.25rem 0.75rem;
+  }
 
   @media (min-width: 768px) and (max-width: 992px) {
     flex: 1;

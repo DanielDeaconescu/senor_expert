@@ -7,6 +7,9 @@ import toast from "react-hot-toast";
 
 const ContactFormContainer = styled.div`
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledContactForm = styled.form`

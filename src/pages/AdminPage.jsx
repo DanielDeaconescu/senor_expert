@@ -20,7 +20,7 @@ const DocumentsContainer = styled.div`
   position: relative;
 
   @media (max-width: 576px) {
-    padding: 8rem 0 5rem 0;
+    padding: 2.5rem 0 5rem 0;
   }
 
   @media (min-width: 576px) and (max-width: 768px) {
