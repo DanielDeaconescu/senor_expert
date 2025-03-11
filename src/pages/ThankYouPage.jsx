@@ -26,17 +26,17 @@ const StyledButton = styled.button`
 function ThankYouPage() {
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const contactFormSubmitted = sessionStorage.getItem("contactFormSubmitted");
+  useEffect(() => {
+    const contactFormSubmitted = sessionStorage.getItem("contactFormSubmitted");
 
-  //   if (contactFormSubmitted !== "true") {
-  //     navigate("/");
-  //   }
+    if (contactFormSubmitted !== "true") {
+      navigate("/");
+    }
 
-  //   return () => {
-  //     sessionStorage.removeItem("contactFormSubmitted");
-  //   };
-  // }, [navigate]);
+    return () => {
+      sessionStorage.removeItem("contactFormSubmitted");
+    };
+  }, [navigate]);
 
   return (
     <StyledThankYouPage className="container">
