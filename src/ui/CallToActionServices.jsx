@@ -36,7 +36,9 @@ const StyledUploadImage = styled.img`
 `;
 
 const StyledTextContainer = styled.div`
-  align-items: center !important;
+  @media (max-width: 576px) {
+    align-items: center !important;
+  }
 `;
 
 function CallToActionServices() {

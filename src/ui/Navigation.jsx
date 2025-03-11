@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { NavLink, useNavigate } from "react-router";
 import { useUser } from "../features/authentication/useUser";
 import { logout } from "../services/apiAuth";
+import { useLocation } from "react-router-dom";
 
 const StyledNavigation = styled.nav`
   position: relative;
@@ -69,6 +70,12 @@ function Navigation({ isSticky }) {
   const navRef = useRef(null);
   const { user, isLoading, refetch } = useUser();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log("Route changed to:", location.pathname);
+    setIsOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     refetch();
@@ -170,7 +177,14 @@ function Navigation({ isSticky }) {
             )}
             <li className="nav-item">
               {user ? (
-                <LogoutButton onClick={handleLogout}>Deconectare</LogoutButton>
+                <LogoutButton
+                  onClick={() => {
+                    handleLogout();
+                    setIsOpen(false); // Close menu after logout
+                  }}
+                >
+                  Deconectare
+                </LogoutButton>
               ) : (
                 <StyledNavLink
                   to="/connect"

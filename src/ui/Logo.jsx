@@ -7,6 +7,7 @@ const LogoContainer = styled.div`
   width: 250px;
   /* margin: auto; */
   display: flex;
+  width: 100%;
   justify-content: center;
 `;
 

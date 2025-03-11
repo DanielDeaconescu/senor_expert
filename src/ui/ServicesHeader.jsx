@@ -61,7 +61,7 @@ const StyledHeaderInner = styled.div`
 function ServicesHeader() {
   return (
     <StyledHeader className="hero">
-      <StyledHeaderInner className="hero text-white pt-6">
+      <StyledHeaderInner className="hero text-white p-5">
         <div className="container-xl container-services-hero-custom">
           <div className="row">
             <div className="image-container col-md-6">

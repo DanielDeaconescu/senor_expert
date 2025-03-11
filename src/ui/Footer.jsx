@@ -207,9 +207,6 @@ function Footer() {
                   Certificat CECCAR
                 </StyledNavLink>
               </li>
-              <li>
-                <a href="mailto:stefan.1mihai@yahoo.com">Test Email</a>
-              </li>
 
               <div
                 className="modal fade"
