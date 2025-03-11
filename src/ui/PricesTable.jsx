@@ -12,8 +12,6 @@ function PricesTable() {
     return <p>No prices available</p>;
   }
 
-  console.log(data);
-
   return (
     <div>
       {Object.entries(data).map(([category, services]) => (

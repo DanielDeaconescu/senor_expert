@@ -12,6 +12,7 @@ import { Outlet, useLocation } from "react-router";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import WorkingHours from "./WorkingHours";
+import CookiesPopup from "./CookiesPopup";
 
 const Main = styled.main``;
 
@@ -62,6 +63,7 @@ function AppLayout() {
       <Main>
         <Container>
           <Outlet />
+          <CookiesPopup />
         </Container>
       </Main>
 
