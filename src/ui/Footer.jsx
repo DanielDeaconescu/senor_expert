@@ -7,10 +7,6 @@ const StyledFooter = styled.footer`
   border-top: 4px solid var(--clr-primary);
 `;
 
-// const CopyrightText = styled.p`
-
-// `;
-
 const CopyrightSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,15 +15,6 @@ const CopyrightSection = styled.div`
   @media (max-width: 992px) {
     align-items: flex-start;
   }
-`;
-
-const NavListFooter = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -60,7 +47,43 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const StyledEmailLink = styled(StyledNavLink).attrs({ as: "a" })``;
+const NavListFooter = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+`;
+
+const StyledEmailLink = styled.a`
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  @media (min-width: 768px) {
+    &:hover {
+      color: var(--clr-primary);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+`;
 
 const PhoneButton = styled.button`
   background: none;
@@ -123,8 +146,8 @@ const StyledPhoneLink = styled.a`
 `;
 
 const CopyrightText = styled.p`
-  font-weight: normal; // Or use a specific value like 400 or 500 based on your design
-  font-size: 1rem; // Adjust the font size if necessary
+  font-weight: normal;
+  font-size: 1rem;
   margin: 0;
   text-align: right;
   color: var(--clr-dark);
@@ -184,11 +207,14 @@ function Footer() {
                   Certificat CECCAR
                 </StyledNavLink>
               </li>
+              <li>
+                <a href="mailto:stefan.1mihai@yahoo.com">Test Email</a>
+              </li>
 
               <div
                 className="modal fade"
                 id="authorizationModal"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
               >
@@ -212,7 +238,7 @@ function Footer() {
                         className="img-fluid"
                       />
                     </div>
-                    <div class="modal-footer">
+                    <div className="modal-footer">
                       <CloseButton
                         type="button"
                         className="btn btn-secondary"
@@ -238,14 +264,17 @@ function Footer() {
           <div className="col-md-4">
             <h5>Contact</h5>
             <p>
-              <i class="fa-solid fa-envelope me-2"></i>
+              <i className="fa-solid fa-envelope me-2"></i>
               <strong>Email:</strong>{" "}
-              <StyledEmailLink href="mailto:stefan.1mihai@yahoo.com">
+              <StyledEmailLink
+                onClick={(e) => e.stopPropagation()}
+                href="mailto:stefan.1mihai@yahoo.com"
+              >
                 stefan.1mihai@yahoo.com
               </StyledEmailLink>
             </p>
             <p>
-              <i class="fa-solid fa-phone me-2"></i>
+              <i className="fa-solid fa-phone me-2"></i>
               <strong>Telefon:</strong>{" "}
               {phoneVisible ? (
                 <StyledPhoneLink href="tel:+40751159264">
@@ -258,7 +287,7 @@ function Footer() {
               )}
             </p>
             <p>
-              <i class="fa-solid fa-clock me-2"></i>
+              <i className="fa-solid fa-clock me-2"></i>
               <strong>Program:</strong> Luni-Vineri: 09:00 - 17:00
             </p>
           </div>
@@ -293,25 +322,25 @@ function Footer() {
       </div>
 
       <div
-        class="modal fade modal-prices-list"
+        className="modal fade modal-prices-list"
         id="pricesList"
         aria-labelledby="pricesList"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="pricesList">
+        <div className="modal-dialog modal-dialog-scrollable">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="pricesList">
                 Lista orientativă de prețuri
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body modal-dialog-prices-list">
+            <div className="modal-body modal-dialog-prices-list">
               <TableContainer>
                 <table border="1" cellSpacing="0" cellPadding="5">
                   <thead>
