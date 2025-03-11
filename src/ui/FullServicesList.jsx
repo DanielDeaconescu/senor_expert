@@ -64,6 +64,7 @@ const StyledFullServicesList = styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
+    padding: 0.75rem;
   }
 
   @media (min-width: 576px) and (max-width: 768px) {

@@ -20,6 +20,10 @@ const StyledInput = styled.input`
   }
 `;
 
+const FormRow = styled.div`
+  margin-bottom: 0.5rem !important;
+`;
+
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -68,7 +72,7 @@ const LoginForm = () => {
       {!isForgotPassword ? (
         // Login Form
         <StyledLoginForm onSubmit={handleSubmitLogin}>
-          <div className="mb-3">
+          <FormRow className="mb-3">
             <label htmlFor="email" className="form-label">
               Username client
             </label>
@@ -81,8 +85,8 @@ const LoginForm = () => {
               onChange={(e) => setEmail(e.target.value)}
               disabled={isLoading}
             />
-          </div>
-          <div className="mb-3">
+          </FormRow>
+          <FormRow className="mb-3">
             <label htmlFor="password" className="form-label">
               Parolă
             </label>
@@ -95,7 +99,7 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               disabled={isLoading}
             />
-          </div>
+          </FormRow>
           <button
             type="submit"
             className="btn btn-primary"

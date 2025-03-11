@@ -35,13 +35,17 @@ const StyledUploadImage = styled.img`
   z-index: 98;
 `;
 
+const StyledTextContainer = styled.div`
+  align-items: center !important;
+`;
+
 function CallToActionServices() {
   return (
     <StyledCallToActionServices>
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
-            <div className="text-container text-white d-flex flex-column justify-content-center h-100 mb-5 upload-accounting-docs">
+            <StyledTextContainer className="text-container text-white d-flex flex-column justify-content-center h-100 mb-5 upload-accounting-docs">
               <h2 className="fw-bold">Încărcați Fișerele Contabile</h2>
               <p>
                 Ați uitat să aduceți unele documente contabile? Nicio problemă!
@@ -54,15 +58,10 @@ function CallToActionServices() {
               >
                 Conectare
               </NavLink>
-            </div>
+            </StyledTextContainer>
           </div>
           <div className="col-lg-6">
             <div className="image-container mb-5">
-              {/* <StyledUploadImage
-                src={UploadImage}
-                alt=""
-                className="img-fluid"
-              /> */}
               <HeroImage
                 image={UploadImage}
                 logo={LogoImage}

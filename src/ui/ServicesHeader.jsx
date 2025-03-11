@@ -22,6 +22,10 @@ const StyledHeader = styled.header`
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
   }
+
+  @media (max-width: 576px) {
+    /* padding: 5rem; */
+  }
 `;
 
 const StyledTitle = styled.h1`
@@ -48,14 +52,20 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
+const StyledHeaderInner = styled.div`
+  @media (max-width: 576px) {
+    padding-top: 2.5rem !important;
+  }
+`;
+
 function ServicesHeader() {
   return (
     <StyledHeader className="hero">
-      <div className="hero text-white pt-6">
+      <StyledHeaderInner className="hero text-white pt-6">
         <div className="container-xl container-services-hero-custom">
           <div className="row">
             <div className="image-container col-md-6">
-              <div className="mb-5 px-4">
+              <div className="mb-2 px-4">
                 <HeroImage
                   image={heroServices}
                   logo={LogoImage}
@@ -88,7 +98,7 @@ function ServicesHeader() {
             </div>
           </div>
         </div>
-      </div>
+      </StyledHeaderInner>
 
       {/* <svg
         className="frame-decoration"

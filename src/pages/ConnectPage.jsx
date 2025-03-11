@@ -44,6 +44,10 @@ const LoginContainer = styled.div`
 const TextAuth = styled.h3`
   color: white;
   font-weight: 600;
+
+  @media (max-width: 576px) {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const Text = styled.div`
@@ -52,6 +56,12 @@ const Text = styled.div`
   padding-bottom: 1rem;
   font-size: 1.4rem;
   font-weight: 600;
+
+  @media (max-width: 576px) {
+    font-size: 1.2rem;
+    padding-top: 3rem;
+    padding-bottom: 0.25rem;
+  }
 `;
 
 const AuthenticationContainer = styled.div`

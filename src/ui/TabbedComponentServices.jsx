@@ -116,6 +116,7 @@ const StyledContent = styled.div`
   align-items: center;
   flex-direction: row;
   gap: 1rem;
+  background-color: var(--color-grey-300);
 `;
 
 const StyledContainer = styled.div`

@@ -8,6 +8,11 @@ const FlipContainer = styled.div`
   display: inline-block;
   position: relative;
   z-index: 3;
+
+  @media (max-width: 576px) {
+    max-width: 280px;
+    max-height: 380px;
+  }
 `;
 
 // Inner card that flips
