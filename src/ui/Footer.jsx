@@ -266,9 +266,9 @@ function Footer() {
             <p>
               <i className="fa-solid fa-envelope me-2"></i>
               <strong>Email:</strong>{" "}
-              <a href="mailto:stefan.1mihai@yahoo.com">
+              <StyledEmailLink href="mailto:stefan.1mihai@yahoo.com">
                 stefan.1mihai@yahoo.com
-              </a>
+              </StyledEmailLink>
             </p>
             <p>
               <i className="fa-solid fa-phone me-2"></i>
