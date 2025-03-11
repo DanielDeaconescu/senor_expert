@@ -24,6 +24,10 @@ const TextContainer = styled.div`
   position: relative;
   z-index: 3;
   gap: 0.5rem;
+
+  @media (max-width: 576px) {
+    padding: 0.25rem;
+  }
 `;
 
 const StyledHeading = styled.h1`
@@ -36,6 +40,10 @@ const StyledHeading = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 576px) {
+    font-size: 2.25rem;
+  }
 `;
 
 const StyledParagraph = styled.p`
@@ -63,11 +71,11 @@ function WelcomeText() {
 
     // Cleanup the interval on component unmount
     return () => clearInterval(textChangeInterval);
-  }, []);
+  }, [textArray.length]);
 
   return (
     <TextContainer>
-      <StyledHeading className="display-3 fw-bold">
+      <StyledHeading className="fw-bold">
         {textArray[currentTextIndex]}
       </StyledHeading>
       <StyledParagraph>
