@@ -260,6 +260,15 @@ function Section2() {
                           </li>
                         </ul>
                       </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Închide
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
