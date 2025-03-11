@@ -349,6 +349,16 @@ function Section3() {
                         </div>
                       </div>
                     </div>
+
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Închide
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
