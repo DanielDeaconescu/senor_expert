@@ -35,12 +35,19 @@ const ResetPasswordForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Supabase appends the token as a hash fragment (not query parameters)
     const hash = window.location.hash;
     const params = new URLSearchParams(hash.replace("#", "?"));
     const accessToken = params.get("access_token");
 
     if (!accessToken) {
-      setError("Token-ul de resetare lipseste sau este invalid!");
+      setError("Token-ul de resetare lipsește sau este invalid!");
+    } else {
+      // Log in the user automatically so they can change the password
+      supabase.auth.setSession({
+        access_token: accessToken,
+        refresh_token: params.get("refresh_token"),
+      });
     }
   }, []);
 

@@ -76,7 +76,7 @@ export async function getAllUsers() {
 export const resetPassword = async (email) => {
   try {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "https://senor-expert.vercel.app/reset-password",
+      redirectTo: "https://www.senorexpert.ro/reset-password",
     });
     if (error) throw error;
 
