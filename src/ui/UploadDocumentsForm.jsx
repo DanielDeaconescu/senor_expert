@@ -30,28 +30,9 @@ function UploadDocumentsForm({ onCloseModal }) {
       // Save form data and file URLs in the database
       return await createDocumentInput(formData, fileUrls);
     },
-    onSuccess: async (_, { formData, files }) => {
+    onSuccess: () => {
       toast.success("Documentele au fost încărcate cu succes!");
       queryClient.invalidateQueries({ queryKey: ["documents"] });
-
-      // Call API to send notification email
-      try {
-        await fetch("/api/send-document-upload-notification", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            companyName: formData.company_name,
-            month: formData.month,
-            uploadedFiles: fileUrls, // URLs from uploaded files
-            userEmail: "stefan.1mihai@yahoo.com", // Replace with actual user's email if available
-          }),
-        });
-      } catch (error) {
-        console.error("Failed to send notification email:", error);
-      }
-
       reset();
       close();
     },
