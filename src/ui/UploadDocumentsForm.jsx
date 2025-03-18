@@ -82,13 +82,6 @@ function UploadDocumentsForm({ onCloseModal }) {
           }
           return res.json();
         })
-        .then((data) => {
-          if (data.success) {
-            toast.success("Admin notified successfully!");
-          } else {
-            toast.error("Failed to notify the admin.");
-          }
-        })
         .catch((err) => {
           console.error("Error sending notification:", err);
           toast.error("Error sending admin notification.");
