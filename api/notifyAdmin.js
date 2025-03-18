@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const { fullName, email, phone, company, documentName } = req.body;
+  const { companyName, month, fileNames } = req.body;
 
   try {
     // Create a transporter using SMTP
@@ -25,10 +25,14 @@ export default async function handler(req, res) {
       to: process.env.ADMIN_EMAIL,
       subject: `Un utilizator a încărcat un nou document folosind aplicația Senor Expert`,
       text: `
-        Un utilizator a încărcat documente noi. Vizitați aplicația pentru a vedea.
+        Un utilizator de la compania ${companyName} a încărcat documente noi pentru luna ${month}. Vizitați aplicația pentru a vedea.
       `,
       html: `
-        <p>Un utilizator a încărcat documente noi. Vizitați aplicația pentru a vedea.</p>
+        <p>Un utilizator de la compania <strong>${companyName}</strong> a încărcat documente noi pentru luna <strong>${month}</strong>. Vizitați aplicația pentru a vedea.</p>
+        <p>Fișiere încărcate:</p>
+        <ul>
+          ${fileNames.map((fileName) => `<li>${fileName}</li>`).join("")}
+        </ul>
       `,
     });
 
