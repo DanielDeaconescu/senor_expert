@@ -2,7 +2,7 @@
   "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "redirects": [
     {
-      "source": "https://senorexpert.ro/:path*",
+      "source": "/:path*",
       "destination": "https://www.senorexpert.ro/:path*",
       "permanent": true
     }
