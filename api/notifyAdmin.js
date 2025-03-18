@@ -8,9 +8,9 @@ export default async function handler(req, res) {
   const { fullName, email, phone, company, documentName } = req.body;
 
   // Ensure company name is provided
-  if (!company) {
-    return res.status(400).json({ error: "Company name is required" });
-  }
+  //   if (!company) {
+  //     return res.status(400).json({ error: "Company name is required" });
+  //   }
 
   try {
     // Create a transporter using SMTP
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     // Send the email
     await transporter.sendMail({
       from: `"Document Upload Notification" <${process.env.SMTP_USER}>`,
-      to: process.env.RECIPIENT_EMAIL,
+      to: process.env.ADMIN_EMAIL,
       subject: `New Document Uploaded | Name: ${fullName} | Company: ${company}`,
       text: `
         Name: ${fullName}
