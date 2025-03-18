@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const { fullName, email, phone, company_name, documentName } = req.body;
+  const { fullName, email, phone, company, documentName } = req.body;
 
   // Ensure company name is provided
   //   if (!company) {
@@ -33,7 +33,7 @@ export default async function handler(req, res) {
         Name: ${fullName}
         Email: ${email}
         Phone: ${phone}
-        Company: ${company_name}
+        Company: ${company}
         Document Name: ${documentName}
       `,
       html: `
