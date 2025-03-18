@@ -5,15 +5,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const { companyName, month, fileNames } = req.body;
+  const { fullName, email, phone, company, documentName } = req.body;
 
-  if (!companyName || !month || !fileNames || fileNames.length === 0) {
-    return res.status(400).json({ error: "Missing required fields" });
+  // Ensure company name is provided
+  if (!company) {
+    return res.status(400).json({ error: "Company name is required" });
   }
 
-  console.log({ companyName, month, fileNames });
-
   try {
+    // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT) || 465,
@@ -24,33 +24,32 @@ export default async function handler(req, res) {
       },
     });
 
-    // Send email to the admin
+    // Send the email
     await transporter.sendMail({
-      from: `"Upload Notification" <${process.env.SMTP_USER}>`,
-      to: process.env.ADMIN_EMAIL, // Set this in your environment variables
-      subject: `New Documents Uploaded - ${companyName}`,
+      from: `"Document Upload Notification" <${process.env.SMTP_USER}>`,
+      to: process.env.RECIPIENT_EMAIL,
+      subject: `New Document Uploaded | Name: ${fullName} | Company: ${company}`,
       text: `
-        A new document upload has been completed.
-        
-        Company: ${companyName}
-        Month: ${month}
-        Files:
-        ${fileNames.map((file) => `- ${file}`).join("\n")}
+        Name: ${fullName}
+        Email: ${email}
+        Phone: ${phone}
+        Company: ${company}
+        Document Name: ${documentName}
       `,
       html: `
-        <h2>New Documents Uploaded</h2>
-        <p><strong>Company:</strong> ${companyName}</p>
-        <p><strong>Month:</strong> ${month}</p>
-        <p><strong>Files:</strong></p>
-        <ul>
-          ${fileNames.map((file) => `<li>${file}</li>`).join("")}
-        </ul>
+        <meta charset="UTF-8">
+        <h2>A user has uploaded a document. Here are the details:</h2>
+        <div><strong>Name:</strong> ${fullName}</div>
+        <div><strong>Email:</strong> ${email}</div>
+        <div><strong>Phone:</strong> ${phone}</div>
+        <div><strong>Company:</strong> ${company}</div>
+        <div><strong>Document Name:</strong> ${documentName}</div>
       `,
     });
 
     return res
       .status(200)
-      .json({ success: true, message: "Email sent to admin!" });
+      .json({ success: true, message: "Email sent successfully!" });
   } catch (error) {
     console.error("Email send error:", error);
     return res

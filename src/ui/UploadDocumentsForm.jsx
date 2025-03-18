@@ -15,7 +15,12 @@ const StyledUploadDocumentsForm = styled.form`
 `;
 
 function UploadDocumentsForm({ onCloseModal }) {
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const queryClient = useQueryClient();
   const { close } = useContext(ModalContext);
 
@@ -45,6 +50,12 @@ function UploadDocumentsForm({ onCloseModal }) {
       company_name: data.company_name,
       month: data.month,
     };
+
+    // Validate that the company name exists
+    if (!formData.company_name) {
+      toast.error("Numele societății este obligatoriu!");
+      return;
+    }
 
     // Mutate with form data and files
     const response = await mutateAsync({ formData, files: files });
@@ -93,16 +104,19 @@ function UploadDocumentsForm({ onCloseModal }) {
         </label>
         <input
           type="text"
-          {...register("company_name")}
+          {...register("company_name", {
+            required: "Numele societății este obligatoriu",
+          })}
           className="form-control"
         />
+        {errors.company_name && <p>{errors.company_name.message}</p>}
       </div>
+
       <div className="mb-3">
         <label htmlFor="" className="form-label">
           Alegeți luna
         </label>
         <select name="" id="" className="form-select" {...register("month")}>
-          {/* Options */}
           <option value="ianuarie">Ianuarie</option>
           <option value="februarie">Februarie</option>
           <option value="martie">Martie</option>
@@ -117,6 +131,7 @@ function UploadDocumentsForm({ onCloseModal }) {
           <option value="decembrie">Decembrie</option>
         </select>
       </div>
+
       <div className="mb-3">
         <label htmlFor="">Încărcați fișierele contabile</label>
         <input
@@ -126,6 +141,7 @@ function UploadDocumentsForm({ onCloseModal }) {
           multiple
         />
       </div>
+
       <div className="mb-3 d-flex gap-3">
         <button disabled={isCreating} type="submit" className="btn btn-primary">
           Trimite
