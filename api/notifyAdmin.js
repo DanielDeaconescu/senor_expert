@@ -5,13 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  console.log(req.body);
   const { fullName, email, phone, company, documentName } = req.body;
-
-  // Ensure company name is provided
-  //   if (!company) {
-  //     return res.status(400).json({ error: "Company name is required" });
-  //   }
 
   try {
     // Create a transporter using SMTP
@@ -29,22 +23,12 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Senor Expert" <${process.env.SMTP_USER}>`,
       to: process.env.ADMIN_EMAIL,
-      subject: `New Document Uploaded | Name: ${fullName} | Company: ${company}`,
+      subject: `Un utilizator a încărcat un nou document folosind aplicația Senor Expert`,
       text: `
-        Name: ${fullName}
-        Email: ${email}
-        Phone: ${phone}
-        Company: ${company}
-        Document Name: ${documentName}
+        Un utilizator a încărcat documente noi. Vizitați aplicația pentru a vedea.
       `,
       html: `
-        <meta charset="UTF-8">
-        <h2>A user has uploaded a document. Here are the details:</h2>
-        <div><strong>Name:</strong> ${fullName}</div>
-        <div><strong>Email:</strong> ${email}</div>
-        <div><strong>Phone:</strong> ${phone}</div>
-        <div><strong>Company:</strong> ${company}</div>
-        <div><strong>Document Name:</strong> ${documentName}</div>
+        <p>Un utilizator a încărcat documente noi. Vizitați aplicația pentru a vedea.</p>
       `,
     });
 
