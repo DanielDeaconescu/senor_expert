@@ -47,7 +47,37 @@ function UploadDocumentsForm({ onCloseModal }) {
     };
 
     // Mutate with form data and files
-    await mutateAsync({ formData, files: files });
+    const response = await mutateAsync({ formData, files: files });
+
+    if (response) {
+      // Extract file names
+      const fileNames = Array.from(files).map((file) => file.name);
+
+      // Notify the admin
+      fetch("/api/notifyAdmin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          companyName: formData.company_name,
+          month: formData.month,
+          fileNames: fileNames,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            toast.success("Admin notified successfully!");
+          } else {
+            toast.error("Failed to notify the admin.");
+          }
+        })
+        .catch((err) => {
+          console.error("Error sending notification:", err);
+          toast.error("Error sending admin notification.");
+        });
+    }
   }
 
   return (
