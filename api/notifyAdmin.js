@@ -1,59 +1,55 @@
-import nodemailer from "nodemailer";
+// In your notifyAdmin.js file (server-side)
+
+const nodemailer = require("nodemailer");
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
+  if (req.method === "POST") {
+    try {
+      const { companyName, month, fileNames } = req.body;
 
-  const { companyName } = req.body;
+      // Check if required fields are provided
+      if (!companyName || !month) {
+        return res
+          .status(400)
+          .json({ success: false, message: "Missing required fields" });
+      }
 
-  // Ensure company name is provided
-  //   if (!company) {
-  //     return res.status(400).json({ error: "Company name is required" });
-  //   }
+      // Setup your email transporter
+      const transporter = nodemailer.createTransport({
+        service: "gmail", // or any other email service provider
+        auth: {
+          user: process.env.EMAIL_USER, // Set environment variables for credentials
+          pass: process.env.EMAIL_PASS,
+        },
+      });
 
-  try {
-    // Create a transporter using SMTP
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 465,
-      secure: Number(process.env.SMTP_PORT) === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+      // Define the email content
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.ADMIN_EMAIL, // Send to admin's email
+        subject: "New Document Upload Notification",
+        text: `A new document has been uploaded.
 
-    // Send the email
-    await transporter.sendMail({
-      from: `"Document Upload Notification" <${process.env.SMTP_USER}>`,
-      to: process.env.ADMIN_EMAIL,
-      subject: `New Document Uploaded | Name: ${fullName} | Company: ${company}`,
-      text: `
-        Name: ${fullName}
-        Email: ${email}
-        Phone: ${phone}
-        Company: ${companyName}
-        Document Name: ${documentName}
-      `,
-      html: `
-        <meta charset="UTF-8">
-        <h2>A user has uploaded a document. Here are the details:</h2>
-        <div><strong>Name:</strong> ${fullName}</div>
-        <div><strong>Email:</strong> ${email}</div>
-        <div><strong>Phone:</strong> ${phone}</div>
-        <div><strong>Company:</strong> ${company}</div>
-        <div><strong>Document Name:</strong> ${documentName}</div>
-      `,
-    });
+        Company Name: ${companyName}
+        Month: ${month}
+        Files: ${fileNames.join(", ")}
 
-    return res
-      .status(200)
-      .json({ success: true, message: "Email sent successfully!" });
-  } catch (error) {
-    console.error("Email send error:", error);
-    return res
-      .status(500)
-      .json({ success: false, error: "Failed to send email." });
+        Please check the system for more details.`,
+      };
+
+      // Send the email
+      await transporter.sendMail(mailOptions);
+
+      return res
+        .status(200)
+        .json({ success: true, message: "Email sent successfully!" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      return res
+        .status(500)
+        .json({ success: false, message: "Failed to send email" });
+    }
+  } else {
+    res.status(405).json({ success: false, message: "Method Not Allowed" });
   }
 }
