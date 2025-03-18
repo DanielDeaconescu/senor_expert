@@ -5,6 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
+  console.log(req.body);
   const { fullName, email, phone, company, documentName } = req.body;
 
   // Ensure company name is provided
@@ -26,7 +27,7 @@ export default async function handler(req, res) {
 
     // Send the email
     await transporter.sendMail({
-      from: `"Document Upload Notification" <${process.env.SMTP_USER}>`,
+      from: `"Senor Expert" <${process.env.SMTP_USER}>`,
       to: process.env.ADMIN_EMAIL,
       subject: `New Document Uploaded | Name: ${fullName} | Company: ${company}`,
       text: `
