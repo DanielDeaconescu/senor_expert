@@ -53,7 +53,6 @@ function UploadDocumentsForm({ onCloseModal }) {
       // Extract file names
       const fileNames = Array.from(files).map((file) => file.name);
 
-      // Notify the admin
       fetch("/api/notifyAdmin", {
         method: "POST",
         headers: {
@@ -65,7 +64,13 @@ function UploadDocumentsForm({ onCloseModal }) {
           fileNames: fileNames,
         }),
       })
-        .then((res) => res.json())
+        .then(async (res) => {
+          if (!res.ok) {
+            const errorText = await res.text(); // Read the response as text
+            throw new Error(`HTTP Error ${res.status}: ${errorText}`);
+          }
+          return res.json();
+        })
         .then((data) => {
           if (data.success) {
             toast.success("Admin notified successfully!");
