@@ -1,5 +1,4 @@
-// In your notifyAdmin.js file (server-side)
-
+// Import the necessary modules
 const nodemailer = require("nodemailer");
 
 export default async function handler(req, res) {
@@ -7,26 +6,28 @@ export default async function handler(req, res) {
     try {
       const { companyName, month, fileNames } = req.body;
 
-      // Check if required fields are provided
+      // Validate that required fields are provided
       if (!companyName || !month) {
         return res
           .status(400)
           .json({ success: false, message: "Missing required fields" });
       }
 
-      // Setup your email transporter
+      // Create a transporter using the SMTP configuration from environment variables
       const transporter = nodemailer.createTransport({
-        service: "gmail", // or any other email service provider
+        host: process.env.SMTP_HOST, // SMTP server host
+        port: process.env.SMTP_PORT, // SMTP server port (usually 587 for secure)
+        secure: process.env.SMTP_SECURE === "true", // Set whether the connection should be secure (SSL/TLS)
         auth: {
-          user: process.env.EMAIL_USER, // Set environment variables for credentials
-          pass: process.env.EMAIL_PASS,
+          user: process.env.SMTP_USER, // Your SMTP username (email)
+          pass: process.env.SMTP_PASS, // Your SMTP password (application-specific password)
         },
       });
 
       // Define the email content
       const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: process.env.ADMIN_EMAIL, // Send to admin's email
+        from: process.env.SMTP_USER, // Use the SMTP user as the sender
+        to: process.env.RECIPIENT_EMAIL, // Recipient email (admin)
         subject: "New Document Upload Notification",
         text: `A new document has been uploaded.
 
