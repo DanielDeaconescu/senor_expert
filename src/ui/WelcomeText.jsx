@@ -89,7 +89,7 @@ function WelcomeText() {
         data-bs-target="#hero-find-out-more"
         data-bs-toggle="modal"
       >
-        Mai mult - test
+        Mai mult - buna ziua
       </button>
     </TextContainer>
   );
