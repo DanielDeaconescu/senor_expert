@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const { companyName, month, fileNames } = req.body;
+  const { companyName, month } = req.body;
 
   try {
     // Create a transporter using SMTP
@@ -28,11 +28,10 @@ export default async function handler(req, res) {
         Un utilizator de la compania ${companyName} a încărcat documente noi pentru luna ${month}. Vizitați aplicația pentru a vedea.
       `,
       html: `
-        <p>Un utilizator de la compania <strong>${companyName}</strong> a încărcat documente noi pentru luna <strong>${month}</strong>. Vizitați aplicația pentru a vedea.</p>
-        <p>Fișiere încărcate:</p>
-        <ul>
-          ${fileNames.map((fileName) => `<li>${fileName}</li>`).join("")}
-        </ul>
+        <p>Un utilizator de la compania <strong>${companyName}</strong> a încărcat documente noi pentru luna <strong>${month}</strong>. Vizitați aplicația folosind link-ul de mai jos pentru a vedea.</p>
+        <div>
+            <a href="https://www.senorexpert.ro/" target="_blank">Senor Expert</a>
+        </div>
       `,
     });
 
