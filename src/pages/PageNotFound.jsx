@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { useMoveBack } from "../hooks/useMoveBack";
 import Heading from "../ui/Heading";
@@ -26,7 +27,7 @@ const Box = styled.div`
 `;
 
 function PageNotFound() {
-  const moveBack = useMoveBack();
+  const navigate = useNavigate();
 
   return (
     <StyledPageNotFound>
@@ -36,7 +37,11 @@ function PageNotFound() {
           Ups! Se pare că pagina pe care o cauți nu există sau a fost mutată. Te
           rugăm să verifici adresa URL sau să te întorci la pagina principală.
         </Heading>
-        <button className="btn btn-primary" onClick={moveBack} size="large">
+        <button
+          className="btn btn-primary"
+          onClick={() => navigate("/")}
+          size="large"
+        >
           Înapoi la pagina principală
         </button>
       </Box>
