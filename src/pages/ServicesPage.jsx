@@ -10,7 +10,7 @@ function ServicesPage() {
     <>
       <ServicesHeader />
       <TabbedComponentServices />
-      <FullServicesList />
+      {/* <FullServicesList /> */}
       <CallToActionServices />
       <SideButtons />
     </>
