@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
 const PrivacyPolicyContainer = styled.div`
-  padding: 3rem 0 3rem 0;
+  padding: 7rem 0 3rem 0 !important;
 
   @media (max-width: 576px) {
     padding: 3rem 2.5rem;
@@ -28,6 +29,10 @@ const ExternalLink = styled.a`
 `;
 
 function PrivacyPolicy() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <PrivacyPolicyContainer className="container">
       <h1>Politica de Cookie-uri</h1>
