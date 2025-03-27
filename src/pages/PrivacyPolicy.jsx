@@ -17,6 +17,16 @@ const StyledParagraph = styled.p`
   text-align: justify;
 `;
 
+const ExternalLink = styled.a`
+  color: var(--clr-primary);
+  text-decoration: underline;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: none;
+  }
+`;
+
 function PrivacyPolicy() {
   return (
     <PrivacyPolicyContainer className="container">
@@ -30,7 +40,18 @@ function PrivacyPolicy() {
         utilizatorilor, pentru a analiza traficul sau pentru a îmbunătăți
         funcționarea site-ului.
       </StyledParagraph>
-
+      <StyledParagraph>
+        Pentru mai multe informații despre cookie-uri, vă recomandăm să
+        consultați{" "}
+        <ExternalLink
+          href="https://gdpr.eu/cookies/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ghidul GDPR privind cookie-urile
+        </ExternalLink>
+        .
+      </StyledParagraph>
       <h2>2. Utilizarea cookie-urilor pe site-ul Senor Expert</h2>
       <BoldParagraph>
         În prezent, <a href="https://senorexpert.ro">senorexpert.ro</a> nu
