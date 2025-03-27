@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const PrivacyPolicyContainer = styled.div`
-  padding: 3rem 0;
+  padding: 3rem 0 3rem 0;
 
   @media (max-width: 576px) {
     padding: 3rem 2.5rem;
