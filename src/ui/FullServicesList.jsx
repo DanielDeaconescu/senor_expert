@@ -374,35 +374,6 @@ function FullServicesList() {
           fiecărei firme. Pentru o ofertă personalizată, adaptată nevoilor
           afacerii dumneavoastră, vă invităm să ne contactați folosind
           formularul de contact de mai jos.
-          <StyledButton
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#servicesContactForm"
-          >
-            Formular de contact
-          </StyledButton>
-          <div
-            class="modal fade modal-form-custom"
-            id="servicesContactForm"
-            aria-labelledby="servicesContactForm"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header modal-header-custom">
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body modal-body-custom">
-                  <ContactForm />
-                </div>
-              </div>
-            </div>
-          </div>
         </InfoNoteText>
       </InfoNote>
     </FullServicesListContainer>
