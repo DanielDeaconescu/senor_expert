@@ -75,9 +75,9 @@ function ModalHeroFindOutMore() {
                   <h4>Profesionalism</h4>
                 </ItemTitle>
                 <ItemText>
-                  Ne dedicăm oferirii unor servicii contabile la cele mai înalte
-                  standarde de calitate, respectând legislația în vigoare și
-                  cele mai bune practici din domeniu.
+                  Ne dedicăm oferirii unor servicii contabile înalt calitative,
+                  respectând legislația în vigoare și cele și bunele practici
+                  din domeniu.
                 </ItemText>
               </li>
               <li className="list-group-item">
