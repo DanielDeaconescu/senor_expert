@@ -195,13 +195,14 @@ function Navigation({ isSticky }) {
                 </StyledNavLink>
               )}
             </li>
-            {user?.email === "mona@senorexpert.ro" && (
-              <li className="nav-item">
-                <StyledNavLink to="/admin" className="nav-link">
-                  Admin
-                </StyledNavLink>
-              </li>
-            )}
+            {user?.email === "mona@senorexpert.ro" ||
+              (user?.email === "matei@senorexpert.ro" && (
+                <li className="nav-item">
+                  <StyledNavLink to="/admin" className="nav-link">
+                    Admin
+                  </StyledNavLink>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
