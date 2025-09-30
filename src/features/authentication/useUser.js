@@ -17,7 +17,7 @@ export function useUser() {
     isLoading,
     user,
     isAuthenticated: !!user,
-    isAdmin: user?.email === "matei@senorexpert.ro",
+    isAdmin: user?.email === "mona@senorexpert.ro",
     refetch,
   };
 }
